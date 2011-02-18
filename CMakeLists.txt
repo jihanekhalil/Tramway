@@ -7,6 +7,7 @@ find_package(Qt4 REQUIRED)
 include(${QT_USE_FILE})
 
 set(project_SRCS
+    personne.cpp
     ligne.cpp
     main.cpp
     mainwindow.cpp
@@ -14,6 +15,16 @@ set(project_SRCS
     rame.cpp
     station.cpp
     troncon.cpp
+    composteur.cpp
+    conducteur.cpp
+    croisement.cpp
+    distributeur.cpp
+    feux.cpp
+    obstacle.cpp
+    passage.cpp
+    passager.cpp
+    porte.cpp
+
 )
 
 SET(project_MOC_HDRS
@@ -23,6 +34,16 @@ ligne.cpp
     rame.h
     station.h
     troncon.h
+    composteur.h
+    conducteur.h
+    croisement.h
+    distributeur.h
+    feux.h
+    obstacle.h
+    passage.h
+    passager.h
+    porte.h
+    personne.h
 )
 
 QT4_WRAP_CPP(project_MOC_SRCS ${project_MOC_HDRS})
