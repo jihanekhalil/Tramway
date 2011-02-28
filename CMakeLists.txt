@@ -14,15 +14,12 @@ set(project_SRCS
     rame.cpp
     station.cpp
     troncon.cpp
+    thread.cpp
+    porte.cpp
 )
 
 SET(project_MOC_HDRS
-ligne.cpp
     mainwindow.h
-    pointsynchronisation.h
-    rame.h
-    station.h
-    troncon.h
 )
 
 QT4_WRAP_CPP(project_MOC_SRCS ${project_MOC_HDRS})

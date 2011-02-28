@@ -6,6 +6,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    Rame *r = new Rame;
+    r->run();
 }
 
 MainWindow::~MainWindow()

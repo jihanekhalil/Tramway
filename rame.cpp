@@ -1,5 +1,23 @@
 #include "rame.h"
 
-Rame::Rame()
+#include <QList>
+#include <QDebug>
+
+
+void Rame::run()
 {
+ qDebug() << "bla1";
+    this->position=0;
+    QList<Rame *> parcours = this->troncon->getParcours();
+    parcours[0] = this;
+    for(int i = 1; i<parcours.length();i++){
+    //for(QList<Rame *>::iterator it = parcours.begin()+1; it!=parcours.end(); it++ ){
+        qDebug() <<"bla";
+    }
 }
+Rame::Rame(): Thread()
+{
+    Troncon * tr = new Troncon(20);
+    this->troncon= tr;
+}
+
