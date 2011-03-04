@@ -29,8 +29,6 @@ set(project_SRCS
 
 SET(project_MOC_HDRS
     mainwindow.h
-<<<<<<< HEAD
-=======
     pointsynchronisation.h
     rame.h
     station.h
@@ -45,7 +43,6 @@ SET(project_MOC_HDRS
     passager.h
     porte.h
     personne.h
->>>>>>> dd697f0b2bcc998f8a3191443bdc8f255568c65b
 )
 
 QT4_WRAP_CPP(project_MOC_SRCS ${project_MOC_HDRS})
