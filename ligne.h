@@ -1,11 +1,13 @@
 #ifndef LIGNE_H
 #define LIGNE_H
-#include <list>
+#include <QList>
+#include <iostream>
 #include "troncon.h"
 using namespace std;
 class Ligne
 {
-    list<Troncon> ligne;
+    QList<Troncon> ligne;
+
 public:
     Ligne();
     void ajouterTroncon(Troncon * t);

@@ -3,6 +3,8 @@
 #include "pointsynchronisation.h"
 #include <QObject>
 #include <QList>
+#include <iostream>
+
 class Rame;
 #include "rame.h"
 using namespace std;

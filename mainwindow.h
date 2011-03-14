@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include "rame.h"
+#include "ligne.h"
+#include "troncon.h"
 
 namespace Ui {
     class MainWindow;

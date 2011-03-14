@@ -1,5 +1,5 @@
 #include "troncon.h"
-
+using namespace std;
 Troncon::Troncon()
 {
 }
@@ -26,4 +26,10 @@ QList<Rame *> Troncon::getParcours(){
 
 void Troncon::afficher(){
 
+<<<<<<< HEAD
+=======
+    for(int i = 0; i < this->longueur; i++){
+        cout << "-";
+    }
+>>>>>>> efa099dd1a8d8a89e4dd4c4707c12bf6aa2e52be
 }

@@ -6,7 +6,6 @@
 
 void Rame::run()
 {
- qDebug() << "bla1";
     this->position=0;
     QList<Rame *> parcours = this->troncon->getParcours();
     parcours[0] = this;
