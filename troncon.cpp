@@ -23,3 +23,7 @@ void Troncon::setEtat(int position, Rame* rame){
 QList<Rame *> Troncon::getParcours(){
     return this->parcours;
 }
+
+void Troncon::afficher(){
+
+}

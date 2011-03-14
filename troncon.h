@@ -19,6 +19,7 @@ public:
 
     QList<Rame *> getParcours();
     void setEtat(int position, Rame * rame);
+    void afficher();
 };
 
 #endif // TRONCON_H

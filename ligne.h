@@ -8,7 +8,8 @@ class Ligne
     list<Troncon> ligne;
 public:
     Ligne();
-    void ajouterTroncon(Troncon t);
+    void ajouterTroncon(Troncon * t);
+    void afficher();
 };
 
 #endif // LIGNE_H
