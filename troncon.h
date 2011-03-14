@@ -3,6 +3,8 @@
 #include "pointsynchronisation.h"
 #include <QObject>
 #include <QList>
+#include <iostream>
+
 class Rame;
 #include "rame.h"
 using namespace std;
@@ -19,6 +21,7 @@ public:
 
     QList<Rame *> getParcours();
     void setEtat(int position, Rame * rame);
+    void afficher();
 };
 
 #endif // TRONCON_H
