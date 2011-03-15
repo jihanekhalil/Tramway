@@ -6,12 +6,21 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWin
     ui->setupUi(this);
     //Rame *r = new Rame;
     //r->run();
-    Troncon *t1 = new Troncon(10);
+    Troncon *t1 = new Troncon(50);
     Troncon *t2 = new Troncon(20);
-    Ligne *l = new Ligne();
-    l->ajouterTroncon(t1);
-    l->ajouterTroncon(t2);
-    l->afficher();
+    this->l = new Ligne();
+   this->l->ajouterTroncon(t1);
+    //this->l->ajouterTroncon(t2);
+}
+
+void MainWindow::paintEvent(QPaintEvent *event)
+{
+   QPainter painter(this);
+   this->pixmap =  QPixmap(100,100);
+
+
+
+   this->l->afficher(&painter);
 }
 
 MainWindow::~MainWindow()

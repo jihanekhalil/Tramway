@@ -8,10 +8,10 @@ void Ligne::ajouterTroncon(Troncon * t){
     this->ligne.push_back(*t);
 }
 
-void Ligne::afficher(){
+void Ligne::afficher(QPainter * painter){
 
     foreach(Troncon t,ligne){
-        t.afficher();
+        t.afficher(painter, 20,20);
     }
     cout <<endl;
 }

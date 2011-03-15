@@ -4,6 +4,7 @@
 class Troncon;
 #include "troncon.h"
 #include "thread.h"
+#include <QPainter>
 #include "porte.h"
 
 class Rame: public Thread
@@ -15,6 +16,7 @@ class Rame: public Thread
 public:
     Rame();
     void run();
+    void afficher(QPainter * painter, int x, int y);
 
 
 };

@@ -3,7 +3,10 @@
 #include "pointsynchronisation.h"
 #include <QObject>
 #include <QList>
+#include <QPainter>
 #include <iostream>
+#include "station.h"
+#include "feux.h"
 
 class Rame;
 #include "rame.h"
@@ -11,8 +14,8 @@ using namespace std;
 class Troncon
 {
     int longueur;
-    PointSynchronisation p1;
-    PointSynchronisation p2;
+    PointSynchronisation* p1;
+    PointSynchronisation* p2;
     QList<Rame *> parcours;
 public:
     Troncon();
@@ -21,7 +24,7 @@ public:
 
     QList<Rame *> getParcours();
     void setEtat(int position, Rame * rame);
-    void afficher();
+    void afficher(QPainter * painter, int x, int y);
 };
 
 #endif // TRONCON_H

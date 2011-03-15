@@ -5,6 +5,7 @@
 #include "rame.h"
 #include "ligne.h"
 #include "troncon.h"
+#include <QPainter>
 
 namespace Ui {
     class MainWindow;
@@ -19,7 +20,10 @@ public:
     ~MainWindow();
 
 private:
+    void paintEvent(QPaintEvent *);
     Ui::MainWindow *ui;
+    Ligne *l;
+    QPixmap pixmap;
 };
 
 #endif // MAINWINDOW_H

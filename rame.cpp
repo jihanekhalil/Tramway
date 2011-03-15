@@ -19,4 +19,8 @@ Rame::Rame(): Thread()
     Troncon * tr = new Troncon(20);
     this->troncon= tr;
 }
+void Rame::afficher(QPainter * painter, int x, int y)
+{
+    cout << "t";
+}
 

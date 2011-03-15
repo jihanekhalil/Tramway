@@ -3,6 +3,7 @@
 #include <QList>
 #include <iostream>
 #include "troncon.h"
+#include <QPainter>
 using namespace std;
 class Ligne
 {
@@ -11,7 +12,7 @@ class Ligne
 public:
     Ligne();
     void ajouterTroncon(Troncon * t);
-    void afficher();
+    void afficher(QPainter * painter);
 };
 
 #endif // LIGNE_H
