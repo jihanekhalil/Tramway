@@ -2,7 +2,6 @@
 
 Feux::Feux()
 {
-    this->vert=false;
 }
 
 

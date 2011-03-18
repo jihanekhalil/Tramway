@@ -2,6 +2,7 @@
 
 PointSynchronisation::PointSynchronisation()
 {
+    this->vert=false;
 }
 
 void PointSynchronisation::afficher(QPainter * painter, int x, int y){
@@ -9,13 +10,13 @@ void PointSynchronisation::afficher(QPainter * painter, int x, int y){
 
 }
 
-void Feux::passerVert(){
+void PointSynchronisation::passerVert(){
     this->vert=true;
 }
 
-void Feux::passerRouge(){
+void PointSynchronisation::passerRouge(){
     this->vert=false;
 }
-bool Feux::estVert(){
+bool PointSynchronisation::estVert(){
      return this->vert;
 }

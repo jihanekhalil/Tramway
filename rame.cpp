@@ -9,9 +9,13 @@ void Rame::run()
     this->position=0;
     QList<Rame *> parcours = this->troncon->getParcours();
     parcours[0] = this;
-    for(int i = 1; i<parcours.length();i++){
-    //for(QList<Rame *>::iterator it = parcours.begin()+1; it!=parcours.end(); it++ ){
-        qDebug() <<"bla";
+    int i=0;
+    foreach(Rame * rame, parcours ){
+        if(i>0){
+            rame = this;
+        }
+        //rame->position;
+        i++;
     }
 }
 Rame::Rame(): Thread()
@@ -21,6 +25,6 @@ Rame::Rame(): Thread()
 }
 void Rame::afficher(QPainter * painter, int x, int y)
 {
-    cout << "t";
+    painter->fillRect(x, y, 10,3,QBrush(QColor(155,155,155)));
 }
 

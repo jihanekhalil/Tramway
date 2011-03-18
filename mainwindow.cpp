@@ -4,8 +4,11 @@
 MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //Rame *r = new Rame;
-    //r->run();
+    QList<Rame *> rames;
+
+    Rame *r = new Rame;
+    rames.append(r);
+    r->run();
     Troncon *t1 = new Troncon(50);
     Troncon *t2 = new Troncon(20);
     this->l = new Ligne();
