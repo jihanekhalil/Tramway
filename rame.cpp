@@ -2,29 +2,48 @@
 
 #include <QList>
 #include <QDebug>
-
+#include "feux.h"
+#include "station.h"
 
 void Rame::run()
 {
-    this->position=0;
-    QList<Rame *> parcours = this->troncon->getParcours();
-    parcours[0] = this;
-    int i=0;
-    foreach(Rame * rame, parcours ){
-        if(i>0){
-            rame = this;
-        }
-        //rame->position;
-        i++;
-    }
+    //incremente la position et regarde 2/3 cases plus loin sur la ligne
 }
 Rame::Rame(): Thread()
 {
-    Troncon * tr = new Troncon(20);
-    this->troncon= tr;
+    //Troncon * tr = new Troncon(20);
+    //this->troncon= tr;
 }
+
+Rame::Rame(Ligne *ligne): Thread(){
+    this->ligne= ligne;
+    this->position=0;
+}
+
 void Rame::afficher(QPainter * painter, int x, int y)
 {
     painter->fillRect(x, y, 10,3,QBrush(QColor(155,155,155)));
 }
 
+void Rame::avancer(){
+    if(this->position<this->ligne->getLongueur()){
+        Element * e = this->ligne->getElementAt(this->position);
+        Feux * f = dynamic_cast<Feux *>(e);
+        Station * s = dynamic_cast<Station *>(e);
+        if(f){
+            if(f->estVert()){
+                f->passerRouge();
+                this->position++;
+            }
+            else
+                return;
+        }
+        else
+            this->position++;
+
+    }
+}
+
+int Rame::getPosition(){
+    return this->position;
+}

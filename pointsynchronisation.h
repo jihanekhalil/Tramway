@@ -3,8 +3,9 @@
 
 #include <iostream>
 #include <QPainter>
+#include "element.h"
 using namespace std;
-class PointSynchronisation
+class PointSynchronisation: public Element
 {
         bool vert;
 public:

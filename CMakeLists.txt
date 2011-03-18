@@ -25,6 +25,7 @@ set(project_SRCS
     passage.cpp
     passager.cpp
     porte.cpp
+    element.cpp
 )
 
 SET(project_MOC_HDRS
@@ -43,6 +44,7 @@ SET(project_MOC_HDRS
     passager.h
     porte.h
     personne.h
+    element.h
 )
 
 QT4_WRAP_CPP(project_MOC_SRCS ${project_MOC_HDRS})

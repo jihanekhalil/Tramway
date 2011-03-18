@@ -18,12 +18,19 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void afficher();
+public slots:
+            void loadTime();
+
 
 private:
     void paintEvent(QPaintEvent *);
     Ui::MainWindow *ui;
     Ligne *l;
     QPixmap pixmap;
+    QTimer *timer;
+    QPainter * painter;
+
 };
 
 #endif // MAINWINDOW_H

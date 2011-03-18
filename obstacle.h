@@ -1,7 +1,7 @@
 #ifndef OBSTACLE_H
 #define OBSTACLE_H
-
-class Obstacle
+#include "element.h"
+class Obstacle: public Element
 {
 public:
     Obstacle();

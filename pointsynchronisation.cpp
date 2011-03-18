@@ -6,7 +6,7 @@ PointSynchronisation::PointSynchronisation()
 }
 
 void PointSynchronisation::afficher(QPainter * painter, int x, int y){
-    cout << "P";
+
 
 }
 
