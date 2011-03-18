@@ -37,12 +37,6 @@ void Troncon::afficher(QPainter* painter, int x, int y){
         else cout << " ";
     }
     cout << endl;
-    for(int i = 0; i < this->longueur; i++){
-        if(this->parcours[i]!=NULL)
-            this->parcours[i]->afficher(painter);
-        else
-            cout << "-";
-    }
-    cout << endl;
+
 */
 }
