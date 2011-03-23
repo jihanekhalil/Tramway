@@ -6,15 +6,20 @@
 #include "ligne.h"
 using namespace std;
 class Feux : public PointSynchronisation, Thread{
-    Ligne * ligne;
-    int position;
-    Feux * suivant;
+
 public:
     Feux();
     Feux(Ligne * ligne, Feux * suivant, int position);
- void run();
+    void run();
+    void surveiller();
     virtual void afficher(QPainter * painter, int x, int y);
-    int getPotision();
+    int getPosition();
+    virtual QString getClasse(){ return QString("Feu");}
+
+private:
+    Ligne * ligne;
+    int position;
+    Feux * suivant;
 };
 
 #endif // FEUX_H

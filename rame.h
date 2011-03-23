@@ -9,6 +9,7 @@ class Ligne;
 
 class Rame: public Thread
 {
+
     Ligne* ligne;
     int position;
     QList<Porte *> portesDroite;
@@ -20,7 +21,6 @@ public:
     void afficher(QPainter * painter, int x, int y);
     void avancer();
     int getPosition();
-
 
 };
 

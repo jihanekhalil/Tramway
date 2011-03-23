@@ -28,7 +28,7 @@ void Feux::afficher(QPainter * painter, int x, int y){
 }
 
 void Feux::surveiller(){
-    for(int i = position; i<suivant->getPotision(); i++){
+    for(int i = position; i<suivant->getPosition(); i++){
       //  this->ligne[i]
     }
 }
