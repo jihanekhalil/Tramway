@@ -17,9 +17,10 @@ public:
     Rame();
     Rame(Ligne * ligne);
     void run();
-    void afficher(QPainter * painter, int x, int y);
+    void afficher(QPainter * painter, int x, int y, int wElement,int hElement );
     void avancer();
     int getPosition();
+    void setPosition(int p);
 
 
 };

@@ -7,7 +7,8 @@ class Element
 {
 public:
     Element();
-    virtual void afficher(QPainter * painter, int x, int y);
+    Element (const Element &);
+    virtual void afficher(QPainter * painter, int x, int y, int wElement, int hElement);
 };
 
 #endif // ELEMENT_H

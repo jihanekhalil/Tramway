@@ -13,7 +13,7 @@ public:
     Feux();
     Feux(Ligne * ligne, Feux * suivant, int position);
  void run();
-    virtual void afficher(QPainter * painter, int x, int y);
+    virtual void afficher(QPainter * painter, int x, int y, int wElement, int hElement);
     int getPotision();
 };
 
