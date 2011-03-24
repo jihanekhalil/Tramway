@@ -9,6 +9,7 @@ class Ligne;
 
 class Rame: public Thread
 {
+
     Ligne* ligne;
     int position;
     QList<Porte *> portesDroite;
@@ -21,7 +22,6 @@ public:
     void avancer();
     int getPosition();
     void setPosition(int p);
-
 
 };
 

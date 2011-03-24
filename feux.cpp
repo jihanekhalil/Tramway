@@ -26,3 +26,16 @@ void Feux::afficher(QPainter * painter, int x, int y, int wElement, int hElement
        painter->fillPath(feu, QBrush(QColor(255,0,0)));
 
 }
+<<<<<<< HEAD
+=======
+
+void Feux::surveiller(){
+    for(int i = position; i<suivant->getPosition(); i++){
+      //  this->ligne[i]
+    }
+}
+
+int Feux::getPosition(){
+    return this->position;
+}
+>>>>>>> 5866fb489988bb2ae6254fe853668b4498b43f0a

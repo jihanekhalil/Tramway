@@ -25,6 +25,7 @@ Ligne::Ligne(int longueur)
     this->addElement(e5,33);
 
     e1->passerVert();
+    e2->passerVert();
     e5->passerVert();
     e3->passerVert();
 }

@@ -26,25 +26,12 @@ set(project_SRCS
     passager.cpp
     porte.cpp
     element.cpp
+    signals.cpp
+    gestionsignal.cpp
 )
 
-SET(project_MOC_HDRS
-    mainwindow.h
-    pointsynchronisation.h
-    rame.h
-    station.h
-    troncon.h
-    composteur.h
-    conducteur.h
-    croisement.h
-    distributeur.h
-    feux.h
-    obstacle.h
-    passage.h
-    passager.h
-    porte.h
-    personne.h
-    element.h
+SET(project_MOC_HDRS    
+    mainwindow.h    
 )
 
 QT4_WRAP_CPP(project_MOC_SRCS ${project_MOC_HDRS})
