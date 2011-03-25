@@ -12,7 +12,7 @@ public:
     Feux(Ligne * ligne, Feux * suivant, int position);
     void run();
     void surveiller();
-    virtual void afficher(QPainter * painter, int x, int y);
+    virtual void afficher(QPainter * painter, int x, int y, int, int);
     int getPosition();
     virtual QString getClasse(){ return QString("Feu");}
     void createSignal();

@@ -16,7 +16,7 @@ class Ligne
 public:
     Ligne();
     Ligne(int longueur);
-    void afficher(QPainter * painter);
+    void afficher(QPainter * painter, int, int);
     void ajouterRame(Rame * rame);
     QList<Rame *> * getRames();
     int getLongueur();

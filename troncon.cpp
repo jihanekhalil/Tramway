@@ -24,19 +24,3 @@ void Troncon::setEtat(int position, Rame* rame){
 QList<Rame *> Troncon::getParcours(){
     return this->parcours;
 }
-
-void Troncon::afficher(QPainter* painter, int x, int y){
-
-    painter->drawRect(20,30,10*this->longueur, 5);
-    this->p2->afficher(painter,15+(this->longueur*10),22);
-    this->p1->afficher(painter,20,25);
-
-    /*for(int i = 0; i < this->longueur; i++){
-        if(i==0) this->p1->afficher(painter);
-        else if(i== this->longueur-1) p2->afficher(painter);
-        else cout << " ";
-    }
-    cout << endl;
-
-*/
-}

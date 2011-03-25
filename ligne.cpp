@@ -54,29 +54,49 @@ Element * Ligne::ElementExists(int i)
     }
 }
 
-void Ligne::afficher(QPainter * painter){
+void Ligne::afficher(QPainter * painter, int w, int h){
+
     // coordonnes d'origine du trait
-    int xOrigine = 20;
-    int yOrigine = 20;
+    int xOrigine = 0.02 * w;
+    int yOrigine = 0.2 * h;
 
     //taille dun element.
-    int tailleElement= 5;
-
-    // ligne
-    painter->fillRect(QRectF(QPointF(xOrigine,yOrigine), QPointF(xOrigine+(this->longueur*tailleElement),yOrigine+3)), QBrush(QColor(0,0, 200)));
+    int wElement= (w- (xOrigine *2))/this->longueur;
+    int hElement= 6;
+    painter->fillRect(QRectF(QPointF(xOrigine,yOrigine), QPointF(xOrigine+(this->longueur*wElement),yOrigine+hElement)), QBrush(QColor(0,0, 0)));
 
     int i = 0;
     foreach(Element * e, ligne){
-        e->afficher(painter, xOrigine + (i * tailleElement) , yOrigine);
+        e->afficher(painter, xOrigine + (i * wElement) , yOrigine, wElement, hElement);
+        i++;
+    }
+/*
+    // aller
+    painter->fillRect(QRectF(QPointF(xOrigine,yOrigine), QPointF(xOrigine+(this->longueur*wElement),yOrigine+hElement)), QBrush(QColor(0,0, 0)));
+
+    int i = 0;
+    foreach(Element * e, aller){
+        e->afficher(painter, xOrigine + (i * wElement) , yOrigine, wElement, hElement);
         i++;
     }
 
+
+    // retour
+    painter->fillRect(QRectF(QPointF(xOrigine,yOrigine*2), QPointF(xOrigine+(this->longueur*wElement),yOrigine*2+hElement)), QBrush(QColor(0,0, 0)));
+
+     i = 0;
+    foreach(Element * e, aller){
+        e->afficher(painter, xOrigine + (i * wElement) , yOrigine*2+(hElement*3), wElement, hElement);
+        i++;
+    }
+*/
     foreach(Rame * r, this->rames)
     {
-        r->afficher(painter, xOrigine + tailleElement*r->getPosition(), yOrigine);
+        r->afficher(painter, xOrigine + wElement*r->getPosition(), yOrigine, wElement, hElement );
     }
 
 }
+
 
 void Ligne::ajouterRame(Rame *rame){
     this->rames.push_back(rame);

@@ -24,7 +24,6 @@ public:
 
     QList<Rame *> getParcours();
     void setEtat(int position, Rame * rame);
-    void afficher(QPainter * painter, int x, int y);
 };
 
 #endif // TRONCON_H

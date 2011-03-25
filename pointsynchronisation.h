@@ -10,7 +10,7 @@ class PointSynchronisation: public Element
         bool vert;
 public:
     PointSynchronisation();
-    virtual void afficher(QPainter * painter, int x, int y);
+    virtual void afficher(QPainter * painter, int x, int y, int , int);
     bool estVert();
     void passerRouge();
     void passerVert();

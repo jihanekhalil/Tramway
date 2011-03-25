@@ -14,7 +14,6 @@ set(project_SRCS
     pointsynchronisation.cpp
     rame.cpp
     station.cpp
-    troncon.cpp
     thread.cpp
     composteur.cpp
     conducteur.cpp
