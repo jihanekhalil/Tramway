@@ -7,14 +7,12 @@
 
 void Rame::run()
 {
-    qDebug() << "Rame | run";
-    detectionPointSynchronisation();
+    qDebug() << "Rame | run";    
 }
 
 void Rame::detectionPointSynchronisation()
 {
-    //PointSynchronisation * ps;
-    qDebug() << "position " << this->getPosition();
+    //PointSynchronisation * ps;    
     //this->ligne->ElementExists(this->getPosition());
 }
 
@@ -40,11 +38,17 @@ void Rame::avancer(){
         Element * e = this->ligne->getElementAt(this->position);
 
         //Station * s = dynamic_cast<Station *>(e);
-
+        qDebug() << "position : " << this->getPosition();
+        qDebug() << "classe : " << e->getClasse();
         if(e->getClasse() == "Feu")
         {
             Feux * f = dynamic_cast<Feux *>(e);
             f->addSignal(new Signals(this, Signals::Demande));
+            qDebug() << "envoi signal Feu";
+            if(this->listSignals.empty())
+            {
+                qDebug() << "attend reponse";
+            }
         }
         else
             this->position++;
