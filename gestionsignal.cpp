@@ -11,18 +11,24 @@ GestionSignal::GestionSignal()
     //test creation thread --> à enlever
     if(sigaction(SIGUSR1, &this->signalsAction, NULL))
     {
-        qDebug() << "création Thread impossible";
+        qDebug() << "creation Thread impossible";
     }
+
+    qDebug() << "creation Thread OK";
 }
 
 Thread * getThread(pthread_t pthread);
 
 void GestionSignal::addSignal(Signals * s)
 {
+    qDebug() << "test 01";
     pthread_mutex_lock(&mutex);
-    this->listSignals.append(s);
+    this->listSignals << s;
+    qDebug() << "test 02 " << listSignals.takeFirst();
     pthread_mutex_unlock(&mutex);
-    pthread_kill(this->id(), SIGUSR1);
+    qDebug() << "id thread " << this->id();
+    int t = pthread_kill(this->id(), SIGUSR1);
+    qDebug() << "kill : " << t;
 }
 
 void GestionSignal::deleteSignal()

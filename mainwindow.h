@@ -17,7 +17,7 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+    virtual ~MainWindow();
     void afficher();
 public slots:
             void loadTime();
@@ -25,12 +25,14 @@ public slots:
 
 private:
     void paintEvent(QPaintEvent *);
-    Ui::MainWindow *ui;
-    Ligne *l;
+
+    Ligne *ligne;
+    Rame *rame;
     QPixmap pixmap;
     QTimer *timer;
     QPainter * painter;
 
+    Ui::MainWindow *ui;
 };
 
 #endif // MAINWINDOW_H

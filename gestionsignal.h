@@ -16,6 +16,7 @@ class GestionSignal : public Thread
 public:
     GestionSignal();
     void addSignal(Signals *);
+    virtual void run(){}
 
 protected:
     virtual void createSignal() = 0;

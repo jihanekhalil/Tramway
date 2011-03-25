@@ -1,15 +1,17 @@
 #include "feux.h"
 #include "ligne.h"
+#include <QDebug>
+
 void Feux::run()
 {
 
 }
 
-Feux::Feux(): Thread()
+Feux::Feux(): PointSynchronisation()
 {
 }
 
-Feux::Feux(Ligne * ligne, Feux * suivant, int position): Thread()
+Feux::Feux(Ligne * ligne, Feux * suivant, int position): PointSynchronisation()
 {
     this->ligne = ligne;
     this->suivant=suivant;
@@ -35,4 +37,9 @@ void Feux::surveiller(){
 
 int Feux::getPosition(){
     return this->position;
+}
+
+void Feux::createSignal()
+{
+    qDebug() << "create sig ";
 }

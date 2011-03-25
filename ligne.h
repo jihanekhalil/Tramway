@@ -21,6 +21,7 @@ public:
     QList<Rame *> * getRames();
     int getLongueur();
     Element * getElementAt(int i);
+    Element * ElementExists(int i);
 };
 
 #endif // LIGNE_H

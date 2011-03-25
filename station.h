@@ -8,6 +8,7 @@ class Station : public PointSynchronisation{
 public:
     Station();
     void afficher(QPainter * painter, int x, int y);
+    virtual QString getClasse(){ return QString("Station");}
 };
 
 

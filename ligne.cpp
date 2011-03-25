@@ -1,5 +1,8 @@
 #include "ligne.h"
 #include "feux.h"
+#include <QDebug>
+
+#define VISION 3
 
 Ligne::Ligne()
 {
@@ -17,6 +20,12 @@ Ligne::Ligne(int longueur)
     Feux* e4 = new Feux();
     Feux* e5 = new Feux();
 
+    e1->start();
+    e2->start();
+    e3->start();
+    e4->start();
+    e5->start();
+
     this->ligne[3] = e1;
     this->ligne[13] = e2;
     this->ligne[18] = e3;
@@ -29,8 +38,20 @@ Ligne::Ligne(int longueur)
     e3->passerVert();
 }
 
-Element * Ligne::getElementAt(int i){
+Element * Ligne::getElementAt(int i)
+{
     return this->ligne.at(i);
+}
+
+Element * Ligne::ElementExists(int i)
+{
+    for(int j=0; j<VISION; j++)
+    {
+        Element * e = this->ligne[i+j];
+        Feux * f = dynamic_cast<Feux *>(e);
+
+        qDebug() << "test : " << f->getClasse();
+    }
 }
 
 void Ligne::afficher(QPainter * painter){

@@ -5,7 +5,7 @@
 #include "thread.h"
 #include "ligne.h"
 using namespace std;
-class Feux : public PointSynchronisation, Thread{
+class Feux : public PointSynchronisation{
 
 public:
     Feux();
@@ -15,6 +15,7 @@ public:
     virtual void afficher(QPainter * painter, int x, int y);
     int getPosition();
     virtual QString getClasse(){ return QString("Feu");}
+    void createSignal();
 
 private:
     Ligne * ligne;

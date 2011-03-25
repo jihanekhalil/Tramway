@@ -6,11 +6,12 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWin
 {
     ui->setupUi(this);
 
-    this->l = new Ligne(50);
+    this->ligne = new Ligne(50);
     //this->l->ajouterTroncon(t2);
-    Rame * r1 = new Rame(this->l);
+    this->rame = new Rame(this->ligne);
+    this->rame->start();
    // r1.run();
-    this->l->ajouterRame(r1);
+    this->ligne->ajouterRame(this->rame);
 
     timer = new QTimer(this);
     timer->setSingleShot(false);
@@ -22,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWin
 }
 void MainWindow::loadTime(){
     update();
-    QList<Rame *> * rames = this->l->getRames();
+    QList<Rame *> * rames = this->ligne->getRames();
     rames->at(0)->avancer();
 }
 
@@ -30,7 +31,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
 {
 
    QPainter painter(this);
-   this->l->afficher(&painter);
+   this->ligne->afficher(&painter);
 
 }
 void MainWindow::afficher(){
