@@ -32,10 +32,10 @@ Ligne::Ligne(int longueur)
     this->ligne[22] = e4;
     this->ligne[30] = e5;
 
-    e1->passerVert();
-    e2->passerVert();
-    e5->passerVert();
-    e3->passerVert();
+    e1->passerRouge();
+    e2->passerRouge();
+    e5->passerRouge();
+    e3->passerRouge();
 }
 
 Element * Ligne::getElementAt(int i)

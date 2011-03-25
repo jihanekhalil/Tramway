@@ -4,7 +4,10 @@
 
 void Feux::run()
 {
-
+    for(;;)
+    {
+        sleep(1);
+    }
 }
 
 Feux::Feux(): PointSynchronisation()
@@ -41,5 +44,32 @@ int Feux::getPosition(){
 
 void Feux::createSignal()
 {
-    qDebug() << "create sig ";
+    qDebug() << "create sig " << this->listSignals.size();
+    while(this->listSignals.size())
+    {
+        Signals * s = this->listSignals.takeFirst();
+        switch(s->type())
+        {
+            case Signals::Demande:
+            {
+                if(!this->estVert())
+                {
+                    qDebug("feu vert");
+                    s->emetteur()->addSignal(new Signals(this,Signals::Arret));
+                    sleep(5);
+                    this->passerVert();
+                    s->emetteur()->addSignal(new Signals(this,Signals::Passe));
+                }
+                else
+                    qDebug("feu déjà vert");
+            }
+            break;
+            case Signals::EstPasse:
+            {
+                sleep(2);
+                this->passerRouge();
+            }
+            break;
+        }
+    }
 }

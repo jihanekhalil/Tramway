@@ -24,7 +24,7 @@ void GestionSignal::addSignal(Signals * s)
     qDebug() << "test 01";
     pthread_mutex_lock(&mutex);
     this->listSignals << s;
-    qDebug() << "test 02 " << listSignals.takeFirst();
+    qDebug() << "liste signal : " << listSignals.size();
     pthread_mutex_unlock(&mutex);
     qDebug() << "id thread " << this->id();
     int t = pthread_kill(this->id(), SIGUSR1);

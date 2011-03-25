@@ -7,7 +7,11 @@
 
 void Rame::run()
 {
-    qDebug() << "Rame | run";    
+    qDebug() << "Rame | run";
+    for(;;)
+    {
+
+    }
 }
 
 void Rame::detectionPointSynchronisation()
@@ -69,7 +73,24 @@ void Rame::avancer(){
 
 void Rame::createSignal()
 {
-
+    if(!this->listSignals.isEmpty())
+    {
+        Signals * s = this->listSignals.takeFirst();
+        switch(s->type())
+        {
+            case Signals::Arret:
+            {
+                qDebug() << "tram arreter";
+            }
+            break;
+            case Signals::Passe:
+            {
+                s->emetteur()->addSignal(new Signals(this, Signals::EstPasse));
+                this->position++;
+            }
+            break;
+        }
+    }
 }
 
 int Rame::getPosition(){
