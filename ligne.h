@@ -9,16 +9,18 @@ class Rame;
 using namespace std;
 class Ligne
 {
-    QList<Element *> ligne;
+    QList<Element *> aller;
+    QList<Element *> retour;
     QList<Rame *> rames;
     int longueur;
 
 public:
     Ligne();
     Ligne(int longueur);
-    void afficher(QPainter * painter);
+    void afficher(QPainter * painter, int w, int h);
     void ajouterRame(Rame * rame);
     QList<Rame *> * getRames();
+    void addElement(Element * e, int position);
     int getLongueur();
     Element * getElementAt(int i);
     Element * ElementExists(int i);

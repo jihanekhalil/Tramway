@@ -30,9 +30,9 @@ Rame::Rame(Ligne *ligne): GestionSignal()
     this->position=0;
 }
 
-void Rame::afficher(QPainter * painter, int x, int y)
+void Rame::afficher(QPainter * painter, int x, int y, int wElement,int hElement )
 {
-    painter->fillRect(x, y, 10,3,QBrush(QColor(155,155,155)));
+    painter->fillRect(x, y, wElement,hElement,QBrush(QColor(255,255,255)));
 }
 
 void Rame::avancer(){
@@ -70,4 +70,8 @@ void Rame::createSignal()
 
 int Rame::getPosition(){
     return this->position;
+}
+
+void Rame::setPosition(int p){
+    this->position=p;
 }
