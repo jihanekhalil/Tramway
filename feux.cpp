@@ -68,7 +68,7 @@ void Feux::createSignal()
                 {
                     qDebug() << "Feu "<< this->numPS << "\t rouge.";
                     s->emetteur()->addSignal(new Signals(this,Signals::Arret));
-                    sleep(5);
+                    sleep(2);
                     this->passerVert();
                     s->emetteur()->addSignal(new Signals(this,Signals::Passe));
                 }
@@ -81,7 +81,7 @@ void Feux::createSignal()
             break;
             case Signals::EstPasse:
             {
-                sleep(1);
+                usleep(500000);
                 this->passerRouge();
             }
             break;

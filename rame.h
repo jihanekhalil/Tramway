@@ -15,7 +15,7 @@ public:
     Rame();
     Rame(Ligne * ligne);
     void run();
-    void detectionPointSynchronisation();
+
     void afficher(QPainter * painter, int x, int y, int, int);
     void avancer();
     int getPosition();

@@ -15,17 +15,8 @@ void Rame::run()
     }
 }
 
-void Rame::detectionPointSynchronisation()
-{
-    //PointSynchronisation * ps;    
-    //this->ligne->ElementExists(this->getPosition());
-}
-
 Rame::Rame(): GestionSignal()
-{
-    //Troncon * tr = new Troncon(20);
-    //this->troncon= tr;
-}
+{}
 
 Rame::Rame(Ligne *ligne): GestionSignal()
 {
@@ -48,11 +39,11 @@ void Rame::avancer(){
     if(this->position<this->ligne->getLongueur()){
         Element * e = this->ligne->getElementAt(this->position);
 
-        //Station * s = dynamic_cast<Station *>(e);
         qDebug() << "Rame "<< this->numRame <<" \t position : " << this->getPosition();
-        //qDebug() << "classe : " << e->getClasse();
+
         if(e->getClasse() == "Feu")
         {
+            qDebug() << "A";
             Feux * f = dynamic_cast<Feux *>(e);
             f->addSignal(new Signals(this, Signals::Demande));
             qDebug() << "Rame "<< this->numRame <<" \t > envoi signal Feu" << f->getNum()<< ".";
@@ -61,25 +52,23 @@ void Rame::avancer(){
                 qDebug() << "Rame "<< this->numRame <<" \t attend reponse Feu" << f->getNum()<< ".";
             }
         }
-        else
-            this->position++;
-       //
-//        if(f){
-//            if(f->estVert()){
-//                f->passerRouge();
-//                this->position++;
-//            }
-//            else
-//                return;
-//        }
-//        else
-//            this->position++;
+        else if(e->getClasse() == "Station")
+        {
+            qDebug() << "B";
+            qDebug() << "Rame "<< this->numRame <<" \t arrive a station ";
+            Station * s = dynamic_cast<Station *>(e);
+            s->addSignal(new Signals(this, Signals::Demande));
+        }
+        else{
 
+            qDebug() << "C";
+            this->position++;
+        }
     }
+
 }
 
-void Rame::createSignal()
-{
+void Rame::createSignal(){
     if(!this->listSignals.isEmpty())
     {
         Signals * s = this->listSignals.takeFirst();
