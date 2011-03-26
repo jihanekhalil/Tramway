@@ -10,6 +10,7 @@ class Ligne;
 
 class Rame: public GestionSignal
 {    
+
 public:
     Rame();
     Rame(Ligne * ligne);
@@ -18,10 +19,12 @@ public:
     void afficher(QPainter * painter, int x, int y, int, int);
     void avancer();
     int getPosition();
-
+    void setPosition(int);
+    static int nbRame;
 private:
     Ligne* ligne;
     int position;
+    int numRame;
     QList<Porte *> portesDroite;
     QList<Porte *> portesGauche;
 

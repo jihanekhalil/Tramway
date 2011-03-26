@@ -27,12 +27,14 @@ private:
     void paintEvent(QPaintEvent *);
 
     Ligne *ligne;
-    Rame *rame;
     QPixmap pixmap;
     QTimer *timer;
     QPainter * painter;
 
     Ui::MainWindow *ui;
+
+private slots:
+    void on_newRameButton_clicked();
 };
 
 #endif // MAINWINDOW_H

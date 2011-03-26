@@ -1,5 +1,6 @@
 #include "ligne.h"
 #include "feux.h"
+#include "station.h"
 #include <QDebug>
 
 #define VISION 3
@@ -19,23 +20,32 @@ Ligne::Ligne(int longueur)
     Feux* e3 = new Feux();
     Feux* e4 = new Feux();
     Feux* e5 = new Feux();
-
+    Station* e6 = new Station(QString("Carmes"));
+    Station* e7 = new Station(QString("Jean Jaures"));
+    Station* e8 = new Station(QString("Rangueil"));
     e1->start();
     e2->start();
     e3->start();
     e4->start();
-    e5->start();
 
+    e5->start();    e6->start();
+    e7->start();
+    e8->start();
     this->ligne[3] = e1;
     this->ligne[13] = e2;
     this->ligne[18] = e3;
     this->ligne[22] = e4;
     this->ligne[30] = e5;
 
-    e1->passerRouge();
-    e2->passerRouge();
-    e5->passerRouge();
-    e3->passerRouge();
+    this->ligne[20] = e7;
+
+    this->ligne[10] = e8;
+
+    this->ligne[40] = e6;
+    //e1->passerRouge();
+    //e2->passerRouge();
+    //e5->passerRouge();
+    //e3->passerRouge();
 }
 
 Element * Ligne::getElementAt(int i)
@@ -58,12 +68,12 @@ void Ligne::afficher(QPainter * painter, int w, int h){
 
     // coordonnes d'origine du trait
     int xOrigine = 0.02 * w;
-    int yOrigine = 0.2 * h;
+    int yOrigine = 0.3 * h;
 
     //taille dun element.
     int wElement= (w- (xOrigine *2))/this->longueur;
     int hElement= 6;
-    painter->fillRect(QRectF(QPointF(xOrigine,yOrigine), QPointF(xOrigine+(this->longueur*wElement),yOrigine+hElement)), QBrush(QColor(0,0, 0)));
+    painter->fillRect(QRectF(QPointF(xOrigine,yOrigine), QPointF(xOrigine+(this->longueur*wElement),yOrigine+hElement)), QBrush(QColor(150,150, 150)));
 
     int i = 0;
     foreach(Element * e, ligne){

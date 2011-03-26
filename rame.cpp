@@ -4,10 +4,11 @@
 #include <QDebug>
 #include "feux.h"
 #include "station.h"
+int Rame::nbRame = 0;
 
 void Rame::run()
 {
-    qDebug() << "Rame | run";
+    qDebug() << "Rame "<< this->numRame <<" :  run";
     for(;;)
     {
 
@@ -28,13 +29,18 @@ Rame::Rame(): GestionSignal()
 
 Rame::Rame(Ligne *ligne): GestionSignal()
 {
+    this->numRame = Rame::nbRame;
+    Rame::nbRame++;
+
     this->ligne= ligne;
     this->position=0;
 }
 
 void Rame::afficher(QPainter * painter, int x, int y, int wElement,int hElement )
 {
-    painter->fillRect(x, y, wElement,hElement,QBrush(QColor(255,255,255)));
+
+    painter->fillRect(x-wElement, y, wElement,hElement,QBrush(QColor(255,255,255)));
+   // painter->drawLine(x, y, x, y+wElement);
 }
 
 
@@ -43,16 +49,16 @@ void Rame::avancer(){
         Element * e = this->ligne->getElementAt(this->position);
 
         //Station * s = dynamic_cast<Station *>(e);
-        qDebug() << "position : " << this->getPosition();
-        qDebug() << "classe : " << e->getClasse();
+        qDebug() << "Rame "<< this->numRame <<" \t position : " << this->getPosition();
+        //qDebug() << "classe : " << e->getClasse();
         if(e->getClasse() == "Feu")
         {
             Feux * f = dynamic_cast<Feux *>(e);
             f->addSignal(new Signals(this, Signals::Demande));
-            qDebug() << "envoi signal Feu";
+            qDebug() << "Rame "<< this->numRame <<" \t > envoi signal Feu" << f->getNum()<< ".";
             if(this->listSignals.empty())
             {
-                qDebug() << "attend reponse";
+                qDebug() << "Rame "<< this->numRame <<" \t attend reponse Feu" << f->getNum()<< ".";
             }
         }
         else
@@ -81,11 +87,12 @@ void Rame::createSignal()
         {
             case Signals::Arret:
             {
-                qDebug() << "tram arreter";
+                qDebug() << "Rame "<< this->numRame <<" \t Arret";
             }
             break;
             case Signals::Passe:
             {
+               qDebug() << "Rame "<< this->numRame <<" \t > envoi Signals::EstPasse a "<< s->emetteur()->getClasse();
                 s->emetteur()->addSignal(new Signals(this, Signals::EstPasse));
                 this->position++;
             }
@@ -96,4 +103,7 @@ void Rame::createSignal()
 
 int Rame::getPosition(){
     return this->position;
+}
+void Rame::setPosition(int i){
+     this->position = i;
 }

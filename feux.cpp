@@ -23,7 +23,12 @@ Feux::Feux(Ligne * ligne, Feux * suivant, int position): PointSynchronisation()
 
 void Feux::afficher(QPainter * painter, int x, int y, int wElement, int hElement){
    QPainterPath feu;
-   feu.addEllipse(x, y-2*hElement, wElement, wElement);
+   QVector<QPointF> points;
+   points.push_back(QPointF((qreal) x, (qreal) y+hElement));
+   points.push_back(QPointF((qreal) x-(wElement/4), (qreal) y+(2*hElement)));
+   points.push_back(QPointF((qreal) x+(wElement/4), (qreal) y+(2*hElement)));
+   feu.addPolygon(QPolygonF(points));
+  // feu.addEllipse(x, y-2*hElement, wElement, wElement);
    painter->drawPath(feu);
    if(this->estVert())
        painter->fillPath(feu, QBrush(QColor(0,255,0)));
@@ -33,10 +38,16 @@ void Feux::afficher(QPainter * painter, int x, int y, int wElement, int hElement
 }
 
 
-void Feux::surveiller(){
-    for(int i = position; i<suivant->getPosition(); i++){
-      //  this->ligne[i]
-    }
+bool Feux::voieLibre(){
+    QList<Rame *> * rames = this->ligne->getRames();
+    /*
+    if(suivant!=NULL){
+        for(int i = position; i<suivant->getPosition(); i++){
+            for(int j = 0 ; j<rames->at(j); j++){
+
+            }
+        }
+    }*/
 }
 
 int Feux::getPosition(){
@@ -45,7 +56,7 @@ int Feux::getPosition(){
 
 void Feux::createSignal()
 {
-    qDebug() << "create sig " << this->listSignals.size();
+    qDebug() << "Feu "<< this->numPS << "\t create sig " << this->listSignals.size();
     while(this->listSignals.size())
     {
         Signals * s = this->listSignals.takeFirst();
@@ -55,19 +66,22 @@ void Feux::createSignal()
             {
                 if(!this->estVert())
                 {
-                    qDebug("feu vert");
+                    qDebug() << "Feu "<< this->numPS << "\t rouge.";
                     s->emetteur()->addSignal(new Signals(this,Signals::Arret));
                     sleep(5);
                     this->passerVert();
                     s->emetteur()->addSignal(new Signals(this,Signals::Passe));
                 }
-                else
-                    qDebug("feu déjà vert");
+                else{
+                    qDebug() << "Feu "<< this->numPS << "\t deja vert.";
+                    s->emetteur()->addSignal(new Signals(this,Signals::Passe));
+                }
+
             }
             break;
             case Signals::EstPasse:
             {
-                sleep(2);
+                sleep(1);
                 this->passerRouge();
             }
             break;

@@ -26,6 +26,7 @@ public:
 private:
     TypeSignal sigType;
     GestionSignal * sigEmetteur;
+
 };
 
 #endif // SIGNALS_H

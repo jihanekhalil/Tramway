@@ -6,24 +6,30 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWin
 {
     ui->setupUi(this);
 
-    this->ligne = new Ligne(50);
-    this->rame = new Rame(this->ligne);
-    this->rame->start();
-   // r1.run();
-    this->ligne->ajouterRame(this->rame);
+    this->ligne = new Ligne(100);
+    Rame * r1 = new Rame(this->ligne);
+    r1->start();
+    this->ligne->ajouterRame(r1);
+
+
+
+
+
 
     timer = new QTimer(this);
     timer->setSingleShot(false);
     connect(timer, SIGNAL(timeout()), this, SLOT(loadTime()));
-    timer->start(100);
+    timer->start(1000);
 
 
 
 }
 void MainWindow::loadTime(){
     update();
+    qDebug() << "-----------------------------------------------------";
     QList<Rame *> * rames = this->ligne->getRames();
-    rames->at(0)->avancer();
+    for(int i= 0; i<rames->size(); i++)
+    rames->at(i)->avancer();
 }
 
 void MainWindow::paintEvent(QPaintEvent *event)
@@ -40,4 +46,11 @@ void MainWindow::afficher(){
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::on_newRameButton_clicked()
+{
+    Rame * r = new Rame(this->ligne);
+    r->start();
+    this->ligne->ajouterRame(r);
 }

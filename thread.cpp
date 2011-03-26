@@ -49,14 +49,16 @@ void *start_thread(void * param){
 
 void Thread::start()
 {
+    /*
     //test si le thread est déjà lancé
     if(this->getEtatThread())
         qDebug() << "Thread " << this->thread << " | Erreur deja lance";
     //test la création du thread
-    else if(pthread_create(&this->thread, &this->attr, start_thread, static_cast<void *>(this)) != 0)
+    else*/ if(pthread_create(&this->thread, &this->attr, start_thread, static_cast<void *>(this)) != 0)
         qDebug() << "Thread " << this->thread << " | Erreur lors de la creation";
     else
-        qDebug() << "Thread " << this->thread << " | lance avec succes";
+        qDebug() << "Thread " << this->thread << "(" <<this->getClasse() << " ) lance avec succes";
+
 }
 
 void Thread::join()
