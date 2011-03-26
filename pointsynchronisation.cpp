@@ -5,7 +5,7 @@ PointSynchronisation::PointSynchronisation()
     this->vert=false;
 }
 
-void PointSynchronisation::afficher(QPainter * painter, int x, int y){
+void PointSynchronisation::afficher(QPainter * painter, int x, int y, int x1, int x2){
 
 
 }

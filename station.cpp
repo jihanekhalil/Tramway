@@ -6,10 +6,6 @@ Station::Station(Station::Type t)
     this->typeStation = t;
 }
 
-void Station::afficher(QPainter * painter, int x, int y){
-    painter->fillRect(x,y,10, 5, QBrush(QColor(255,215,0)));
-}
-
 void Station::run()
 {
     for(;;)
@@ -43,3 +39,9 @@ void Station::createSignal()
         }
     }
 }
+
+void Station::afficher(QPainter * painter, int x, int y, int wElement, int hElement)
+{
+    painter->fillRect(x,y,10, 5, QBrush(QColor(255,215,0)));
+}
+

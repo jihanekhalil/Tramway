@@ -7,7 +7,6 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWin
     ui->setupUi(this);
 
     this->ligne = new Ligne(50);
-    //this->l->ajouterTroncon(t2);
     this->rame = new Rame(this->ligne);
     this->rame->start();
    // r1.run();
@@ -31,7 +30,8 @@ void MainWindow::paintEvent(QPaintEvent *event)
 {
 
    QPainter painter(this);
-   this->ligne->afficher(&painter);
+   this->ligne->afficher(&painter, this->width(), this->height());
+
 
 }
 void MainWindow::afficher(){

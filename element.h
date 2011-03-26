@@ -9,7 +9,7 @@ class Element : public GestionSignal
 {
 public:
     Element();
-    virtual void afficher(QPainter * painter, int x, int y);
+    virtual void afficher(QPainter * painter, int x, int y, int, int);
     virtual void createSignal(){}
 };
 

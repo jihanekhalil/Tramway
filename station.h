@@ -6,7 +6,6 @@
 
 class Station : public PointSynchronisation{
 public:
-
     enum Type
     {
         Terminus,
@@ -14,7 +13,7 @@ public:
     };
 
     Station(Station::Type);
-    void afficher(QPainter * painter, int x, int y);
+    void afficher(QPainter * painter, int x, int y, int, int);
     virtual QString getClasse(){ return QString("Station");}
     void run();
     void createSignal();
