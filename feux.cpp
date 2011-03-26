@@ -56,17 +56,15 @@ void Feux::createSignal()
                 {
                     qDebug("feu vert");
                     s->emetteur()->addSignal(new Signals(this,Signals::Arret));
-                    sleep(5);
+                    sleep(2);
                     this->passerVert();
                     s->emetteur()->addSignal(new Signals(this,Signals::Passe));
                 }
-                else
-                    qDebug("feu déjà vert");
             }
             break;
             case Signals::EstPasse:
             {
-                sleep(2);
+                usleep(500000);
                 this->passerRouge();
             }
             break;

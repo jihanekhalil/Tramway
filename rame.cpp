@@ -14,17 +14,8 @@ void Rame::run()
     }
 }
 
-void Rame::detectionPointSynchronisation()
-{
-    //PointSynchronisation * ps;    
-    //this->ligne->ElementExists(this->getPosition());
-}
-
 Rame::Rame(): GestionSignal()
-{
-    //Troncon * tr = new Troncon(20);
-    //this->troncon= tr;
-}
+{}
 
 Rame::Rame(Ligne *ligne): GestionSignal()
 {
@@ -41,33 +32,18 @@ void Rame::avancer(){
     if(this->position<this->ligne->getLongueur()){
         Element * e = this->ligne->getElementAt(this->position);
 
-        //Station * s = dynamic_cast<Station *>(e);
-        qDebug() << "position : " << this->getPosition();
-        qDebug() << "classe : " << e->getClasse();
         if(e->getClasse() == "Feu")
         {
             Feux * f = dynamic_cast<Feux *>(e);
-            f->addSignal(new Signals(this, Signals::Demande));
-            qDebug() << "envoi signal Feu";
-            if(this->listSignals.empty())
-            {
-                qDebug() << "attend reponse";
-            }
+            f->addSignal(new Signals(this, Signals::Demande));                        
+        }
+        else if(e->getClasse() == "Station")
+        {
+            Station * s = dynamic_cast<Station *>(e);
+            s->addSignal(new Signals(this, Signals::Demande));
         }
         else
-            this->position++;
-       //
-//        if(f){
-//            if(f->estVert()){
-//                f->passerRouge();
-//                this->position++;
-//            }
-//            else
-//                return;
-//        }
-//        else
-//            this->position++;
-
+            this->position++;       
     }
 }
 

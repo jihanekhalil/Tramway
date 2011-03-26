@@ -4,7 +4,6 @@
 #include <QMainWindow>
 #include "rame.h"
 #include "ligne.h"
-#include "troncon.h"
 #include <QPainter>
 
 namespace Ui {
