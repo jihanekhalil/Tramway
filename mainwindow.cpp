@@ -26,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWin
 }
 void MainWindow::loadTime(){
     update();
-    qDebug() << "-----------------------------------------------------";
+    qDebug() << "----------------------------------------------------";
     QList<Rame *> * rames = this->ligne->getRames();
     for(int i= 0; i<rames->size(); i++)
     rames->at(i)->avancer();

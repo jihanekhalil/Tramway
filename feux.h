@@ -14,7 +14,7 @@ public:
     bool voieLibre();
     virtual void afficher(QPainter * painter, int x, int y, int, int);
     int getPosition();
-    virtual QString getClasse(){ return QString("Feu");}
+    virtual QString getClasse(){ return QString("Fe");}
     void createSignal();
 
 private:

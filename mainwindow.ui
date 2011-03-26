@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Le tramway</string>
+   <string>Le tramway.</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="newRameButton">
@@ -25,7 +25,6 @@
     </property>
     <property name="text">
      <string>addRame</string>
-
     </property>
    </widget>
   </widget>

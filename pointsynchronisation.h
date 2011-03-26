@@ -4,7 +4,9 @@
 #include <iostream>
 #include <QPainter>
 #include "element.h"
+
 using namespace std;
+
 class PointSynchronisation: public Element
 {
 protected:

@@ -18,7 +18,7 @@ public:
     Station();
     Station(QString,Station::Type);
     void afficher(QPainter * painter, int x, int y, int, int);
-    virtual QString getClasse(){ return QString("Station");}
+    virtual QString getClasse(){ return QString("Station.");}
     void run();
     void createSignal();
 

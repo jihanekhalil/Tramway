@@ -25,6 +25,17 @@ Rame::Rame(Ligne *ligne): GestionSignal()
 
     this->ligne= ligne;
     this->position=0;
+
+    this->nbPortes= 2;
+    this->nbPortesOuvertes=0;
+    for(int i = 0; i< this->nbPortes; i++){
+        Porte * p1 = new Porte(this);
+        p1->start();
+        Porte * p2 = new Porte(this);
+        p2->start();
+        this->portesDroite.push_back(p1);
+        this->portesGauche.push_back(new Porte());
+    }
 }
 
 void Rame::afficher(QPainter * painter, int x, int y, int wElement,int hElement )
@@ -43,7 +54,6 @@ void Rame::avancer(){
 
         if(e->getClasse() == "Feu")
         {
-            qDebug() << "A";
             Feux * f = dynamic_cast<Feux *>(e);
             f->addSignal(new Signals(this, Signals::Demande));
             qDebug() << "Rame "<< this->numRame <<" \t > envoi signal Feu" << f->getNum()<< ".";
@@ -54,14 +64,19 @@ void Rame::avancer(){
         }
         else if(e->getClasse() == "Station")
         {
-            qDebug() << "B";
             qDebug() << "Rame "<< this->numRame <<" \t arrive a station ";
+
             Station * s = dynamic_cast<Station *>(e);
             s->addSignal(new Signals(this, Signals::Demande));
+
+            for(int i= 0; i<this->nbPortes && this->nbPortesOuvertes<this->nbPortes; i++)
+            {
+                     qDebug() << "Rame "<< this->numRame <<" \t > envoi signal porte .";
+                  this->portesGauche.at(i)->addSignal(new Signals(this, Signals::OuvrirPorte));
+            }
+            this->nbPortesOuvertes= this->nbPortes;
         }
         else{
-
-            qDebug() << "C";
             this->position++;
         }
     }
@@ -81,18 +96,37 @@ void Rame::createSignal(){
             break;
             case Signals::Passe:
             {
-               qDebug() << "Rame "<< this->numRame <<" \t > envoi Signals::EstPasse a "<< s->emetteur()->getClasse();
+                if(s->emetteur()->getClasse()=="Station"){
+
+                }
+                else{
+                    qDebug() << "Rame "<< this->numRame <<" \t > envoi Signals::EstPasse a "<< s->emetteur()->getClasse();
+                    s->emetteur()->addSignal(new Signals(this, Signals::EstPasse));
+                    this->position++;
+                }
+           }
+           break;
+        case Signals::PorteFermee:
+        {
+            this->nbPortesOuvertes--;
+            if(this->nbPortesOuvertes==0){
+                qDebug() << "Rame "<< this->numRame <<" \t portes fermees - Depart";
+                qDebug() << "Rame "<< this->numRame <<" \t > envoi Signals::EstPasse a "<< s->emetteur()->getClasse();
                 s->emetteur()->addSignal(new Signals(this, Signals::EstPasse));
                 this->position++;
             }
-            break;
+       }
+       break;
         }
     }
 }
 
-int Rame::getPosition(){
-    return this->position;
+int Rame::getPosition(){    return this->position;
 }
 void Rame::setPosition(int i){
      this->position = i;
+}
+
+int Rame::getNumRame(){
+    return this->numRame;
 }

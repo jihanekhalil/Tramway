@@ -2,6 +2,7 @@
 #define RAME_H
 #include <QObject>
 class Ligne;
+class Porte;
 #include "ligne.h"
 #include "gestionsignal.h"
 #include <QPainter>
@@ -21,10 +22,13 @@ public:
     int getPosition();
     void setPosition(int);
     static int nbRame;
+    int getNumRame();
 private:
+    int nbPortesOuvertes;
     Ligne* ligne;
     int position;
     int numRame;
+    int nbPortes;
     QList<Porte *> portesDroite;
     QList<Porte *> portesGauche;
 

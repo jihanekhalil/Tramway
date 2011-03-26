@@ -15,12 +15,12 @@ void PointSynchronisation::afficher(QPainter * painter, int x, int y, int x1, in
 }
 
 void PointSynchronisation::passerVert(){
-    qDebug() << this->getClasse() << " " << this->nombrePS << "\t passe Vert.";
+    qDebug() << this->getClasse() << " " << this->nombrePS << "\tpasse Vert.";
     this->vert=true;
 }
 
 void PointSynchronisation::passerRouge(){
-    qDebug() << this->getClasse() << " " << this->nombrePS << "\t passe Rouge.";
+    qDebug() << this->getClasse() << " " << this->nombrePS << "\tpasse Rouge.";
     this->vert=false;
 }
 bool PointSynchronisation::estVert(){

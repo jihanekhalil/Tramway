@@ -14,7 +14,10 @@ public:
         Demande,
         EstPasse,
         Arret,
-        Passe
+        Passe,
+        OuvrirPorte,
+        FermerPorte,
+        PorteFermee
     };
 
     Signals(GestionSignal*, TypeSignal);
