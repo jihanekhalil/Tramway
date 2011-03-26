@@ -34,7 +34,7 @@ Rame::Rame(Ligne *ligne): GestionSignal()
         Porte * p2 = new Porte(this);
         p2->start();
         this->portesDroite.push_back(p1);
-        this->portesGauche.push_back(new Porte());
+        this->portesGauche.push_back(p2);
     }
 }
 
@@ -71,7 +71,6 @@ void Rame::avancer(){
 
             for(int i= 0; i<this->nbPortes && this->nbPortesOuvertes<this->nbPortes; i++)
             {
-                     qDebug() << "Rame "<< this->numRame <<" \t > envoi signal porte .";
                   this->portesGauche.at(i)->addSignal(new Signals(this, Signals::OuvrirPorte));
             }
             this->nbPortesOuvertes= this->nbPortes;
@@ -97,7 +96,10 @@ void Rame::createSignal(){
             case Signals::Passe:
             {
                 if(s->emetteur()->getClasse()=="Station"){
-
+                    for(int i= 0; i<this->nbPortes && this->nbPortesOuvertes>=0; i++)
+                    {
+                          this->portesGauche.at(i)->addSignal(new Signals(this, Signals::FermerPorte));
+                    }
                 }
                 else{
                     qDebug() << "Rame "<< this->numRame <<" \t > envoi Signals::EstPasse a "<< s->emetteur()->getClasse();

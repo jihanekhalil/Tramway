@@ -16,7 +16,7 @@ public:
     void fermer();
     bool isOpen();
     void demanderOuverture();
-    virtual QString getClasse(){ return QString("Porte.");}
+    virtual QString getClasse(){ return QString("Porte");}
 
     void createSignal();
 };

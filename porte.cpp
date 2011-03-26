@@ -41,6 +41,7 @@ Porte::Porte(Rame *r): GestionSignal()
     this->rame=r;
     this->open=false;
     this->ouvertureDemandee=true;
+    this->addSignal(new Signals(this, Signals::OuvrirPorte));
 }
 bool Porte::isOpen(){
     return this->open;
@@ -55,7 +56,6 @@ void Porte::fermer(){
 void Porte::ouvrir(){
     if(this->ouvertureDemandee){
         this->open=true;
-        qDebug() << "Porte ouverte";
     }
 }
 

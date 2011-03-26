@@ -21,14 +21,14 @@ Thread * getThread(pthread_t pthread);
 
 void GestionSignal::addSignal(Signals * s)
 {
-    //qDebug() << "test 01";
+   // qDebug() << "test 01"<< this->getClasse();
     pthread_mutex_lock(&mutex);
     this->listSignals << s;
-    ///qDebug() << "liste signal : " << listSignals.size();
+   // qDebug() << "liste signal : " << listSignals.size();
     pthread_mutex_unlock(&mutex);
-    //qDebug() << "id thread " << this->id();
+   // qDebug() << "id thread " << this->id();
     int t = pthread_kill(this->id(), SIGUSR1);
-    //qDebug() << "kill : " << t;
+   // qDebug() << "kill : " << t;
 }
 
 void GestionSignal::deleteSignal()
