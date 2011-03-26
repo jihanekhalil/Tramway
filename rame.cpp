@@ -22,7 +22,7 @@ Rame::Rame(Ligne *ligne): GestionSignal()
 {
     this->numRame = Rame::nbRame;
     Rame::nbRame++;
-
+    this->sens=Rame::Aller;
     this->ligne= ligne;
     this->position=0;
 
@@ -71,7 +71,10 @@ void Rame::avancer(){
 
             for(int i= 0; i<this->nbPortes && this->nbPortesOuvertes<this->nbPortes; i++)
             {
-                  this->portesGauche.at(i)->addSignal(new Signals(this, Signals::OuvrirPorte));
+                if(this->sens=Rame::Aller)
+                    this->portesGauche.at(i)->addSignal(new Signals(this, Signals::OuvrirPorte));
+                else
+                    this->portesDroite.at(i)->addSignal(new Signals(this, Signals::OuvrirPorte));
             }
             this->nbPortesOuvertes= this->nbPortes;
         }
@@ -98,7 +101,11 @@ void Rame::createSignal(){
                 if(s->emetteur()->getClasse()=="Station"){
                     for(int i= 0; i<this->nbPortes && this->nbPortesOuvertes>=0; i++)
                     {
+                        if(this->sens=Rame::Aller)
                           this->portesGauche.at(i)->addSignal(new Signals(this, Signals::FermerPorte));
+                        else
+                          this->portesDroite.at(i)->addSignal(new Signals(this, Signals::FermerPorte));
+
                     }
                 }
                 else{

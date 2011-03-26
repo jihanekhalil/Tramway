@@ -81,7 +81,7 @@ void Feux::createSignal()
             break;
             case Signals::EstPasse:
             {
-                usleep(500000);
+              //  usleep(500000);
                 this->passerRouge();
             }
             break;

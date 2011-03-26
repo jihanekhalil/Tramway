@@ -10,7 +10,6 @@ void Porte::run()
     }
 }
 void Porte::createSignal(){
-    qDebug() << "Porte \t create sig " << this->listSignals.size();
     while(this->listSignals.size())
     {
         Signals * s = this->listSignals.takeFirst();

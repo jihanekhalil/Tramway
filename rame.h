@@ -13,6 +13,11 @@ class Rame: public GestionSignal
 {    
 
 public:
+    enum Sens {
+        Aller,
+        Retour
+    };
+
     Rame();
     Rame(Ligne * ligne);
     void run();
@@ -23,6 +28,7 @@ public:
     void setPosition(int);
     static int nbRame;
     int getNumRame();
+    Sens sens;
 private:
     int nbPortesOuvertes;
     Ligne* ligne;

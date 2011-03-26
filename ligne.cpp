@@ -37,7 +37,7 @@ Ligne::Ligne(int longueur)
     e8->start();
     e8->passerRouge();
 
-    this->ligne[10] = e1;
+    this->ligne[3] = e1;
     this->ligne[13] = e2;
     this->ligne[18] = e3;
     this->ligne[22] = e4;
@@ -45,7 +45,7 @@ Ligne::Ligne(int longueur)
 
     this->ligne[20] = e7;
 
-    this->ligne[3] = e8;
+    this->ligne[10] = e8;
 
     this->ligne[40] = e6;
     //e1->passerRouge();
