@@ -9,10 +9,10 @@ void Porte::run()
     }
 }
 void Porte::createSignal(){
-    Signals * s;
+
     while(this->listSignals.size())
     {
-        s= this->listSignals.takeFirst();
+        Signals *s= this->listSignals.takeFirst();
         switch(s->type())
         {
             case Signals::OuvrirPorte:

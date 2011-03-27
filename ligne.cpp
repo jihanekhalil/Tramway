@@ -109,10 +109,9 @@ void Ligne::afficher(QPainter * painter, int w, int h){
     }
     bla
 */
-    Rame * r;
     for(int i=0; i<rames.size(); i++)
     {
-        r=rames.at(i);
+        Rame * r=rames.at(i);
         r->afficher(painter, xOrigine + wElement*r->getPosition(), yOrigine, wElement, hElement );
     }
 }

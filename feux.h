@@ -11,7 +11,10 @@ public:
     Feux();
     Feux(Ligne * ligne, Feux * suivant, int position);
     void run();
-
+    /*
+     * Variable de classe comptant le nombre de feux crees
+     */
+    static int nombreFeux;
     /*
      * Indique si une rame est présente ou non entre lui et le feux suivant.
      */

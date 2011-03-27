@@ -21,10 +21,7 @@ protected:
          */
         int numPS;
 public:
-        /*
-         * Variable de classe comptant le nombre de feux crees
-         */
-        static int nombrePS;
+
         PointSynchronisation();
         /*
          * Affichage
@@ -48,7 +45,7 @@ public:
 
 
         /*
-         * Retourne l'identifiant du feu
+         * Retourne l'identifiant du PS
          */
         int getNum();
 

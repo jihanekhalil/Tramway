@@ -10,6 +10,7 @@ void Feux::run()
     }
 }
 
+int Feux::nombreFeux=0;
 Feux::Feux(): PointSynchronisation()
 {
 }
@@ -19,6 +20,8 @@ Feux::Feux(Ligne * ligne, Feux * suivant, int position): PointSynchronisation()
     this->ligne = ligne;
     this->suivant=suivant;
     this->position=position;
+    Feux::nombreFeux++;
+    this->numPS= Feux::nombreFeux;
 }
 void Feux::afficher(QPainter * painter, int x, int y, int wElement, int hElement){
    QPainterPath feu;
@@ -57,10 +60,10 @@ int Feux::getPosition(){
 void Feux::createSignal()
 {
     qDebug() << "Feu "<< this->numPS << "\t create sig " << this->listSignals.size();
-    Signals * s;
+
     while(this->listSignals.size())
     {
-        s = this->listSignals.takeFirst();
+       Signals * s = this->listSignals.takeFirst();
         switch(s->type())
         {
             case Signals::Demande:

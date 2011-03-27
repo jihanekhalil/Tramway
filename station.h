@@ -17,13 +17,17 @@ public:
         Terminus,
         Intermediaire
     };
-
+    /*
+     * Variable de classe comptant le nombre de stations crees
+     */
+    static int nombreStations;
     Station();
     Station(QString,Station::Type);
 
     void afficher(QPainter * painter, int x, int y, int, int);
     virtual QString getClasse(){ return QString("Station");}
     void run();
+    QString getNom();
 
     /*
      * Gestion des signaux recus:

@@ -1,10 +1,14 @@
 #include "station.h"
 #include <QDebug>
 
-Station::Station(QString nom,Station::Type t)
+int Station::nombreStations=0;
+
+Station::Station(QString nom,Station::Type t):PointSynchronisation()
 {
     this->typeStation = t;
     this->nom=nom;
+    Station::nombreStations++;
+    this->numPS= Station::nombreStations;
 }
 
 void Station::run()
@@ -14,10 +18,9 @@ void Station::run()
 
 void Station::createSignal()
 {
-    Signals * s;
     while(this->listSignals.size())
     {
-        s = this->listSignals.takeFirst();
+        Signals *s = this->listSignals.takeFirst();
         switch(s->type())
         {
             case Signals::Demande:
@@ -52,5 +55,9 @@ void Station::afficher(QPainter * painter, int x, int y, int wElement, int hElem
     painter->drawText(0, 0, this->nom);
     painter->rotate(+45);
     painter->translate(-x - wElement/2, -(y-(2*hElement)));
+}
+
+QString Station::getNom(){
+    return this->nom;
 }
 

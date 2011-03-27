@@ -70,11 +70,11 @@ void Rame::avancer(){
         }
         else if(e->getClasse() == "Station")
         {
-            qDebug() << "Rame "<< this->numRame <<" \t arrive a station ";
+
 
             Station * s = dynamic_cast<Station *>(e);
             s->addSignal(new Signals(this, Signals::Demande));
-
+            qDebug() << "Rame "<< this->numRame <<" \t arrive a station "<< s->getNom();
             for(int i= 0; i<this->nbPortes && this->nbPortesOuvertes<this->nbPortes; i++)
             {
                 if(this->sens=Rame::Aller){
