@@ -9,6 +9,7 @@ void Porte::run()
     }
 }
 void Porte::createSignal(){
+    Signals * s;
     while(this->listSignals.size())
     {
         s= this->listSignals.takeFirst();
