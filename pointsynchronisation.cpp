@@ -27,3 +27,6 @@ bool PointSynchronisation::estVert(){
 int PointSynchronisation::getNum(){
     return this->numPS;
 }
+GestionSignal * PointSynchronisation::getDerniereRame(){
+    return this->derniereRame;
+}

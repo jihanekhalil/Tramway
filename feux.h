@@ -9,7 +9,7 @@ class Feux : public PointSynchronisation{
 
 public:
     Feux();
-    Feux(Ligne * ligne, Feux * suivant, int position);
+    Feux(Ligne * ligne, Feux * suivant);
     void run();
     /*
      * Variable de classe comptant le nombre de feux crees

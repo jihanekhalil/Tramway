@@ -3,7 +3,9 @@
 
 #include <iostream>
 #include <QPainter>
+
 #include "element.h"
+#include "rame.h"
 
 using namespace std;
 
@@ -20,6 +22,11 @@ protected:
          * Identificateur du point de synchro
          */
         int numPS;
+
+        /*
+         * Derniere rame passee
+         */
+        GestionSignal * derniereRame;
 public:
 
         PointSynchronisation();
@@ -32,6 +39,11 @@ public:
          * Retourne la couleur du feu
          */
         bool estVert();
+
+        /*
+         * Retourne le pointeur du thread de la derniere rame
+         */
+        GestionSignal * getDerniereRame();
 
         /*
          * Passage au rouge du feu

@@ -15,11 +15,11 @@ Feux::Feux(): PointSynchronisation()
 {
 }
 
-Feux::Feux(Ligne * ligne, Feux * suivant, int position): PointSynchronisation()
+Feux::Feux(Ligne * ligne, Feux * suivant): PointSynchronisation()
 {
     this->ligne = ligne;
     this->suivant=suivant;
-    this->position=position;
+
     Feux::nombreFeux++;
     this->numPS= Feux::nombreFeux;
 }
@@ -41,15 +41,7 @@ void Feux::afficher(QPainter * painter, int x, int y, int wElement, int hElement
 
 
 bool Feux::voieLibre(){
-    QList<Rame *> * rames = this->ligne->getRames();
-    /*
-    if(suivant!=NULL){
-        for(int i = position; i<suivant->getPosition(); i++){
-            for(int j = 0 ; j<rames->at(j); j++){
 
-            }
-        }
-    }*/
 }
 
 
@@ -70,11 +62,21 @@ void Feux::createSignal()
             {
                 if(!this->estVert())
                 {
-                    qDebug() << "Feu "<< this->numPS << "\t rouge.";
-                    s->emetteur()->addSignal(new Signals(this,Signals::Arret));
-                    sleep(2);
-                    this->passerVert();
-                    s->emetteur()->addSignal(new Signals(this,Signals::Passe));
+                    if(this->suivant!= NULL){
+                        if(this->suivant->getDerniereRame()!=this->derniereRame){
+
+                            qDebug() << "Feu "<< this->numPS << "\t rouge.";
+                            s->emetteur()->addSignal(new Signals(this,Signals::Arret));
+                        }
+                        else{
+                            this->passerVert();
+                            s->emetteur()->addSignal(new Signals(this,Signals::Passe));
+                        }
+                    }
+                    else{
+                        qDebug() << "Feu "<< this->numPS << "\t rouge.";
+                        s->emetteur()->addSignal(new Signals(this,Signals::Arret));
+                    }
                 }
                 else{
                     qDebug() << "Feu "<< this->numPS << "\t deja vert.";
@@ -85,8 +87,10 @@ void Feux::createSignal()
             break;
             case Signals::EstPasse:
             {
-              //  usleep(500000);
+                usleep(200000);
+                qDebug() << "Feu "<< this->numPS << "\t Tram passe, passe rouge.";
                 this->passerRouge();
+                this->derniereRame = s->emetteur();
             }
             break;
         }

@@ -17,25 +17,25 @@ Ligne::Ligne(int longueur)
 
     //FEUX
 
-    Feux * e1 = new Feux();
-    Feux* e2 = new Feux();
-    Feux* e3 = new Feux();
-    Feux* e4 = new Feux();
-    Feux* e5 = new Feux();
+    Feux * e5 = new Feux(this, NULL);
+    Feux* e4 = new Feux(this, e5);
+    Feux* e3 = new Feux(this, e4);
+    Feux* e2 = new Feux(this, e3);
+    Feux* e1 = new Feux(this,e2);
     e1->start();
     e2->start();
     e3->start();
     e4->start();
     e5->start();
-    this->ligne[23] = e1;
-    this->ligne[13] = e2;
+    this->ligne[5] = e1;
+    this->ligne[10] = e2;
     this->ligne[18] = e3;
     this->ligne[22] = e4;
     this->ligne[30] = e5;
 
 
     //  STATIONS
-
+/*
     Station* e6 = new Station(QString("Carmes"),Station::Intermediaire);
     Station* e7 = new Station(QString("Jean Jaures"),Station::Intermediaire);
     Station* e8 = new Station(QString("Rangueil"),Station::Intermediaire);
@@ -57,7 +57,7 @@ Ligne::Ligne(int longueur)
     //e5->passerRouge();
     //e3->passerRouge();
 
-
+*/
 }
 
 Element * Ligne::getElementAt(int i)
