@@ -9,20 +9,71 @@ class Rame;
 using namespace std;
 class Ligne
 {
+
+    /*
+     * Liste d'element constituants la ligne
+     */
     QList<Element *> ligne;
+
+    /*
+     * Liste des rames présentes sur la ligne
+     */
     QList<Rame *> rames;
+
+
+    /*
+     * Longueur de la ligne
+     */
     int longueur;
 
 public:
     Ligne();
     Ligne(int longueur);
+
+    /*
+     * Affichage
+     */
     void afficher(QPainter * painter, int, int);
+
+
+    /*
+     * Ajoute une rame a la ligne
+     */
     void ajouterRame(Rame * rame);
+
+
+    /*
+     * Retourne la liste des rames
+     */
     QList<Rame *> * getRames();
+
+
+    /*
+     * Retourne la rame num i de la liste des rames
+     */
     Rame * getRameAt(int);
+
+    /*
+     * Retourne la longueur de la ligne
+     */
     int getLongueur();
+
+
+    /*
+     * Retourne le nombre de rames (taille de la liste)
+     */
     int getNbRames();
+
+
+    /*
+     * Retourne le pointeur d'element a la position donnee
+     */
     Element * getElementAt(int i);
+
+
+    /* ???
+     * Retourne le pointeur d'element a la position donnee
+     */
     Element * ElementExists(int i);
 };
 

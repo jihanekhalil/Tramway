@@ -20,7 +20,6 @@ Feux::Feux(Ligne * ligne, Feux * suivant, int position): PointSynchronisation()
     this->suivant=suivant;
     this->position=position;
 }
-
 void Feux::afficher(QPainter * painter, int x, int y, int wElement, int hElement){
    QPainterPath feu;
    QVector<QPointF> points;
@@ -49,6 +48,7 @@ bool Feux::voieLibre(){
         }
     }*/
 }
+
 
 int Feux::getPosition(){
     return this->position;

@@ -5,8 +5,10 @@
 MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWindow), pixmap(QPixmap(100,100))
 {
     ui->setupUi(this);
-
+    // creation de la ligne
     this->ligne = new Ligne(100);
+
+    // creation et demarrage d'une premiere rame puis association a la ligne
     Rame * r1 = new Rame(this->ligne);
     r1->start();
     this->ligne->ajouterRame(r1);
@@ -15,15 +17,17 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWin
 
 
 
-
+    // creation du timer
     timer = new QTimer(this);
     timer->setSingleShot(false);
     connect(timer, SIGNAL(timeout()), this, SLOT(loadTime()));
-   // timer->start(1500);
+   timer->start(1500);
 
 
 
 }
+
+
 void MainWindow::loadTime(){
     update();
     qDebug() << "----------------------------------------------------";
@@ -49,6 +53,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_newRameButton_clicked()
 {
+    //Ajout d'une rame a la ligne lors du clic sur le bouton
     Rame * r = new Rame(this->ligne);
     r->start();
     this->ligne->ajouterRame(r);

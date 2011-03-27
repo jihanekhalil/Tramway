@@ -29,12 +29,15 @@ Rame::Rame(Ligne *ligne): GestionSignal()
     this->nbPortes= 2;
     this->nbPortesOuvertes=0;
 
-    Porte * p1;
-    Porte * p2;
 
     for(int i = 0; i< this->nbPortes; i++){
+
+        Porte * p1;
+        Porte * p2;
         p1 = new Porte(this);
         p2 = new Porte(this);
+        p1->start();
+        p2->start();
         this->portesDroite.push_back(p1);
         this->portesGauche.push_back(p2);
     }
@@ -75,10 +78,8 @@ void Rame::avancer(){
             for(int i= 0; i<this->nbPortes && this->nbPortesOuvertes<this->nbPortes; i++)
             {
                 if(this->sens=Rame::Aller){
-                    this->portesGauche.at(i)->start();
                     this->portesGauche.at(i)->addSignal(new Signals(this, Signals::OuvrirPorte));
                 }else{
-                    this->portesGauche.at(i)->start();
                     this->portesDroite.at(i)->addSignal(new Signals(this, Signals::OuvrirPorte));
                 }
             }
@@ -93,6 +94,7 @@ void Rame::avancer(){
 }
 
 void Rame::createSignal(){
+    pthread_mutex_lock(&mutex);
     if(!this->listSignals.isEmpty())
     {
         Signals * s = this->listSignals.takeFirst();
@@ -119,6 +121,8 @@ void Rame::createSignal(){
                     qDebug() << "Rame "<< this->numRame <<" \t > envoi Signals::EstPasse a "<< s->emetteur()->getClasse();
                     s->emetteur()->addSignal(new Signals(this, Signals::EstPasse));
                     this->position++;
+                    pthread_mutex_unlock(&mutex);
+
                 }
            }
            break;
@@ -130,6 +134,7 @@ void Rame::createSignal(){
                 qDebug() << "Rame "<< this->numRame <<" \t > envoi Signals::EstPasse a "<< s->emetteur()->getClasse();
                 s->emetteur()->addSignal(new Signals(this, Signals::EstPasse));
                 this->position++;
+                pthread_mutex_unlock(&mutex);
             }
        }
        break;

@@ -26,11 +26,11 @@ void Porte::createSignal(){
                this->fermer();
                qDebug() << "Rame "<< this->rame->getNumRame() <<" \t porte fermee.";
                s->emetteur()->addSignal(new Signals(this, Signals::PorteFermee));
-               this->stop();
             }
             break;
         }
     }
+    delete s;
 }
 
 Porte::Porte(): GestionSignal(){}

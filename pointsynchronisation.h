@@ -10,17 +10,47 @@ using namespace std;
 class PointSynchronisation: public Element
 {
 protected:
-
+        /*
+         * Couleur du feur : Vert (true) ou Rouge (false)
+         */
         bool vert;
+
+
+        /*
+         * Identificateur du point de synchro
+         */
         int numPS;
 public:
+        /*
+         * Variable de classe comptant le nombre de feux crees
+         */
         static int nombrePS;
-    PointSynchronisation();
-    virtual void afficher(QPainter * painter, int x, int y, int , int);
-    bool estVert();
-    void passerRouge();
-    void passerVert();
-    int getNum();
+        PointSynchronisation();
+        /*
+         * Affichage
+         */
+        virtual void afficher(QPainter * painter, int x, int y, int , int);
+
+        /*
+         * Retourne la couleur du feu
+         */
+        bool estVert();
+
+        /*
+         * Passage au rouge du feu
+         */
+        void passerRouge();
+
+        /*
+         * Passage au vert du feu
+         */
+        void passerVert();
+
+
+        /*
+         * Retourne l'identifiant du feu
+         */
+        int getNum();
 
 };
 
