@@ -137,8 +137,8 @@ void Rame::createSignal(){
                 this->nbPortesOuvertes--;
                 if(this->nbPortesOuvertes==0){
                     qDebug() << "Rame "<< this->numRame <<" \t portes fermees - Depart";
-                    qDebug() << "Rame "<< this->numRame <<" \t > envoi Signals::EstPasse a "<< s->emetteur()->getClasse();
-                    s->emetteur()->addSignal(new Signals(this, Signals::EstPasse));
+                    qDebug() << "Rame "<< this->numRame <<" \t > envoi Signals::EstPasse a "<< this->ligne->getElementAt(this->position)->getClasse();
+                    this->ligne->getElementAt(this->position)->addSignal(new Signals(this, Signals::EstPasse));
                     this->position++;
                     pthread_mutex_unlock(&mutex);
                 }
