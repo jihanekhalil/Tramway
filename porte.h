@@ -11,6 +11,10 @@ class Porte: public GestionSignal
      */
     bool open;
 
+    /*
+     * Identificateur de porte
+     */
+    int numPorte;
 
     /*
      * Est ce que l'ouverture de la porte a ete demandee par un usager (true) ou non (false)
@@ -26,6 +30,11 @@ public:
     Porte();
     void run();
     Porte(Rame * r);
+
+    /*
+     * Variable de classe numéro de porte
+     */
+    static int nombrePortes;
 
     /*
      * Ouverture la porte si l'ouverture a été demandée
@@ -54,6 +63,10 @@ public:
      */
     virtual QString getClasse(){ return QString("Porte");}
 
+    /*
+     * Retourne l'identificateur de porte
+     */
+    int getNumPorte(){ return numPorte;}
 
     /*
      * Gestion des signaux:

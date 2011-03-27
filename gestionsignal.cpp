@@ -28,7 +28,7 @@ void GestionSignal::addSignal(Signals * s)
     pthread_mutex_unlock(&mutex);
    // qDebug() << "id thread " << this->id();
     int t = pthread_kill(this->id(), SIGUSR1);
-   // qDebug() << "kill : " << t;
+    if( t<0 ) qDebug() << "Erreur Kill : " << t;
 }
 
 void GestionSignal::deleteSignal()

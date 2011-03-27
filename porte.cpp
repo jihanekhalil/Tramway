@@ -1,11 +1,14 @@
 #include "porte.h"
 #include <QDebug>
 
+int Porte::nombrePortes=0;
+
 void Porte::run()
 {
     qDebug() << "Porte   run";
     for(;;)
     {
+        sleep(1);
     }
 }
 void Porte::createSignal(){
@@ -18,13 +21,13 @@ void Porte::createSignal(){
             case Signals::OuvrirPorte:
             {
                 this->ouvrir();
-                qDebug() << "Rame "<< this->rame->getNumRame() <<" \t porte ouverte.";
+                qDebug() << "Rame "<< this->rame->getNumRame() <<" \t porte "<< this->numPorte <<" ouverte.";
             }
             break;
             case Signals::FermerPorte:
             {
                this->fermer();
-               qDebug() << "Rame "<< this->rame->getNumRame() <<" \t porte fermee.";
+               qDebug() << "Rame "<< this->rame->getNumRame() <<" \t porte "<< this->numPorte <<" fermee.";
                s->emetteur()->addSignal(new Signals(this, Signals::PorteFermee));
             }
             break;
@@ -41,6 +44,8 @@ Porte::Porte(Rame *r): GestionSignal()
     this->open=false;
     this->ouvertureDemandee=true;
     this->addSignal(new Signals(this, Signals::OuvrirPorte));
+    Porte::nombrePortes++;
+    this->numPorte = Porte::nombrePortes;
 }
 bool Porte::isOpen(){
     return this->open;

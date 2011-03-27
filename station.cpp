@@ -13,6 +13,7 @@ Station::Station(QString nom,Station::Type t):PointSynchronisation()
 
 void Station::run()
 {
+    qDebug() << "Station run";
     for(;;){}
 }
 
@@ -27,6 +28,7 @@ void Station::createSignal()
             {
                 if(!this->estVert())
                 {
+                    qDebug() << "Station "<< this->numPS<< " \t signal Signals::Demande recu";
                     s->emetteur()->addSignal(new Signals(this,Signals::Arret));
                     sleep(5);
                     this->passerVert();
@@ -36,7 +38,7 @@ void Station::createSignal()
             break;
             case Signals::EstPasse:
             {
-                usleep(500000);
+               // usleep(500000);
                 this->passerRouge();
             }
             break;
