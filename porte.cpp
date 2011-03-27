@@ -9,7 +9,6 @@ void Porte::run()
     }
 }
 void Porte::createSignal(){
-    Signals * s;
     while(this->listSignals.size())
     {
         s= this->listSignals.takeFirst();
@@ -30,7 +29,6 @@ void Porte::createSignal(){
             break;
         }
     }
-    delete s;
 }
 
 Porte::Porte(): GestionSignal(){}
