@@ -6,13 +6,13 @@ void Porte::run()
     qDebug() << "Porte   run";
     for(;;)
     {
-        sleep(1);
     }
 }
 void Porte::createSignal(){
+    Signals * s;
     while(this->listSignals.size())
     {
-        Signals * s = this->listSignals.takeFirst();
+        s= this->listSignals.takeFirst();
         switch(s->type())
         {
             case Signals::OuvrirPorte:
@@ -26,6 +26,7 @@ void Porte::createSignal(){
                this->fermer();
                qDebug() << "Rame "<< this->rame->getNumRame() <<" \t porte fermee.";
                s->emetteur()->addSignal(new Signals(this, Signals::PorteFermee));
+               this->stop();
             }
             break;
         }

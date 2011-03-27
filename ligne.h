@@ -19,7 +19,9 @@ public:
     void afficher(QPainter * painter, int, int);
     void ajouterRame(Rame * rame);
     QList<Rame *> * getRames();
+    Rame * getRameAt(int);
     int getLongueur();
+    int getNbRames();
     Element * getElementAt(int i);
     Element * ElementExists(int i);
 };

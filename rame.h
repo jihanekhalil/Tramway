@@ -31,6 +31,7 @@ public:
     Sens sens;
 private:
     int nbPortesOuvertes;
+    pthread_mutex_t mutex;
     Ligne* ligne;
     int position;
     int numRame;

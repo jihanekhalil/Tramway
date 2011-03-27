@@ -9,15 +9,15 @@ Station::Station(QString nom,Station::Type t)
 
 void Station::run()
 {
-    for(;;)
-        sleep(1);
+    for(;;){}
 }
 
 void Station::createSignal()
 {
+    Signals * s;
     while(this->listSignals.size())
     {
-        Signals * s = this->listSignals.takeFirst();
+        s = this->listSignals.takeFirst();
         switch(s->type())
         {
             case Signals::Demande:

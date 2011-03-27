@@ -57,9 +57,10 @@ int Feux::getPosition(){
 void Feux::createSignal()
 {
     qDebug() << "Feu "<< this->numPS << "\t create sig " << this->listSignals.size();
+    Signals * s;
     while(this->listSignals.size())
     {
-        Signals * s = this->listSignals.takeFirst();
+        s = this->listSignals.takeFirst();
         switch(s->type())
         {
             case Signals::Demande:

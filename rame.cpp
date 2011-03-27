@@ -25,14 +25,16 @@ Rame::Rame(Ligne *ligne): GestionSignal()
     this->sens=Rame::Aller;
     this->ligne= ligne;
     this->position=0;
-
+    pthread_mutex_init(&this->mutex,NULL);
     this->nbPortes= 2;
     this->nbPortesOuvertes=0;
+
+    Porte * p1;
+    Porte * p2;
+
     for(int i = 0; i< this->nbPortes; i++){
-        Porte * p1 = new Porte(this);
-        p1->start();
-        Porte * p2 = new Porte(this);
-        p2->start();
+        p1 = new Porte(this);
+        p2 = new Porte(this);
         this->portesDroite.push_back(p1);
         this->portesGauche.push_back(p2);
     }
@@ -47,6 +49,7 @@ void Rame::afficher(QPainter * painter, int x, int y, int wElement,int hElement 
 
 
 void Rame::avancer(){
+    pthread_mutex_lock(&mutex);
     if(this->position<this->ligne->getLongueur()){
         Element * e = this->ligne->getElementAt(this->position);
 
@@ -71,10 +74,13 @@ void Rame::avancer(){
 
             for(int i= 0; i<this->nbPortes && this->nbPortesOuvertes<this->nbPortes; i++)
             {
-                if(this->sens=Rame::Aller)
+                if(this->sens=Rame::Aller){
+                    this->portesGauche.at(i)->start();
                     this->portesGauche.at(i)->addSignal(new Signals(this, Signals::OuvrirPorte));
-                else
+                }else{
+                    this->portesGauche.at(i)->start();
                     this->portesDroite.at(i)->addSignal(new Signals(this, Signals::OuvrirPorte));
+                }
             }
             this->nbPortesOuvertes= this->nbPortes;
         }
@@ -82,6 +88,7 @@ void Rame::avancer(){
             this->position++;
         }
     }
+    pthread_mutex_unlock(&mutex);
 
 }
 

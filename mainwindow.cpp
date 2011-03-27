@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWin
     timer = new QTimer(this);
     timer->setSingleShot(false);
     connect(timer, SIGNAL(timeout()), this, SLOT(loadTime()));
-    timer->start(1500);
+   // timer->start(1500);
 
 
 
@@ -27,9 +27,8 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWin
 void MainWindow::loadTime(){
     update();
     qDebug() << "----------------------------------------------------";
-    QList<Rame *> * rames = this->ligne->getRames();
-    for(int i= 0; i<rames->size(); i++)
-    rames->at(i)->avancer();
+    for(int i= 0; i<this->ligne->getNbRames(); i++)
+        this->ligne->getRameAt(i)->avancer();
 }
 
 void MainWindow::paintEvent(QPaintEvent *event)
