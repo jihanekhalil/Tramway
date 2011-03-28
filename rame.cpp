@@ -9,7 +9,9 @@ int Rame::nbRame = 0;
 void Rame::run()
 {
     qDebug() << "Rame "<< this->numRame <<" :  run";
-    for(;;){}
+    for(;;){
+        sleep(1);
+    }
 }
 
 Rame::Rame(): GestionSignal()
@@ -121,14 +123,15 @@ void Rame::createSignal(){
                     if(this->nbPortesOuvertes < this->nbPortes)
                         for(int i= 0; i<this->nbPortes ; i++)
                         {
-                            if(this->sens==Rame::Aller){
-
+                            if(this->sens==Rame::Aller)
+                            {
                                 qDebug() << "Rame "<< this->numRame <<" \t > ouverture porte gauche "<<this->portesGauche.at(i)->getNumPorte();
                                 this->portesGauche.at(i)->addSignal(new Signals(this, Signals::OuvrirPorte));
                             }else{
                                  qDebug() << "Rame "<< this->numRame <<" \t > ouverture porte droite "<<this->portesDroite.at(i)->getNumPorte();
                                 this->portesDroite.at(i)->addSignal(new Signals(this, Signals::OuvrirPorte));
                             }
+
                         }
                     this->nbPortesOuvertes= this->nbPortes;
                 }
@@ -176,12 +179,16 @@ void Rame::createSignal(){
                     qDebug() << "Rame "<< this->numRame <<" \t portes fermees - Depart";
                     qDebug() << "Rame "<< this->numRame <<" \t > envoi Signals::EstPasse a "<< this->ligne->getElementAt(this->position,aller)->getClasse();
 
-                    this->ligne->getElementAt(this->position,aller)->addSignal(new Signals(this, Signals::EstPasse));
+                    int postmp = this->position;
+
                     if(sens==Rame::Aller){
                         this->position++;
                     }else{
                         this->position--;
                     }
+
+                    this->ligne->getElementAt(postmp,aller)->addSignal(new Signals(this, Signals::EstPasse));
+
 
                     pthread_mutex_unlock(&mutex);
                 }
