@@ -28,11 +28,10 @@ Rame::Rame(Ligne *ligne): GestionSignal()
 
     Porte::nombrePortes=0;
     for(int i = 0; i< this->nbPortes; i++){
-
-        Porte * p1= new Porte(this);
-        Porte * p2=new Porte(this);
+        Porte * p1= new Porte(this);        
+        Porte * p2 = new Porte(this);
         p1->start();
-        p2->start();
+        p2->start();       
         this->portesDroite.push_back(p1);
         this->portesGauche.push_back(p2);
     }
@@ -110,7 +109,7 @@ void Rame::avancer(){
 
 void Rame::createSignal(){
     pthread_mutex_lock(&mutex);
-    if(!this->listSignals.isEmpty())
+    while(!this->listSignals.isEmpty())
     {
         Signals * s = this->listSignals.takeFirst();
         switch(s->type())
@@ -119,7 +118,7 @@ void Rame::createSignal(){
             {
                 qDebug() << "Rame "<< this->numRame <<" \t Arret";
                 if(s->emetteur()->getClasse()=="Station"){
-                    if(this->nbPortesOuvertes<this->nbPortes)
+                    if(this->nbPortesOuvertes < this->nbPortes)
                         for(int i= 0; i<this->nbPortes ; i++)
                         {
                             if(this->sens==Rame::Aller){
@@ -176,7 +175,6 @@ void Rame::createSignal(){
                 if(this->nbPortesOuvertes==0){
                     qDebug() << "Rame "<< this->numRame <<" \t portes fermees - Depart";
                     qDebug() << "Rame "<< this->numRame <<" \t > envoi Signals::EstPasse a "<< this->ligne->getElementAt(this->position,aller)->getClasse();
-
 
                     this->ligne->getElementAt(this->position,aller)->addSignal(new Signals(this, Signals::EstPasse));
                     if(sens==Rame::Aller){

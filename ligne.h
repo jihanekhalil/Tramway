@@ -36,6 +36,8 @@ class Ligne
      */
     int longueur;
 
+    QList<Element *> listeElement;
+
 public:
     Ligne();
     Ligne(int longueur);
@@ -90,6 +92,8 @@ public:
      * Retourne le pointeur d'element a la position donnee
      */
     Element * ElementExists(int i);
+
+    QList<Element *> * getListeElement();
 };
 
 #endif // LIGNE_H

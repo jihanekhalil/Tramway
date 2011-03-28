@@ -38,10 +38,9 @@ void Station::createSignal()
             break;
             case Signals::EstPasse:
             {
-                qDebug()<< "recu";
-                sleep(2);
+                qDebug()<< "Message estPasse recu par Station";
                 this->passerRouge();
-                this->derniereRame = s->emetteur();
+                this->derniereRame = s->emetteur();                
             }
             break;
         }

@@ -143,6 +143,11 @@ Ligne::Ligne(int longueur)
 
 
 
+    this->listeElement.append(e11);
+    this->listeElement.append(e19);
+    this->listeElement.append(e21);
+    this->listeElement.append(e29);
+
     this->updateListPS();
 }
 
@@ -277,4 +282,9 @@ void Ligne::updateListPS(){
         }
     }
      //qDebug() << "FIN updateListPS $$$$$";
+}
+
+QList<Element *> * Ligne::getListeElement()
+{
+    return &this->listeElement;
 }
