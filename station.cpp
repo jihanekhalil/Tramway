@@ -50,18 +50,23 @@ void Station::createSignal()
 
 void Station::afficher(QPainter * painter, int x, int y, int wElement, int hElement, bool affNom){
 
+    if(affNom){
+    //    x-=wElement;
+    }
 
     if(this->estVert())
         painter->setPen(QColor(0,255,0));
     else
         painter->setPen(QColor(255,0,0));
-
-    painter->drawLine(x, y, x, y-hElement);
+    if(affNom)
+        painter->drawLine(x-wElement-1, y-hElement, x-1-wElement, y);
+    else
+        painter->drawLine(x, y, x, y-hElement);
     painter->setPen(QColor(0,0,0));
 
     painter->fillRect(x-wElement,y-hElement,wElement, hElement, QBrush(QColor(0,0,255)));
     if(affNom==true){
-        painter->translate(x + wElement/2, y-(2*hElement));
+        painter->translate(x, y-(2*hElement));
         painter->rotate(-45);
         QFont font(QString("Helvetica"));
         font.setBold(true);
@@ -69,7 +74,7 @@ void Station::afficher(QPainter * painter, int x, int y, int wElement, int hElem
         painter->setFont(font);
         painter->drawText(0, 0, this->nom);
         painter->rotate(+45);
-        painter->translate(-x - wElement/2, -(y-(2*hElement)));
+        painter->translate(-x, -(y-(2*hElement)));
     }
 }
 

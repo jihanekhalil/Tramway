@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWin
 {
     ui->setupUi(this);
     // creation de la ligne
-    this->ligne = new Ligne(30);
+    this->ligne = new Ligne(100);
 
     // creation et demarrage d'une premiere rame puis association a la ligne
     Rame * r1 = new Rame(this->ligne);

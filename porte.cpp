@@ -70,3 +70,12 @@ void Porte::demanderOuverture(){
     }
 }
 
+
+void Porte::afficher(QPainter * painter, int x, int y, int wElement,int hElement ){
+    if(this->isOpen())
+        painter->setPen(QColor(0,255,0));
+    else
+        painter->setPen(QColor(255,0,0));
+    painter->drawLine(x, y, x+wElement, y);
+        painter->setPen(QColor(0,0,0));
+}

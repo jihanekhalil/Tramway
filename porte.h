@@ -52,6 +52,10 @@ public:
      */
     bool isOpen();
 
+    /*
+     * Affichage
+     */
+    void afficher(QPainter * painter, int x, int y, int wPorte,int hElement );
 
     /*
      * Demande l'ouverture de la porte avant ou à l'arrivée a une station

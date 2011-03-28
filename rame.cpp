@@ -23,7 +23,7 @@ Rame::Rame(Ligne *ligne): GestionSignal()
     this->ligne= ligne;
     this->position=0;
     pthread_mutex_init(&this->mutex,NULL);
-    this->nbPortes= 1;
+    this->nbPortes= 2;
     this->nbPortesOuvertes=0;
 
     Porte::nombrePortes=0;
@@ -42,15 +42,37 @@ void Rame::afficher(QPainter * painter, int x, int y, int wElement,int hElement 
 {
 
     painter->fillRect(x-wElement, y, wElement,hElement,QBrush(QColor(255,255,255)));
-   // painter->drawLine(x, y, x, y+wElement);
+    int xPorteOrigine=x-wElement;
+    int wPorte = wElement/this->nbPortes;
+    for(int i= 0; i<this->nbPortes ; i++)
+    {
+        this->portesGauche.at(i)->afficher( painter,  xPorteOrigine,  y+hElement, wPorte , hElement );
+        this->portesDroite.at(i)->afficher(painter,  xPorteOrigine,  y,  wPorte, hElement );
+        xPorteOrigine+=wPorte;
+    }
 }
 
 
 void Rame::avancer(){
-
     pthread_mutex_lock(&mutex);
-    if(this->position<this->ligne->getLongueur()){
-        Element * e = this->ligne->getElementAt(this->position, this->sens);
+    if(this->position==0 && this->sens==Rame::Retour){
+        qDebug()<<"Changement";
+        this->setPosition(0);
+        this->sens=Rame::Aller;
+        this->position++;
+    }
+    else if(this->position==this->ligne->getLongueur() && this->sens==Rame::Aller){
+        qDebug()<<"Changement";
+        this->setPosition(this->ligne->getLongueur());
+        this->sens=Rame::Retour;
+        this->position--;
+    }
+    else if(this->position<this->ligne->getLongueur()){
+        bool aller= true;
+        if(this->sens==Rame::Retour){
+            aller=false;
+        }
+        Element * e = this->ligne->getElementAt(this->position,aller );
 
         qDebug() << "Rame "<< this->numRame <<" \t position : " << this->getPosition();
 
@@ -71,19 +93,7 @@ void Rame::avancer(){
             Station * s = dynamic_cast<Station *>(e);
             s->addSignal(new Signals(this, Signals::Demande));
             qDebug() << "Rame "<< this->numRame <<" \t arrive a station "<< s->getNom();
-            if(this->nbPortesOuvertes<this->nbPortes)
-                for(int i= 0; i<this->nbPortes ; i++)
-                {
-                    if(this->sens=Rame::Aller){
 
-                        qDebug() << "Rame "<< this->numRame <<" \t > ouverture porte gauche "<<this->portesGauche.at(i)->getNumPorte();
-                        this->portesGauche.at(i)->addSignal(new Signals(this, Signals::OuvrirPorte));
-                    }else{
-                         qDebug() << "Rame "<< this->numRame <<" \t > ouverture porte droite "<<this->portesDroite.at(i)->getNumPorte();
-                        this->portesDroite.at(i)->addSignal(new Signals(this, Signals::OuvrirPorte));
-                    }
-                }
-            this->nbPortesOuvertes= this->nbPortes;
         }
         else{
             if(this->sens==Rame::Aller){
@@ -92,10 +102,6 @@ void Rame::avancer(){
                 this->position--;
             }
         }
-    }else{
-        qDebug()<<"Changement";
-        this->sens=Rame::Retour;
-        this->setPosition(this->ligne->getLongueur()-2);
     }
 
     pthread_mutex_unlock(&mutex);
@@ -112,6 +118,21 @@ void Rame::createSignal(){
             case Signals::Arret:
             {
                 qDebug() << "Rame "<< this->numRame <<" \t Arret";
+                if(s->emetteur()->getClasse()=="Station"){
+                    if(this->nbPortesOuvertes<this->nbPortes)
+                        for(int i= 0; i<this->nbPortes ; i++)
+                        {
+                            if(this->sens==Rame::Aller){
+
+                                qDebug() << "Rame "<< this->numRame <<" \t > ouverture porte gauche "<<this->portesGauche.at(i)->getNumPorte();
+                                this->portesGauche.at(i)->addSignal(new Signals(this, Signals::OuvrirPorte));
+                            }else{
+                                 qDebug() << "Rame "<< this->numRame <<" \t > ouverture porte droite "<<this->portesDroite.at(i)->getNumPorte();
+                                this->portesDroite.at(i)->addSignal(new Signals(this, Signals::OuvrirPorte));
+                            }
+                        }
+                    this->nbPortesOuvertes= this->nbPortes;
+                }
                 pthread_mutex_unlock(&mutex);
             }
             break;
