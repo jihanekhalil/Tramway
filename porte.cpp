@@ -32,6 +32,7 @@ void Porte::createSignal(){
             }
             break;
         }
+        this->listSignals->removeFirst();
     }
 }
 
