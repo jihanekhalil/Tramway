@@ -14,7 +14,9 @@ Station::Station(QString nom,Station::Type t):PointSynchronisation()
 void Station::run()
 {
     qDebug() << "Station run";
-    for(;;){}
+    for(;;){
+        sleep(1);
+    }
 }
 
 void Station::createSignal()
