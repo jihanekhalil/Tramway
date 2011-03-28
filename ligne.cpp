@@ -13,56 +13,84 @@ Ligne::Ligne(int longueur)
     this->longueur=longueur;
 
     for(int i=0; i<longueur;i++)
-        this->ligne.push_back(new Element());
+        this->aller.push_back(new Element());
+
+    for(int i=0; i<longueur;i++)
+        this->retour.push_back(new Element());
+
+
+    //ALLER
 
     //FEUX
 
-    Feux * e5 = new Feux(this, NULL);
-    Feux* e4 = new Feux(this, e5);
-    Feux* e3 = new Feux(this, e4);
-    Feux* e2 = new Feux(this, e3);
-    Feux* e1 = new Feux(this,e2);
-    e1->start();
-    e2->start();
-    e3->start();
-    e4->start();
-    e5->start();
-    this->ligne[5] = e1;
-    this->ligne[10] = e2;
-    this->ligne[18] = e3;
-    this->ligne[22] = e4;
-    this->ligne[30] = e5;
+    Feux* e11 = new Feux(this);
+
+    e11->start();
+
+    this->retour[5] = e11;
 
 
     //  STATIONS
-/*
-    Station* e6 = new Station(QString("Carmes"),Station::Intermediaire);
-    Station* e7 = new Station(QString("Jean Jaures"),Station::Intermediaire);
-    Station* e8 = new Station(QString("Rangueil"),Station::Intermediaire);
 
-    e6->start();
-    e6->passerRouge();
-     e7->start();
-    e7->passerRouge();
-    e8->start();
-    e8->passerRouge();
+   // Station* e16 = new Station(QString("Carmes"),Station::Terminus);
+   // Station* e17 = new Station(QString("Jean Jaures"),Station::Intermediaire);
+    Station* e19 = new Station(QString("Borderouge"),Station::Terminus);
 
-    this->ligne[20] = e7;
 
-    this->ligne[10] = e8;
+  //  e16->start();
+  //  e16->passerRouge();
+  //   e17->start();
+  //  e17->passerRouge();
 
-    this->ligne[2] = e6;
-    //e1->passerRouge();
-    //e2->passerRouge();
-    //e5->passerRouge();
-    //e3->passerRouge();
+    e19->start();
+    e19->passerRouge();
+    this->retour[25] = e19;
+   // this->retour[15] = e17;
 
-*/
+    //this->retour[5] = e16;
+
+
+    //RETOUR
+
+    //FEUX
+    Feux* e21 = new Feux(this);
+
+    e21->start();
+
+    this->aller[5] = e21;
+
+
+    //  STATIONS
+
+   // Station* e26 = new Station(QString("Carmes"),Station::Terminus);
+   // Station* e27 = new Station(QString("Jean Jaures"),Station::Intermediaire);
+    Station* e29 = new Station(QString("Borderouge"),Station::Terminus);
+
+
+ //   e26->start();
+ //   e26->passerRouge();
+ //    e27->start();
+ //   e27->passerRouge();
+
+    e29->start();
+    e29->passerRouge();
+    this->aller[25] = e29;
+  //  this->aller[15] = e27;
+
+    //this->aller[5] = e26;
+       e29->setSuivant(e19);
+
+    //   e16->setSuivant(e26);
+
+    this->updateListPS();
 }
 
-Element * Ligne::getElementAt(int i)
+Element * Ligne::getElementAt(int i, bool aller)
 {
-    return this->ligne.at(i);
+    if(aller)
+        return this->aller.at(i);
+    else
+        return this->retour.at(i);
 }
 
 Element * Ligne::ElementExists(int i)
@@ -71,7 +99,7 @@ Element * Ligne::ElementExists(int i)
     Feux * f;
     for(int j=0; j<VISION; j++)
     {
-         e = this->ligne[i+j];
+         //e = this->ligne[i+j];
          f = dynamic_cast<Feux *>(e);
 
         qDebug() << "test : " << f->getClasse();
@@ -87,38 +115,49 @@ void Ligne::afficher(QPainter * painter, int w, int h){
     //taille dun element.
     int wElement= (w- (xOrigine *2))/this->longueur;
     int hElement= 6;
-    painter->fillRect(QRectF(QPointF(xOrigine,yOrigine), QPointF(xOrigine+(this->longueur*wElement),yOrigine+hElement)), QBrush(QColor(150,150, 150)));
-int i=0;
-    foreach(Element * e, ligne){
-            e->afficher(painter, xOrigine + (i * wElement) , yOrigine, wElement, hElement);
-            i++;
+
+    // retour
+    painter->fillRect(QRectF(QPointF(xOrigine,yOrigine), QPointF(xOrigine+(this->longueur*wElement),yOrigine+hElement)), QBrush(QColor(0,0, 0)));
+
+
+    int i = 0;
+    foreach(Element * e, retour){
+        if(e->getClasse()=="Station"){
+            dynamic_cast<Station *>(e)->afficher(painter, xOrigine + (i * wElement) , yOrigine, wElement, hElement,true);
         }
-/*
+        else
+            e->afficher(painter, xOrigine + (i * wElement) , yOrigine, wElement, hElement);
+        i++;
+
+    }
+
+    yOrigine*=1.3;
+
     // aller
     painter->fillRect(QRectF(QPointF(xOrigine,yOrigine), QPointF(xOrigine+(this->longueur*wElement),yOrigine+hElement)), QBrush(QColor(0,0, 0)));
 
-    int i = 0;
+    i = 0;
     foreach(Element * e, aller){
-        e->afficher(painter, xOrigine + (i * wElement) , yOrigine, wElement, hElement);
+        if(e->getClasse()=="Station"){
+            dynamic_cast<Station *>(e)->afficher(painter, xOrigine + (i * wElement) , yOrigine+(2*hElement), wElement, hElement,false);
+        }
+        else
+            e->afficher(painter, xOrigine + (i * wElement) , yOrigine-(2*hElement), wElement, hElement);
         i++;
+
     }
 
 
-    // retour
-    painter->fillRect(QRectF(QPointF(xOrigine,yOrigine*2), QPointF(xOrigine+(this->longueur*wElement),yOrigine*2+hElement)), QBrush(QColor(0,0, 0)));
-
-     i = 0;
-    foreach(Element * e, aller){
-        e->afficher(painter, xOrigine + (i * wElement) , yOrigine*2+(hElement*3), wElement, hElement);
-        i++;
-    }
-    bla
-*/
     for(int i=0; i<rames.size(); i++)
     {
         Rame * r=rames.at(i);
-        r->afficher(painter, xOrigine + wElement*r->getPosition(), yOrigine, wElement, hElement );
+        if(r->sens=Rame::Aller)
+            r->afficher(painter, xOrigine + wElement*r->getPosition(), yOrigine, wElement, hElement );
+        else
+            r->afficher(painter, xOrigine/1.5 + wElement*r->getPosition(), yOrigine, wElement, hElement );
+
     }
+
 }
 
 
@@ -139,4 +178,41 @@ int Ligne::getLongueur(){
 }
 int Ligne::getNbRames(){
     return this->rames.size();
+}
+
+void Ligne::updateListPS(){
+    //qDebug() << "updateListPS $$$$$";
+    bool last=true;
+    PointSynchronisation * suivant;
+    for(int i=this->aller.size()-1; i>=0;i--){
+        Element * e = this->retour.at(i);
+        if(e->getClasse()=="Feu" || e->getClasse()=="Station"){
+            PointSynchronisation * ps = dynamic_cast<PointSynchronisation *>(e);
+            if(last){
+                ps->setSuivant(NULL);
+                last=false;
+                //qDebug()<< ps->getClasse() << " "<< ps->getNum() << "\tsuivant : NULL" ;
+            }else{
+                ps->setSuivant(suivant);
+                //qDebug()<< ps->getClasse() << " "<< ps->getNum() << "\tsuivant :"<< suivant->getClasse()<<" "<<suivant->getNum() ;
+            }
+            suivant = ps;
+        }
+    }
+    for(int i=this->retour.size()-1; i>=0;i--){
+        Element * e = this->retour.at(i);
+        if(e->getClasse()=="Feu" || e->getClasse()=="Station"){
+            PointSynchronisation * ps = dynamic_cast<PointSynchronisation *>(e);
+            if(last){
+                ps->setSuivant(NULL);
+                last=false;
+                //qDebug()<< ps->getClasse() << " "<< ps->getNum() << "\tsuivant : NULL" ;
+            }else{
+                ps->setSuivant(suivant);
+                //qDebug()<< ps->getClasse() << " "<< ps->getNum() << "\tsuivant :"<< suivant->getClasse()<<" "<<suivant->getNum() ;
+            }
+            suivant = ps;
+        }
+    }
+     //qDebug() << "FIN updateListPS $$$$$";
 }

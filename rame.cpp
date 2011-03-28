@@ -50,7 +50,7 @@ void Rame::avancer(){
 
     pthread_mutex_lock(&mutex);
     if(this->position<this->ligne->getLongueur()){
-        Element * e = this->ligne->getElementAt(this->position);
+        Element * e = this->ligne->getElementAt(this->position, this->sens);
 
         qDebug() << "Rame "<< this->numRame <<" \t position : " << this->getPosition();
 
@@ -86,9 +86,18 @@ void Rame::avancer(){
             this->nbPortesOuvertes= this->nbPortes;
         }
         else{
-            this->position++;
+            if(this->sens==Rame::Aller){
+                this->position++;
+            }else{
+                this->position--;
+            }
         }
+    }else{
+        qDebug()<<"Changement";
+        this->sens=Rame::Retour;
+        this->setPosition(this->ligne->getLongueur()-2);
     }
+
     pthread_mutex_unlock(&mutex);
 
 }
@@ -126,7 +135,11 @@ void Rame::createSignal(){
                 else{
                     qDebug() << "Rame "<< this->numRame <<" \t > envoi Signals::EstPasse a "<< s->emetteur()->getClasse();
                     s->emetteur()->addSignal(new Signals(this, Signals::EstPasse));
-                    this->position++;
+                    if(sens==Rame::Aller){
+                        this->position++;
+                    }else{
+                        this->position--;
+                    }
                     pthread_mutex_unlock(&mutex);
 
                 }
@@ -134,12 +147,23 @@ void Rame::createSignal(){
            break;
             case Signals::PorteFermee:
             {
+               bool aller=true;
+               if(this->sens==Rame::Retour)
+                   aller=false;
+
                 this->nbPortesOuvertes--;
                 if(this->nbPortesOuvertes==0){
                     qDebug() << "Rame "<< this->numRame <<" \t portes fermees - Depart";
-                    qDebug() << "Rame "<< this->numRame <<" \t > envoi Signals::EstPasse a "<< this->ligne->getElementAt(this->position)->getClasse();
-                    this->ligne->getElementAt(this->position)->addSignal(new Signals(this, Signals::EstPasse));
-                    this->position++;
+                    qDebug() << "Rame "<< this->numRame <<" \t > envoi Signals::EstPasse a "<< this->ligne->getElementAt(this->position,aller)->getClasse();
+
+
+                    this->ligne->getElementAt(this->position,aller)->addSignal(new Signals(this, Signals::EstPasse));
+                    if(sens==Rame::Aller){
+                        this->position++;
+                    }else{
+                        this->position--;
+                    }
+
                     pthread_mutex_unlock(&mutex);
                 }
            }

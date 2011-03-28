@@ -15,10 +15,9 @@ Feux::Feux(): PointSynchronisation()
 {
 }
 
-Feux::Feux(Ligne * ligne, Feux * suivant): PointSynchronisation()
+Feux::Feux(Ligne * ligne): PointSynchronisation()
 {
     this->ligne = ligne;
-    this->suivant=suivant;
 
     Feux::nombreFeux++;
     this->numPS= Feux::nombreFeux;

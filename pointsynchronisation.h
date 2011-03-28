@@ -27,6 +27,11 @@ protected:
          * Derniere rame passee
          */
         GestionSignal * derniereRame;
+
+        /*
+         * Pointeur vers le PS suivant de la ligne.
+         */
+        PointSynchronisation * suivant;
 public:
 
         PointSynchronisation();
@@ -55,6 +60,15 @@ public:
          */
         void passerVert();
 
+        /*
+         * modification du PS suivant.
+         */
+        void setSuivant(PointSynchronisation * ps);
+
+        /*
+         * Retourne le PS suivant.
+         */
+        PointSynchronisation * getSuivant();
 
         /*
          * Retourne l'identifiant du PS

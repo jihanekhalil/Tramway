@@ -38,25 +38,39 @@ void Station::createSignal()
             break;
             case Signals::EstPasse:
             {
-               // usleep(500000);
+                qDebug()<< "recu";
+                sleep(2);
                 this->passerRouge();
+                this->derniereRame = s->emetteur();
             }
             break;
         }
     }
 }
 
-void Station::afficher(QPainter * painter, int x, int y, int wElement, int hElement){
+void Station::afficher(QPainter * painter, int x, int y, int wElement, int hElement, bool affNom){
+
+
+    if(this->estVert())
+        painter->setPen(QColor(0,255,0));
+    else
+        painter->setPen(QColor(255,0,0));
+
+    painter->drawLine(x, y, x, y-hElement);
+    painter->setPen(QColor(0,0,0));
+
     painter->fillRect(x-wElement,y-hElement,wElement, hElement, QBrush(QColor(0,0,255)));
-    painter->translate(x + wElement/2, y-(2*hElement));
-    painter->rotate(-45);
-    QFont font(QString("Helvetica"));
-   font.setBold(true);
-   font.setPixelSize(16);
-   painter->setFont(font);
-    painter->drawText(0, 0, this->nom);
-    painter->rotate(+45);
-    painter->translate(-x - wElement/2, -(y-(2*hElement)));
+    if(affNom==true){
+        painter->translate(x + wElement/2, y-(2*hElement));
+        painter->rotate(-45);
+        QFont font(QString("Helvetica"));
+        font.setBold(true);
+        font.setPixelSize(16);
+        painter->setFont(font);
+        painter->drawText(0, 0, this->nom);
+        painter->rotate(+45);
+        painter->translate(-x - wElement/2, -(y-(2*hElement)));
+    }
 }
 
 QString Station::getNom(){

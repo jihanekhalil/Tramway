@@ -13,7 +13,17 @@ class Ligne
     /*
      * Liste d'element constituants la ligne
      */
-    QList<Element *> ligne;
+   // QList<Element *> ligne;
+
+    /*
+     * Liste d'element constituants l'aller
+     */
+    QList<Element *> aller;
+
+    /*
+     * Liste d'element constituants le retour
+     */
+    QList<Element *> retour;
 
     /*
      * Liste des rames présentes sur la ligne
@@ -40,6 +50,11 @@ public:
      * Ajoute une rame a la ligne
      */
     void ajouterRame(Rame * rame);
+
+    /*
+     * Ajoute une rame a la ligne
+     */
+    void updateListPS();
 
 
     /*
@@ -68,7 +83,7 @@ public:
     /*
      * Retourne le pointeur d'element a la position donnee
      */
-    Element * getElementAt(int i);
+    Element * getElementAt(int i, bool);
 
 
     /* ???

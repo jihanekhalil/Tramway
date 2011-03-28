@@ -5,6 +5,7 @@
 PointSynchronisation::PointSynchronisation()
 {
     this->vert=true;
+    this->suivant=NULL;
 }
 
 void PointSynchronisation::afficher(QPainter * painter, int x, int y, int x1, int x2){
@@ -29,4 +30,12 @@ int PointSynchronisation::getNum(){
 }
 GestionSignal * PointSynchronisation::getDerniereRame(){
     return this->derniereRame;
+}
+
+PointSynchronisation * PointSynchronisation::getSuivant(){
+    return this->suivant;
+}
+
+void PointSynchronisation::setSuivant(PointSynchronisation *ps){
+    this->suivant=ps;
 }

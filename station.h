@@ -24,7 +24,7 @@ public:
     Station();
     Station(QString,Station::Type);
 
-    void afficher(QPainter * painter, int x, int y, int, int);
+    void afficher(QPainter * painter, int x, int y, int, int, bool);
     virtual QString getClasse(){ return QString("Station");}
     void run();
     QString getNom();
