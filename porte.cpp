@@ -28,7 +28,7 @@ void Porte::createSignal(){
             {
                this->fermer();
                qDebug() << "Rame "<< this->rame->getNumRame() <<" \t porte "<< this->numPorte <<" fermee.";
-               s->emetteur()->addSignal(new Signals(this, Signals::PorteFermee));
+               s->emetteur()->addSignal(new Signals(this, Signals::PorteFermee));               
             }
             break;
         }
@@ -42,8 +42,6 @@ Porte::Porte(Rame *r): GestionSignal()
 {
     this->rame=r;
     this->open=false;
-    this->ouvertureDemandee=true;
-    this->addSignal(new Signals(this, Signals::OuvrirPorte));
     Porte::nombrePortes++;
     this->numPorte = Porte::nombrePortes;
 }

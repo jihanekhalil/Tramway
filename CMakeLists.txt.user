@@ -1,82 +1,192 @@
 <!DOCTYPE QtCreatorProject>
 <qtcreator>
  <data>
-  <variable>ProjectExplorer.Project.ActiveTarget</variable>
+  <variable>RunConfiguration0-BaseEnvironmentBase</variable>
+  <value type="int">2</value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-CMakeRunConfiguation.Title</variable>
+  <value type="QString">tramway</value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-CMakeRunConfiguration.Arguments</variable>
+  <value type="QString"></value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-CMakeRunConfiguration.Target</variable>
+  <value type="QString">/home/mkubuntu/workspace/tramway/pLast/build/tramway</value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-CMakeRunConfiguration.UseTerminal</variable>
+  <value type="bool">false</value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-CMakeRunConfiguration.UserEnvironmentChanges</variable>
+  <valuelist type="QVariantList"/>
+ </data>
+ <data>
+  <variable>RunConfiguration0-CMakeRunConfiguration.UserWorkingDirectory</variable>
+  <value type="QString"></value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-CMakeRunConfiguration.WorkingDirectory</variable>
+  <value type="QString"></value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-RunConfiguration.name</variable>
+  <value type="QString">tramway</value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-type</variable>
+  <value type="QString">CMakeProjectManager.CMakeRunConfiguration</value>
+ </data>
+ <data>
+  <variable>activeRunConfiguration</variable>
   <value type="int">0</value>
  </data>
  <data>
-  <variable>ProjectExplorer.Project.EditorSettings</variable>
+  <variable>activebuildconfiguration</variable>
+  <value type="QString">all</value>
+ </data>
+ <data>
+  <variable>buildConfiguration-all</variable>
   <valuemap type="QVariantMap">
-   <value key="EditorConfiguration.Codec" type="QByteArray">System</value>
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">all</value>
+   <value key="buildDirectory" type="QString">/home/mkubuntu/workspace/tramway/pLast/build</value>
+   <value key="msvcVersion" type="QString"></value>
   </valuemap>
  </data>
  <data>
-  <variable>ProjectExplorer.Project.Target.0</variable>
+  <variable>buildconfiguration-all-buildstep0</variable>
   <valuemap type="QVariantMap">
-   <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">Desktop</value>
-   <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">CMakeProjectManager.DefaultCMakeTarget</value>
-   <value key="ProjectExplorer.Target.ActiveBuildConfiguration" type="int">0</value>
-   <value key="ProjectExplorer.Target.ActiveRunConfiguration" type="int">0</value>
-   <valuemap key="ProjectExplorer.Target.BuildConfiguration.0" type="QVariantMap">
-    <value key="CMakeProjectManager.CMakeBuildConfiguration.BuildDirectory" type="QString">/Users/pollo/Documents/qtcreator-build</value>
-    <value key="CMakeProjectManager.CMakeBuildConfiguration.MsvcVersion" type="QString"></value>
-    <valuemap key="ProjectExplorer.BuildConfiguration.BuildStep.0" type="QVariantMap">
-     <valuelist key="CMakeProjectManager.MakeStep.AdditionalArguments" type="QVariantList"/>
-     <valuelist key="CMakeProjectManager.MakeStep.BuildTargets" type="QVariantList"/>
-     <value key="CMakeProjectManager.MakeStep.Clean" type="bool">false</value>
-     <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">Make</value>
-     <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">CMakeProjectManager.MakeStep</value>
-    </valuemap>
-    <value key="ProjectExplorer.BuildConfiguration.BuildStepsCount" type="int">1</value>
-    <valuemap key="ProjectExplorer.BuildConfiguration.CleanStep.0" type="QVariantMap">
-     <valuelist key="CMakeProjectManager.MakeStep.AdditionalArguments" type="QVariantList">
-      <value type="QString">clean</value>
-     </valuelist>
-     <valuelist key="CMakeProjectManager.MakeStep.BuildTargets" type="QVariantList"/>
-     <value key="CMakeProjectManager.MakeStep.Clean" type="bool">true</value>
-     <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">Make</value>
-     <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">CMakeProjectManager.MakeStep</value>
-    </valuemap>
-    <value key="ProjectExplorer.BuildConfiguration.CleanStepsCount" type="int">1</value>
-    <value key="ProjectExplorer.BuildConfiguration.ClearSystemEnvironment" type="bool">false</value>
-    <valuelist key="ProjectExplorer.BuildConfiguration.UserEnvironmentChanges" type="QVariantList"/>
-    <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">all</value>
-    <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">CMakeProjectManager.CMakeBuildConfiguration</value>
-   </valuemap>
-   <value key="ProjectExplorer.Target.BuildConfigurationCount" type="int">1</value>
-   <valuemap key="ProjectExplorer.Target.RunConfiguration.0" type="QVariantMap">
-    <valuelist key="ProjectExplorer.CustomExecutableRunConfiguration.Arguments" type="QVariantList"/>
-    <value key="ProjectExplorer.CustomExecutableRunConfiguration.BaseEnvironmentBase" type="int">2</value>
-    <value key="ProjectExplorer.CustomExecutableRunConfiguration.Executable" type="QString">/Users/pollo/Documents/qtcreator-build/tramway</value>
-    <value key="ProjectExplorer.CustomExecutableRunConfiguration.UseTerminal" type="bool">false</value>
-    <valuelist key="ProjectExplorer.CustomExecutableRunConfiguration.UserEnvironmentChanges" type="QVariantList"/>
-    <value key="ProjectExplorer.CustomExecutableRunConfiguration.UserName" type="QString"></value>
-    <value key="ProjectExplorer.CustomExecutableRunConfiguration.UserSetName" type="bool">false</value>
-    <value key="ProjectExplorer.CustomExecutableRunConfiguration.WorkingDirectory" type="QString">$BUILDDIR</value>
-    <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">Exécuter /Users/pollo/Documents/qtcreator-build/tramway</value>
-    <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">ProjectExplorer.CustomExecutableRunConfiguration</value>
-   </valuemap>
-   <valuemap key="ProjectExplorer.Target.RunConfiguration.1" type="QVariantMap">
-    <value key="CMakeProjectManager.BaseEnvironmentBase" type="int">2</value>
-    <value key="CMakeProjectManager.CMakeRunConfiguation.Title" type="QString">tramway</value>
-    <value key="CMakeProjectManager.CMakeRunConfiguration.Arguments" type="QString"></value>
-    <value key="CMakeProjectManager.CMakeRunConfiguration.Target" type="QString">/Users/pollo/Documents/qtcreator-build/tramway</value>
-    <value key="CMakeProjectManager.CMakeRunConfiguration.UseTerminal" type="bool">false</value>
-    <valuelist key="CMakeProjectManager.CMakeRunConfiguration.UserEnvironmentChanges" type="QVariantList"/>
-    <value key="CMakeProjectManager.CMakeRunConfiguration.UserWorkingDirectory" type="QString"></value>
-    <value key="CMakeProjectManager.CMakeRunConfiguration.WorkingDirectory" type="QString"></value>
-    <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">tramway</value>
-    <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">CMakeProjectManager.CMakeRunConfiguration.</value>
-   </valuemap>
-   <value key="ProjectExplorer.Target.RunConfigurationCount" type="int">2</value>
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">all</value>
+   <valuelist key="abstractProcess.Environment" type="QVariantList">
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-8XwDtuW7MD,guid=063ab67df0ffe5c8c20a487a4d8ee4e2</value>
+    <value type="QString">DESKTOP_SESSION=default</value>
+    <value type="QString">DISPLAY=:0</value>
+    <value type="QString">DM_CONTROL=/var/run/xdmctl</value>
+    <value type="QString">GPG_AGENT_INFO=/tmp/gpg-TjGTb2/S.gpg-agent:1229:1</value>
+    <value type="QString">GS_LIB=/home/mkubuntu/.fonts</value>
+    <value type="QString">GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/mkubuntu/.gtkrc-2.0:/home/mkubuntu/.gtkrc-2.0-kde4:/home/mkubuntu/.kde/share/config/gtkrc-2.0</value>
+    <value type="QString">GTK_MODULES=canberra-gtk-module</value>
+    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/mkubuntu/.gtkrc::/home/mkubuntu/.kde/share/config/gtkrc</value>
+    <value type="QString">HOME=/home/mkubuntu</value>
+    <value type="QString">KDE_FULL_SESSION=true</value>
+    <value type="QString">KDE_MULTIHEAD=false</value>
+    <value type="QString">KDE_SESSION_UID=1000</value>
+    <value type="QString">KDE_SESSION_VERSION=4</value>
+    <value type="QString">LANG=fr_FR.UTF-8</value>
+    <value type="QString">LANGUAGE=</value>
+    <value type="QString">LOGNAME=mkubuntu</value>
+    <value type="QString">PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString">PWD=/home/mkubuntu</value>
+    <value type="QString">QT_PLUGIN_PATH=/home/mkubuntu/.kde/lib/kde4/plugins/:/usr/lib/kde4/plugins/</value>
+    <value type="QString">SESSION_MANAGER=local/port-kubuntu:@/tmp/.ICE-unix/1424,unix/port-kubuntu:/tmp/.ICE-unix/1424</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SHLVL=0</value>
+    <value type="QString">SSH_AGENT_PID=1228</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-ymlSzq1185/agent.1185</value>
+    <value type="QString">USER=mkubuntu</value>
+    <value type="QString">WINDOWPATH=7</value>
+    <value type="QString">XCURSOR_THEME=oxy-white</value>
+    <value type="QString">XDG_DATA_DIRS=/usr/share:/usr/share:/usr/local/share</value>
+    <value type="QString">XDG_SESSION_COOKIE=43cefa09bcae668e7d4dc5e44cac3e7b-1301210338.136192-1144261483</value>
+    <value type="QString">XDM_MANAGED=method=classic,auto</value>
+   </valuelist>
+   <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
+   <valuelist key="abstractProcess.arguments" type="QVariantList"/>
+   <value key="abstractProcess.command" type="QString">make</value>
+   <value key="abstractProcess.enabled" type="bool">true</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/mkubuntu/workspace/tramway/pLast/build</value>
   </valuemap>
  </data>
  <data>
-  <variable>ProjectExplorer.Project.TargetCount</variable>
-  <value type="int">1</value>
+  <variable>buildconfiguration-all-cleanstep0</variable>
+  <valuemap type="QVariantMap">
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">all</value>
+   <valuelist key="abstractProcess.Environment" type="QVariantList">
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-8XwDtuW7MD,guid=063ab67df0ffe5c8c20a487a4d8ee4e2</value>
+    <value type="QString">DESKTOP_SESSION=default</value>
+    <value type="QString">DISPLAY=:0</value>
+    <value type="QString">DM_CONTROL=/var/run/xdmctl</value>
+    <value type="QString">GPG_AGENT_INFO=/tmp/gpg-TjGTb2/S.gpg-agent:1229:1</value>
+    <value type="QString">GS_LIB=/home/mkubuntu/.fonts</value>
+    <value type="QString">GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/mkubuntu/.gtkrc-2.0:/home/mkubuntu/.gtkrc-2.0-kde4:/home/mkubuntu/.kde/share/config/gtkrc-2.0</value>
+    <value type="QString">GTK_MODULES=canberra-gtk-module</value>
+    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/mkubuntu/.gtkrc::/home/mkubuntu/.kde/share/config/gtkrc</value>
+    <value type="QString">HOME=/home/mkubuntu</value>
+    <value type="QString">KDE_FULL_SESSION=true</value>
+    <value type="QString">KDE_MULTIHEAD=false</value>
+    <value type="QString">KDE_SESSION_UID=1000</value>
+    <value type="QString">KDE_SESSION_VERSION=4</value>
+    <value type="QString">LANG=fr_FR.UTF-8</value>
+    <value type="QString">LANGUAGE=</value>
+    <value type="QString">LOGNAME=mkubuntu</value>
+    <value type="QString">PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString">PWD=/home/mkubuntu</value>
+    <value type="QString">QT_PLUGIN_PATH=/home/mkubuntu/.kde/lib/kde4/plugins/:/usr/lib/kde4/plugins/</value>
+    <value type="QString">SESSION_MANAGER=local/port-kubuntu:@/tmp/.ICE-unix/1424,unix/port-kubuntu:/tmp/.ICE-unix/1424</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SHLVL=0</value>
+    <value type="QString">SSH_AGENT_PID=1228</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-ymlSzq1185/agent.1185</value>
+    <value type="QString">USER=mkubuntu</value>
+    <value type="QString">WINDOWPATH=7</value>
+    <value type="QString">XCURSOR_THEME=oxy-white</value>
+    <value type="QString">XDG_DATA_DIRS=/usr/share:/usr/share:/usr/local/share</value>
+    <value type="QString">XDG_SESSION_COOKIE=43cefa09bcae668e7d4dc5e44cac3e7b-1301210338.136192-1144261483</value>
+    <value type="QString">XDM_MANAGED=method=classic,auto</value>
+   </valuelist>
+   <value key="abstractProcess.IgnoreReturnValue" type="bool">true</value>
+   <valuelist key="abstractProcess.arguments" type="QVariantList">
+    <value type="QString">clean</value>
+   </valuelist>
+   <value key="abstractProcess.command" type="QString">make</value>
+   <value key="abstractProcess.enabled" type="bool">true</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/mkubuntu/workspace/tramway/pLast/build</value>
+   <valuelist key="additionalArguments" type="QVariantList">
+    <value type="QString">clean</value>
+   </valuelist>
+   <value key="cleanConfig" type="bool">true</value>
+  </valuemap>
  </data>
  <data>
-  <variable>ProjectExplorer.Project.Updater.FileVersion</variable>
-  <value type="int">4</value>
+  <variable>buildconfigurations</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">all</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>buildstep0</variable>
+  <valuemap type="QVariantMap">
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString"></value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildsteps</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">CMakeProjectManager.MakeStep</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>cleanstep0</variable>
+  <valuemap type="QVariantMap">
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString"></value>
+   <value key="clean" type="bool">true</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>cleansteps</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">CMakeProjectManager.MakeStep</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>defaultFileEncoding</variable>
+  <value type="QByteArray">UTF-8</value>
+ </data>
+ <data>
+  <variable>project</variable>
+  <valuemap type="QVariantMap"/>
  </data>
 </qtcreator>
