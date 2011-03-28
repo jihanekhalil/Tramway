@@ -188,7 +188,7 @@ void Rame::createSignal(){
            }
            break;
         }
-        this->listSignals->removeFirst();
+        this->listSignals.removeFirst();
     }
 }
 
