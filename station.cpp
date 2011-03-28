@@ -45,6 +45,7 @@ void Station::createSignal()
             }
             break;
         }
+        this->listSignals->removeFirst();
     }
 }
 
