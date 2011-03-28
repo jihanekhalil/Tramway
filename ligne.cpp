@@ -24,63 +24,124 @@ Ligne::Ligne(int longueur)
     //FEUX
 
     Feux* e11 = new Feux(this);
-
     e11->start();
-
-    this->retour[5] = e11;
+    this->aller[15] = e11;
+    Feux* e12 = new Feux(this);
+    e12->start();
+    this->aller[25] = e12;
+    Feux* e13 = new Feux(this);
+    e13->start();
+    this->aller[35] = e13;
+    Feux* e14 = new Feux(this);
+    e14->start();
+    this->aller[45] = e14;
+    Feux* e15 = new Feux(this);
+    e15->start();
+    this->aller[55] = e15;
+    Feux* e16 = new Feux(this);
+    e16->start();
+    this->aller[65] = e16;
+    Feux* e17 = new Feux(this);
+    e17->start();
+    this->aller[75] = e17;
+    Feux* e18 = new Feux(this);
+    e18->start();
+    this->aller[85] = e18;
 
 
     //  STATIONS
 
-   // Station* e16 = new Station(QString("Carmes"),Station::Terminus);
-   // Station* e17 = new Station(QString("Jean Jaures"),Station::Intermediaire);
     Station* e19 = new Station(QString("Borderouge"),Station::Terminus);
-
-
-  //  e16->start();
-  //  e16->passerRouge();
-  //   e17->start();
-  //  e17->passerRouge();
-
     e19->start();
     e19->passerRouge();
-    this->retour[25] = e19;
-   // this->retour[15] = e17;
+    this->aller[10] = e19;
 
-    //this->retour[5] = e16;
+    Station* e110 = new Station(QString("Compans"),Station::Intermediaire);
+    e110->start();
+    e110->passerRouge();
+    this->aller[30] = e110;
+
+
+    Station* e111 = new Station(QString("Jeanne d Arc"),Station::Intermediaire);
+    e111->start();
+    e111->passerRouge();
+    this->aller[50] = e111;
+
+
+    Station* e112 = new Station(QString("Carmes"),Station::Intermediaire);
+    e112->start();
+    e112->passerRouge();
+    this->aller[70] = e112;
+
+    Station* e113 = new Station(QString("Borderouge"),Station::Terminus);
+    e113->start();
+    e113->passerRouge();
+    this->aller[95] = e113;
 
 
     //RETOUR
 
-    //FEUX
     Feux* e21 = new Feux(this);
-
     e21->start();
-
-    this->aller[5] = e21;
+    this->aller[15] = e21;
+    Feux* e22 = new Feux(this);
+    e22->start();
+    this->aller[25] = e22;
+    Feux* e23 = new Feux(this);
+    e23->start();
+    this->aller[35] = e23;
+    Feux* e24 = new Feux(this);
+    e24->start();
+    this->aller[45] = e24;
+    Feux* e25 = new Feux(this);
+    e25->start();
+    this->aller[55] = e25;
+    Feux* e26 = new Feux(this);
+    e26->start();
+    this->aller[65] = e26;
+    Feux* e27 = new Feux(this);
+    e27->start();
+    this->aller[75] = e27;
+    Feux* e28 = new Feux(this);
+    e28->start();
+    this->aller[85] = e28;
 
 
     //  STATIONS
 
-   // Station* e26 = new Station(QString("Carmes"),Station::Terminus);
-   // Station* e27 = new Station(QString("Jean Jaures"),Station::Intermediaire);
     Station* e29 = new Station(QString("Borderouge"),Station::Terminus);
-
-
- //   e26->start();
- //   e26->passerRouge();
- //    e27->start();
- //   e27->passerRouge();
-
     e29->start();
     e29->passerRouge();
-    this->aller[25] = e29;
-  //  this->aller[15] = e27;
+    this->aller[10] = e29;
 
-    //this->aller[5] = e26;
-       e29->setSuivant(e19);
+    Station* e210 = new Station(QString("Compans"),Station::Intermediaire);
+    e210->start();
+    e210->passerRouge();
+    this->aller[30] = e210;
 
-    //   e16->setSuivant(e26);
+
+    Station* e211 = new Station(QString("Jeanne d Arc"),Station::Intermediaire);
+    e211->start();
+    e211->passerRouge();
+    this->aller[50] = e211;
+
+
+    Station* e212 = new Station(QString("Carmes"),Station::Intermediaire);
+    e212->start();
+    e212->passerRouge();
+    this->aller[70] = e212;
+
+    Station* e213 = new Station(QString("Borderouge"),Station::Terminus);
+    e213->start();
+    e213->passerRouge();
+    this->aller[95] = e213;
+
+
+
+    e29->setSuivant(e19);
+    e213->setSuivant(e113);
+
+
 
     this->listeElement.append(e11);
     this->listeElement.append(e19);
@@ -92,7 +153,8 @@ Ligne::Ligne(int longueur)
 
 Element * Ligne::getElementAt(int i, bool aller)
 {
-    if(aller)
+    qDebug()<<"getElementAt"<< i << " - "<< aller;
+    if(aller==true)
         return this->aller.at(i);
     else
         return this->retour.at(i);
@@ -118,8 +180,8 @@ void Ligne::afficher(QPainter * painter, int w, int h){
     int yOrigine = 0.3 * h;
 
     //taille dun element.
-    int wElement= (w- (xOrigine *2))/this->longueur;
-    int hElement= 6;
+    int wElement= (w- (xOrigine *2) )/this->longueur;
+    int hElement= 12;
 
     // retour
     painter->fillRect(QRectF(QPointF(xOrigine,yOrigine), QPointF(xOrigine+(this->longueur*wElement),yOrigine+hElement)), QBrush(QColor(0,0, 0)));
@@ -137,7 +199,7 @@ void Ligne::afficher(QPainter * painter, int w, int h){
     }
 
     yOrigine*=1.3;
-
+   // xOrigine+=wElement;
     // aller
     painter->fillRect(QRectF(QPointF(xOrigine,yOrigine), QPointF(xOrigine+(this->longueur*wElement),yOrigine+hElement)), QBrush(QColor(0,0, 0)));
 
@@ -156,10 +218,10 @@ void Ligne::afficher(QPainter * painter, int w, int h){
     for(int i=0; i<rames.size(); i++)
     {
         Rame * r=rames.at(i);
-        if(r->sens=Rame::Aller)
+        if(r->sens==Rame::Aller)
             r->afficher(painter, xOrigine + wElement*r->getPosition(), yOrigine, wElement, hElement );
         else
-            r->afficher(painter, xOrigine/1.5 + wElement*r->getPosition(), yOrigine, wElement, hElement );
+            r->afficher(painter, xOrigine + (wElement *r->getPosition())+wElement, yOrigine/1.3, wElement, hElement );
 
     }
 
