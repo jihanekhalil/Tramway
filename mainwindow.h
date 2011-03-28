@@ -18,16 +18,16 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     virtual ~MainWindow();
     void afficher();
+
 public slots:
             void loadTime();
-
 
 private:
     void paintEvent(QPaintEvent *);
 
-    Ligne *ligne;
+    Ligne * ligne;
     QPixmap pixmap;
-    QTimer *timer;
+    QTimer * timer;
     QPainter * painter;
 
     Ui::MainWindow *ui;

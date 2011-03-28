@@ -9,17 +9,14 @@ class Feux : public PointSynchronisation{
 
 public:
     Feux();
+    ~Feux();
     Feux(Ligne * ligne);
     void run();
-    /*
-     * Variable de classe comptant le nombre de feux crees
-     */
-    static int nombreFeux;
+
     /*
      * Indique si une rame est présente ou non entre lui et le feux suivant.
      */
     bool voieLibre();
-
 
     /*
      * Affichage
@@ -43,13 +40,17 @@ public:
      */
     void createSignal();
 
-private:
+public:
+    /*
+     * Variable de classe comptant le nombre de feux crees
+     */
+    static int nombreFeux;
 
+private:
     /*
      * Ligne du feu.
      */
     Ligne * ligne;
-
 
     /*
      * Position du feu sur la ligne.

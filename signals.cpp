@@ -22,5 +22,7 @@ GestionSignal * Signals::emetteur()
 }
 
 Signals::~Signals()
-{}
+{
+    delete sigEmetteur;
+}
 

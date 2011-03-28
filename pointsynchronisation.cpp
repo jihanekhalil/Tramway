@@ -8,6 +8,12 @@ PointSynchronisation::PointSynchronisation()
     this->suivant=NULL;
 }
 
+PointSynchronisation::~PointSynchronisation()
+{
+    delete derniereRame;
+    delete suivant;
+}
+
 void PointSynchronisation::afficher(QPainter * painter, int x, int y, int x1, int x2){
 
 

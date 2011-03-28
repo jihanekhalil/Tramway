@@ -17,6 +17,12 @@ GestionSignal::GestionSignal()
    // qDebug() << "creation Thread OK";
 }
 
+GestionSignal::~GestionSignal()
+{
+    for(int i=0;i<this->listSignals.size(); i++)
+        delete this->listSignals.at(i);
+}
+
 Thread * getThread(pthread_t pthread);
 
 void GestionSignal::addSignal(Signals * s)

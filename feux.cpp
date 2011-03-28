@@ -10,6 +10,11 @@ void Feux::run()
     }
 }
 
+Feux::~Feux()
+{
+    delete ligne;
+}
+
 int Feux::nombreFeux=0;
 Feux::Feux(): PointSynchronisation()
 {

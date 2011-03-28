@@ -9,12 +9,59 @@ class Rame;
 using namespace std;
 class Ligne
 {
+public:
+    Ligne();
+    ~Ligne();
+    Ligne(int longueur);
 
     /*
-     * Liste d'element constituants la ligne
+     * Affichage
      */
-   // QList<Element *> ligne;
+    void afficher(QPainter * painter, int, int);
 
+    /*
+     * Ajoute une rame a la ligne
+     */
+    void ajouterRame(Rame * rame);
+
+    /*
+     * Ajoute une rame a la ligne
+     */
+    void updateListPS();
+
+    /*
+     * Retourne la liste des rames
+     */
+    QList<Rame *> * getRames();
+
+    /*
+     * Retourne la rame num i de la liste des rames
+     */
+    Rame * getRameAt(int);
+
+    /*
+     * Retourne la longueur de la ligne
+     */
+    int getLongueur();
+
+    /*
+     * Retourne le nombre de rames (taille de la liste)
+     */
+    int getNbRames();
+
+    /*
+     * Retourne le pointeur d'element a la position donnee
+     */
+    Element * getElementAt(int i, bool);
+
+    /*
+     * Retourne le pointeur d'element a la position donnee
+     */
+    Element * ElementExists(int i);
+
+    QList<Element *> * getListeElement();
+
+private:
     /*
      * Liste d'element constituants l'aller
      */
@@ -30,70 +77,12 @@ class Ligne
      */
     QList<Rame *> rames;
 
-
     /*
      * Longueur de la ligne
      */
     int longueur;
 
     QList<Element *> listeElement;
-
-public:
-    Ligne();
-    Ligne(int longueur);
-
-    /*
-     * Affichage
-     */
-    void afficher(QPainter * painter, int, int);
-
-
-    /*
-     * Ajoute une rame a la ligne
-     */
-    void ajouterRame(Rame * rame);
-
-    /*
-     * Ajoute une rame a la ligne
-     */
-    void updateListPS();
-
-
-    /*
-     * Retourne la liste des rames
-     */
-    QList<Rame *> * getRames();
-
-
-    /*
-     * Retourne la rame num i de la liste des rames
-     */
-    Rame * getRameAt(int);
-
-    /*
-     * Retourne la longueur de la ligne
-     */
-    int getLongueur();
-
-
-    /*
-     * Retourne le nombre de rames (taille de la liste)
-     */
-    int getNbRames();
-
-
-    /*
-     * Retourne le pointeur d'element a la position donnee
-     */
-    Element * getElementAt(int i, bool);
-
-
-    /* ???
-     * Retourne le pointeur d'element a la position donnee
-     */
-    Element * ElementExists(int i);
-
-    QList<Element *> * getListeElement();
 };
 
 #endif // LIGNE_H

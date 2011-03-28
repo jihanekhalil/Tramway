@@ -6,8 +6,20 @@
 #define VISION 3
 
 Ligne::Ligne()
+{}
+
+Ligne::~Ligne()
 {
+    for(int i=0; i<this->aller.size(); i++)
+        delete this->aller.at(i);
+    for(int i=0; i<this->retour.size(); i++)
+        delete this->retour.at(i);
+    for(int i=0; i<this->rames.size(); i++)
+        delete this->rames.at(i);
+    for(int i=0; i<this->listeElement.size(); i++)
+        delete this->listeElement.at(i);
 }
+
 Ligne::Ligne(int longueur)
 {
     this->longueur=longueur;

@@ -3,6 +3,11 @@
 
 int Porte::nombrePortes=0;
 
+Porte::~Porte()
+{
+    delete rame;
+}
+
 void Porte::run()
 {
     qDebug() << "Porte   run";

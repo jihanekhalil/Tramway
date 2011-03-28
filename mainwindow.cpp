@@ -64,6 +64,9 @@ void MainWindow::afficher(){
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete ligne;
+    delete painter;
+    delete timer;
 }
 
 void MainWindow::on_newRameButton_clicked()

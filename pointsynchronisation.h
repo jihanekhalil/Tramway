@@ -7,34 +7,12 @@
 #include "element.h"
 #include "rame.h"
 
-using namespace std;
-
 class PointSynchronisation: public Element
 {
-protected:
-        /*
-         * Couleur du feur : Vert (true) ou Rouge (false)
-         */
-        bool vert;
-
-
-        /*
-         * Identificateur du point de synchro
-         */
-        int numPS;
-
-        /*
-         * Derniere rame passee
-         */
-        GestionSignal * derniereRame;
-
-        /*
-         * Pointeur vers le PS suivant de la ligne.
-         */
-        PointSynchronisation * suivant;
 public:
-
         PointSynchronisation();
+        ~PointSynchronisation();
+
         /*
          * Affichage
          */
@@ -74,6 +52,27 @@ public:
          * Retourne l'identifiant du PS
          */
         int getNum();
+
+protected:
+        /*
+         * Couleur du feur : Vert (true) ou Rouge (false)
+         */
+        bool vert;
+
+        /*
+         * Identificateur du point de synchro
+         */
+        int numPS;
+
+        /*
+         * Derniere rame passee
+         */
+        GestionSignal * derniereRame;
+
+        /*
+         * Pointeur vers le PS suivant de la ligne.
+         */
+        PointSynchronisation * suivant;
 
 };
 

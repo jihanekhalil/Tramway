@@ -6,6 +6,15 @@
 #include "station.h"
 int Rame::nbRame = 0;
 
+Rame::~Rame()
+{
+    delete ligne;
+    for(int i=0; i<this->portesDroite.size(); i++)
+        delete this->portesDroite.at(i);
+    for(int i=0; i<this->portesGauche.size(); i++)
+        delete this->portesGauche.at(i);
+}
+
 void Rame::run()
 {
     qDebug() << "Rame "<< this->numRame <<" :  run";
