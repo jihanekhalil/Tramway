@@ -8,6 +8,18 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWin
     // creation de la ligne
     this->ligne = new Ligne(30);
 
+    //Attente
+    bool ThreadsLances = true;
+    do
+    {
+        ThreadsLances = true;
+        for(int i = 0; i < this->ligne->getListeElement()->size(); i++)
+        {
+            ThreadsLances = ThreadsLances && this->ligne->getListeElement()->at(i)->getEtatThread();
+            qDebug() << "etat " << i << " => " << this->ligne->getListeElement()->at(i)->getEtatThread();
+        }
+    }while(!ThreadsLances);
+
     // creation et demarrage d'une premiere rame puis association a la ligne
     Rame * r1 = new Rame(this->ligne);
     r1->start();

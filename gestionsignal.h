@@ -8,8 +8,8 @@ class GestionSignal;
 #include <QList>
 #include <pthread.h>
 
-//struct siginfo;
-//typedef struct siginfo siginfo_t;
+struct siginfo;
+typedef struct siginfo siginfo_t;
 
 class GestionSignal : public Thread
 {
