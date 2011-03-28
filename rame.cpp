@@ -9,7 +9,9 @@ int Rame::nbRame = 0;
 void Rame::run()
 {
     qDebug() << "Rame "<< this->numRame <<" :  run";
-    for(;;){}
+    for(;;){
+        sleep(1);
+    }
 }
 
 Rame::Rame(): GestionSignal()
@@ -177,12 +179,16 @@ void Rame::createSignal(){
                     qDebug() << "Rame "<< this->numRame <<" \t portes fermees - Depart";
                     qDebug() << "Rame "<< this->numRame <<" \t > envoi Signals::EstPasse a "<< this->ligne->getElementAt(this->position,aller)->getClasse();
 
-                    this->ligne->getElementAt(this->position,aller)->addSignal(new Signals(this, Signals::EstPasse));
+                    int postmp = this->position;
+
                     if(sens==Rame::Aller){
                         this->position++;
                     }else{
                         this->position--;
                     }
+
+                    this->ligne->getElementAt(postmp,aller)->addSignal(new Signals(this, Signals::EstPasse));
+
 
                     pthread_mutex_unlock(&mutex);
                 }
