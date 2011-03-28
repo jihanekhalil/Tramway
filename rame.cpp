@@ -121,14 +121,15 @@ void Rame::createSignal(){
                     if(this->nbPortesOuvertes < this->nbPortes)
                         for(int i= 0; i<this->nbPortes ; i++)
                         {
-                            if(this->sens==Rame::Aller){
-
+                            if(this->sens==Rame::Aller)
+                            {
                                 qDebug() << "Rame "<< this->numRame <<" \t > ouverture porte gauche "<<this->portesGauche.at(i)->getNumPorte();
                                 this->portesGauche.at(i)->addSignal(new Signals(this, Signals::OuvrirPorte));
                             }else{
                                  qDebug() << "Rame "<< this->numRame <<" \t > ouverture porte droite "<<this->portesDroite.at(i)->getNumPorte();
                                 this->portesDroite.at(i)->addSignal(new Signals(this, Signals::OuvrirPorte));
                             }
+
                         }
                     this->nbPortesOuvertes= this->nbPortes;
                 }
@@ -188,7 +189,6 @@ void Rame::createSignal(){
            }
            break;
         }
-        this->listSignals.removeFirst();
     }
 }
 
