@@ -93,6 +93,6 @@ void Feux::createSignal()
             }
             break;
         }
-        this->listSignals->removeFirst();
+        this->listSignals.removeFirst();
     }
 }
