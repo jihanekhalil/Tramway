@@ -190,6 +190,7 @@ void Rame::createSignal(){
            }
            break;
         }
+        this->listSignals->removeFirst();
     }
 }
 
