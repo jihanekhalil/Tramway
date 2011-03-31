@@ -226,6 +226,13 @@ Element * Ligne::ElementExists(int i)
 
 void Ligne::afficher(QPainter * painter, int w, int h){
 
+    QFont font(QString("Helvetica"));
+    font.setBold(true);
+    font.setPixelSize(35);
+    painter->setFont(font);
+
+    painter->setPen(QColor(0,55,166));
+    painter->drawText(70, 40, this->listeStation.first()->getNom()+" / "+this->listeStation.last()->getNom());
     // coordonnes d'origine du trait
     int xOrigine = 0.02 * w;
     int yOrigine = 200;
@@ -383,8 +390,8 @@ QList <Station *> * Ligne::getStations(){
 }
 
 void Ligne::ajouterObstacle(){
-    Obstacle * o = new Obstacle();
     int position = rand()%this->longueur;
+    Obstacle * o = new Obstacle(&this->aller, position);
      //while()
     this->aller[position] = o;
 

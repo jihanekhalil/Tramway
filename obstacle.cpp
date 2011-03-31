@@ -1,6 +1,10 @@
 #include "obstacle.h"
-
+#include <QDebug>
 Obstacle::Obstacle()
+{
+}
+
+Obstacle::~Obstacle()
 {
 }
 
@@ -14,3 +18,12 @@ void Obstacle::afficher(QPainter *painter, int x, int y, int w, int h){
 
 }
 
+Obstacle::Obstacle(QList<Element *> *sens, int position){
+    this->sens = sens;
+    this->position = position;
+
+    sleep(10);
+    qDebug()<<"bla";
+    this->sens->replace(position, new Element());;
+    delete(this);
+}

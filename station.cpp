@@ -104,9 +104,24 @@ void Station::afficher(QPainter * painter, int x, int y, int wElement, int hElem
         font.setPixelSize(16);
         painter->setFont(font);
         painter->drawText(0, 0, this->nom);
+
+        font.setPixelSize(10);
+
+        painter->setFont(font);
+        painter->drawText(0, 10,QString::number(this->listePassager.size()));
         painter->rotate(+45);
         painter->translate(-x, -(y-(2*hElement)));
-    }
+    }else{
+
+    QFont font2(QString("Helvetica"));
+    font2.setBold(true);
+    font2.setPixelSize(10);
+    QString nb();
+
+    painter->setFont(font2);
+    painter->drawText(x-wElement+1, y+hElement-2,QString::number(this->listePassager.size()));
+}
+
 }
 
 QString Station::getNom(){

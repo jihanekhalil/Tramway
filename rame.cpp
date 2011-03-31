@@ -53,6 +53,13 @@ void Rame::afficher(QPainter * painter, int x, int y, int wElement,int hElement 
 
     painter->fillRect(x-wElement, y, wElement,hElement,QBrush(QColor(255,255,255)));
     int xPorteOrigine=x-wElement;
+    QFont font(QString("Helvetica"));
+    font.setBold(true);
+    font.setPixelSize(10);
+    QString nb();
+
+    painter->setFont(font);
+    painter->drawText(x-wElement+1, y+hElement-2,QString::number(getNbPassager()));
     int wPorte = wElement/this->nbPortes;
     for(int i= 0; i<this->nbPortes ; i++)
     {
@@ -114,7 +121,7 @@ void Rame::avancer(){
              suivant = this->ligne->getElementAt(this->position-1,aller );
             if(suivant->getClasse() == "Obstacle")
             {
-                qDebug()<<"Rame "<< this->numRame <<" \t Obstacle détecté";
+                qDebug()<< "Rame "<< this->numRame <<" \t Obstacle détecté";
             }
             else if(this->sens==Rame::Aller){
                 this->position++;
