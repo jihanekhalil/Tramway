@@ -61,7 +61,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
    font.setPixelSize(35);
    painter.setPen(QColor(255,255,255));
    painter.setFont(font);
-   painter.drawText(5, 46, "T1");
+   painter.drawText(5, 40, "T1");
    painter.setPen(QColor(0,0,0));
    this->ligne->afficher(&painter, this->width(), this->height());
 
