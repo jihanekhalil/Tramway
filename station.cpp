@@ -61,6 +61,7 @@ void Station::createSignal()
 
                     sleep(5);
                     this->passerVert();
+                    this->setPassagers();
                     s->emetteur()->addSignal(new Signals(this,Signals::Passe));
                 }
             }
@@ -130,11 +131,18 @@ Ligne * Station::getLigne(){
 }
 
 void Station::setPassagers(){
-    for(int i=0; i<INITNBPERSPARSTATION; i++){
+    int nbPassager = rand()%(NBMAXPASSAGERSTATION + 1);
+    if((nbPassager + this->listePassager.size()) > NBMAXPASSAGERSTATION){
+        nbPassager = NBMAXPASSAGERSTATION;
+    }
+    for(int i=0; i < nbPassager; i++){
+        //Indice aleatoire de la station destination
         int indice = rand()%(this->maligne->getStations()->size());
+        //Verifie si station destion != station en cours
         while(this->maligne->getStations()->at(indice)->getNom() == this->nom){
             indice = rand()%(this->maligne->getStations()->size());
         }
+        //Ajout du passager à la station
         this->listePassager.push_back(new Passager (this->maligne->getStations()->at(indice)));
     }
 }
