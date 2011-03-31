@@ -244,7 +244,7 @@ void Ligne::afficher(QPainter * painter, int w, int h){
     int hElement= 12;
 
     // retour
-    painter->fillRect(QRectF(QPointF(xOrigine,yOrigine), QPointF(xOrigine+(this->longueur*wElement),yOrigine+hElement)), QBrush(QColor(115,115,115)));
+    painter->fillRect(QRectF(QPointF(xOrigine-wElement,yOrigine), QPointF(xOrigine+(this->longueur*wElement)-wElement,yOrigine+hElement)), QBrush(QColor(115,115,115)));
 
 
     int i = 0;
@@ -284,7 +284,7 @@ void Ligne::afficher(QPainter * painter, int w, int h){
         if(r->sens==Rame::Aller)
             r->afficher(painter, xOrigine + wElement*r->getPosition(), yOrigine, wElement, hElement );
         else
-            r->afficher(painter, xOrigine + (wElement *r->getPosition())+wElement, yOrigine-hElement, wElement, hElement );
+            r->afficher(painter, xOrigine-wElement + (wElement *r->getPosition())+wElement, yOrigine-hElement, wElement, hElement );
 
     }
 
