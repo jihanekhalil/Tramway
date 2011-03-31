@@ -3,6 +3,7 @@
 #include <QObject>
 class Ligne;
 class Porte;
+class Passager;
 #include "ligne.h"
 #include "gestionsignal.h"
 #include <QPainter>
@@ -61,6 +62,12 @@ public:
      */
     Sens sens;
 
+    int getNbPassager();
+
+    void monte(QList <Passager *> plistepassager);
+
+    QList <Passager *> descend(Station * pstation);
+
 private:
     /*
      * Nombre de portes ouvertes (utile en station)
@@ -111,6 +118,8 @@ private:
      * Signals::PorteFermee : Decremente le nbPortesOuvertes. Une fois à 0 la rame repart et envoie Signal::EstPasse
      */
     void createSignal();
+
+    QList <Passager *> listePassager;
 };
 
 #endif // RAME_H

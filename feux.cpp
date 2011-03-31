@@ -64,7 +64,7 @@ void Feux::createSignal()
         {
             case Signals::Demande:
             {
-                if(this->suivant== NULL)
+                if(this->suivant == NULL)
                     qDebug("feu suivnat null");
                 if(!this->estVert())
                 {

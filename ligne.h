@@ -1,6 +1,7 @@
 #ifndef LIGNE_H
 #define LIGNE_H
 class Rame;
+class Station;
 #include <QList>
 #include <iostream>
 #include "element.h"
@@ -66,6 +67,8 @@ public:
 
     QList<Element *> * getListeElement();
 
+    QList <Station *> * getStations();
+
 private:
     /*
      * Liste d'element constituants l'aller
@@ -88,6 +91,8 @@ private:
     int longueur;
 
     QList<Element *> listeElement;
+
+    QList<Station *> listeStation;
 };
 
 #endif // LIGNE_H
