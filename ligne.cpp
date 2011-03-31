@@ -309,8 +309,8 @@ QList<Element *> * Ligne::getListeElement()
 
 
 void Ligne::ajouterObstacle(){
-    Obstacle * o = new Obstacle();
     int position = rand()%this->longueur;
+    Obstacle * o = new Obstacle(&this->aller, position);
      //while()
     this->aller[position] = o;
 

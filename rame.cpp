@@ -114,7 +114,7 @@ void Rame::avancer(){
              suivant = this->ligne->getElementAt(this->position-1,aller );
             if(suivant->getClasse() == "Obstacle")
             {
-                qDebug()<<"Rame "<< this->numRame <<" \t Obstacle détecté";
+                qDebug()<< "Rame "<< this->numRame <<" \t Obstacle détecté";
             }
             else if(this->sens==Rame::Aller){
                 this->position++;
