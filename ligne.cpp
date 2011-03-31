@@ -242,7 +242,7 @@ void Ligne::afficher(QPainter * painter, int w, int h){
     int hElement= 12;
 
     // retour
-    painter->fillRect(QRectF(QPointF(xOrigine,yOrigine), QPointF(xOrigine+(this->longueur*wElement),yOrigine+hElement)), QBrush(QColor(0,0, 0)));
+    painter->fillRect(QRectF(QPointF(xOrigine,yOrigine), QPointF(xOrigine+(this->longueur*wElement),yOrigine+hElement)), QBrush(QColor(115,115,115)));
 
 
     int i = 0;
@@ -251,15 +251,15 @@ void Ligne::afficher(QPainter * painter, int w, int h){
             dynamic_cast<Station *>(e)->afficher(painter, xOrigine + (i * wElement) , yOrigine, wElement, hElement,true);
         }
         else
-            e->afficher(painter, xOrigine + (i * wElement) , yOrigine, wElement, hElement);
+            e->afficher(painter, xOrigine + (i * wElement) , yOrigine-(2*hElement), wElement, hElement);
         i++;
 
     }
 
-    yOrigine*=1.3;
+    yOrigine+=wElement;
    // xOrigine+=wElement;
     // aller
-    painter->fillRect(QRectF(QPointF(xOrigine,yOrigine), QPointF(xOrigine+(this->longueur*wElement),yOrigine+hElement)), QBrush(QColor(0,0, 0)));
+    painter->fillRect(QRectF(QPointF(xOrigine,yOrigine), QPointF(xOrigine+(this->longueur*wElement),yOrigine+hElement)), QBrush(QColor(115,115,115)));
 
     i = 0;
     foreach(Element * e, aller){
@@ -270,7 +270,7 @@ void Ligne::afficher(QPainter * painter, int w, int h){
             e->afficher(painter, xOrigine + (i * wElement) , yOrigine, wElement, hElement);
         }
         else
-            e->afficher(painter, xOrigine + (i * wElement) , yOrigine-(2*hElement), wElement, hElement);
+            e->afficher(painter, xOrigine + (i * wElement) , yOrigine, wElement, hElement);
         i++;
 
     }
@@ -282,7 +282,7 @@ void Ligne::afficher(QPainter * painter, int w, int h){
         if(r->sens==Rame::Aller)
             r->afficher(painter, xOrigine + wElement*r->getPosition(), yOrigine, wElement, hElement );
         else
-            r->afficher(painter, xOrigine + (wElement *r->getPosition())+wElement, yOrigine/1.3, wElement, hElement );
+            r->afficher(painter, xOrigine + (wElement *r->getPosition())+wElement, yOrigine-hElement, wElement, hElement );
 
     }
 
