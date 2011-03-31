@@ -212,3 +212,30 @@ void Rame::setPosition(int i){
 int Rame::getNumRame(){
     return this->numRame;
 }
+
+int Rame::getNbPassager(){
+    return this->listePassager.size();
+}
+
+void Rame::monte(QList<Passager *> plistepassager){
+    for(int i = 0; i < plistepassager.size(); i++){
+        this->listePassager.push_back(plistepassager.at(i));
+    }
+}
+
+QList <Passager *> Rame::descend(Station * pstation){
+    QList <Passager *> listedescend;
+    QList <int> listeadel;
+    for(int i = 0; i < this->listePassager.size(); i++){
+        if(this->listePassager.at(i)->getStationDest()->getNom() == pstation->getNom()){
+            listeadel.push_back(i);
+            listedescend.push_back(this->listePassager.at(i));
+        }
+    }
+
+    for(int i = 0; i < listeadel.size(); i++){
+        this->listePassager.removeAt(listeadel.at(i));
+    }
+
+    return listedescend;
+}
