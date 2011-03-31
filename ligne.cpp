@@ -191,7 +191,7 @@ void Ligne::afficher(QPainter * painter, int w, int h){
 
     // coordonnes d'origine du trait
     int xOrigine = 0.02 * w;
-    int yOrigine = 0.5 * h;
+    int yOrigine = 200;
 
     //taille dun element.
     int wElement= (w- (xOrigine *2) )/this->longueur;
@@ -266,7 +266,7 @@ void Ligne::updateListPS(){
     bool last=true;
     PointSynchronisation * suivant;
     for(int i=this->aller.size()-1; i>=0;i--){
-        Element * e = this->retour.at(i);
+        Element * e = this->aller.at(i);
         if(e->getClasse()=="Feu" || e->getClasse()=="Station"){
             PointSynchronisation * ps = dynamic_cast<PointSynchronisation *>(e);
             if(last){

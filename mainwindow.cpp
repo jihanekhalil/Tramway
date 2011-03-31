@@ -27,7 +27,7 @@ qDebug() << "test 01";
     this->ligne->ajouterRame(r1);
 
 
-
+    this->setWindowState(Qt::WindowMaximized);
 
 
     // creation du timer
