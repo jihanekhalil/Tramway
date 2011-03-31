@@ -198,7 +198,9 @@ Ligne::Ligne(int longueur)
     this->updateListPSsuivant();
     this->updateListPSprecedent();    
 
-   // qDebug()<<"teeeeeest " <<sr1->getSuivant()->getNum();
+    for(int i = 0; i < this->listeStation.size(); i++){
+           this->listeStation.at(i)->setPassagers();
+       }
 
 }
 

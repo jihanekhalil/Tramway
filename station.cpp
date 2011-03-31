@@ -60,8 +60,7 @@ void Station::createSignal()
                     qDebug() << "--------------------------" << listePassagerMonte.size() << " passager monte dans la rame";
 
                     sleep(5);
-                    this->passerVert();
-                    this->setPassagers();
+                    this->passerVert();                    
                     s->emetteur()->addSignal(new Signals(this,Signals::Passe));
                 }
             }
@@ -72,7 +71,9 @@ void Station::createSignal()
                 this->passerRouge();
                 if(this->getPrecedent() != NULL)
                     this->getPrecedent()->passerVert();
-                this->derniereRame = s->emetteur();                
+                this->derniereRame = s->emetteur();
+                sleep(3);
+                this->setPassagers();
             }
             break;
         }
