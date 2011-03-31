@@ -63,32 +63,37 @@ Ligne::Ligne(int longueur)
 
     //  STATIONS
 
-    Station* e19 = new Station(QString("Borderouge"),Station::Terminus);
+    Station* e19 = new Station(QString("Borderouge"),Station::Terminus, this);
     e19->start();
     e19->passerRouge();
     this->aller[10] = e19;
+    this->listeStation.push_back(e19);
 
-    Station* e110 = new Station(QString("Compans"),Station::Intermediaire);
+    Station* e110 = new Station(QString("Compans"),Station::Intermediaire, this);
     e110->start();
     e110->passerRouge();
     this->aller[30] = e110;
+    this->listeStation.push_back(e110);
 
 
-    Station* e111 = new Station(QString("Jeanne d Arc"),Station::Intermediaire);
+    Station* e111 = new Station(QString("Jeanne d Arc"),Station::Intermediaire, this);
     e111->start();
     e111->passerRouge();
     this->aller[50] = e111;
+    this->listeStation.push_back(e111);
 
 
-    Station* e112 = new Station(QString("Carmes"),Station::Intermediaire);
+    Station* e112 = new Station(QString("Carmes"),Station::Intermediaire, this);
     e112->start();
     e112->passerRouge();
     this->aller[70] = e112;
+    this->listeStation.push_back(e112);
 
-    Station* e113 = new Station(QString("Ramonville"),Station::Terminus);
+    Station* e113 = new Station(QString("Ramonville"),Station::Terminus, this);
     e113->start();
     e113->passerRouge();
     this->aller[95] = e113;
+    this->listeStation.push_back(e113);
 
 
     //RETOUR
@@ -121,32 +126,37 @@ Ligne::Ligne(int longueur)
 
     //  STATIONS
 
-    Station* e29 = new Station(QString("Borderouge"),Station::Terminus);
+    Station* e29 = new Station(QString("Borderouge"),Station::Terminus, this);
     e29->start();
     e29->passerRouge();
     this->retour[10] = e29;
+    this->listeStation.push_back(e29);
 
-    Station* e210 = new Station(QString("Compans"),Station::Intermediaire);
+    Station* e210 = new Station(QString("Compans"),Station::Intermediaire, this);
     e210->start();
     e210->passerRouge();
     this->retour[30] = e210;
+    this->listeStation.push_back(e210);
 
 
-    Station* e211 = new Station(QString("Jeanne d Arc"),Station::Intermediaire);
+    Station* e211 = new Station(QString("Jeanne d Arc"),Station::Intermediaire, this);
     e211->start();
     e211->passerRouge();
     this->retour[50] = e211;
+    this->listeStation.push_back(e211);
 
 
-    Station* e212 = new Station(QString("Carmes"),Station::Intermediaire);
+    Station* e212 = new Station(QString("Carmes"),Station::Intermediaire, this);
     e212->start();
     e212->passerRouge();
     this->retour[70] = e212;
+    this->listeStation.push_back(e212);
 
-    Station* e213 = new Station(QString("Ramonville"),Station::Terminus);
+    Station* e213 = new Station(QString("Ramonville"),Station::Terminus, this);
     e213->start();
     e213->passerRouge();
     this->retour[95] = e213;
+    this->listeStation.push_back(e213);
 
 
 
@@ -162,6 +172,9 @@ Ligne::Ligne(int longueur)
 
     this->updateListPS();
 
+    for(int i = 0; i < this->listeStation.size(); i++){
+        this->listeStation.at(i)->setPassagers();
+    }
    // qDebug()<<"teeeeeest " <<e29->getSuivant()->getNum();
 }
 
@@ -275,7 +288,7 @@ void Ligne::updateListPS(){
                 qDebug()<< ps->getClasse() << " "<< ps->getNum() << "\tsuivant : NULL" ;
             }else{
                 ps->setSuivant(suivant);
-               }
+            }
             suivant = ps;
         }
     }
@@ -301,4 +314,8 @@ void Ligne::updateListPS(){
 QList<Element *> * Ligne::getListeElement()
 {
     return &this->listeElement;
+}
+
+QList <Station *> * Ligne::getStations(){
+    return &this->listeStation;
 }
