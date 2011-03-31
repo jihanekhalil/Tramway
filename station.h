@@ -4,8 +4,10 @@
 #include <iostream>
 #include <QPainter>
 #include <QString>
-using namespace std;
+#include "params.h"
+#include "passager.h"
 
+using namespace std;
 
 class Station : public PointSynchronisation{
 public:
@@ -22,12 +24,13 @@ public:
      */
     static int nombreStations;
     Station();
-    Station(QString,Station::Type);
+    Station(QString,Station::Type, Ligne * pligne);
 
     void afficher(QPainter * painter, int x, int y, int, int, bool);
     virtual QString getClasse(){ return QString("Station");}
     void run();
     QString getNom();
+    Ligne * getLigne();
 
     /*
      * Gestion des signaux recus:
@@ -36,9 +39,12 @@ public:
      */
     void createSignal();
 
+    void setPassagers();
+
 private:
     Type typeStation;
-
+    QList <Passager *> listePassager;
+    Ligne * maligne;
     QString nom;
 };
 
