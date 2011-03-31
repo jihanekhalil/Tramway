@@ -34,7 +34,7 @@ qDebug() << "test 01";
     timer = new QTimer(this);
     timer->setSingleShot(false);
     connect(timer, SIGNAL(timeout()), this, SLOT(loadTime()));
-   timer->start(1500);
+   timer->start(500);
 
 
 
@@ -54,6 +54,15 @@ void MainWindow::paintEvent(QPaintEvent *event)
 {
 
    QPainter painter(this);
+   painter.fillRect(55,0  ,this->width(), 55, QBrush(QColor(255,204,0)));
+   painter.fillRect( 0,0  ,50, 55, QBrush(QColor(0,55,166)));
+   QFont font(QString("Helvetica"));
+   font.setBold(true);
+   font.setPixelSize(35);
+   painter.setPen(QColor(255,255,255));
+   painter.setFont(font);
+   painter.drawText(5, 46, "T1");
+   painter.setPen(QColor(0,0,0));
    this->ligne->afficher(&painter, this->width(), this->height());
 
 

@@ -161,6 +161,8 @@ Ligne::Ligne(int longueur)
     this->listeElement.append(e29);
 
     this->updateListPS();
+
+   // qDebug()<<"teeeeeest " <<e29->getSuivant()->getNum();
 }
 
 Element * Ligne::getElementAt(int i, bool aller)
@@ -260,7 +262,7 @@ int Ligne::getNbRames(){
 }
 
 void Ligne::updateListPS(){
-    //qDebug() << "updateListPS $$$$$";
+    qDebug() << "updateListPS $$$$$";
     bool last=true;
     PointSynchronisation * suivant;
     for(int i=this->aller.size()-1; i>=0;i--){
@@ -270,22 +272,22 @@ void Ligne::updateListPS(){
             if(last){
                 ps->setSuivant(NULL);
                 last=false;
-                //qDebug()<< ps->getClasse() << " "<< ps->getNum() << "\tsuivant : NULL" ;
+                qDebug()<< ps->getClasse() << " "<< ps->getNum() << "\tsuivant : NULL" ;
             }else{
                 ps->setSuivant(suivant);
-                //qDebug()<< ps->getClasse() << " "<< ps->getNum() << "\tsuivant :"<< suivant->getClasse()<<" "<<suivant->getNum() ;
-            }
+               }
             suivant = ps;
         }
     }
-    for(int i=this->retour.size()-1; i>=0;i--){
+    last = true;
+    for(int i=0; i<this->longueur;i++){
         Element * e = this->retour.at(i);
         if(e->getClasse()=="Feu" || e->getClasse()=="Station"){
             PointSynchronisation * ps = dynamic_cast<PointSynchronisation *>(e);
             if(last){
                 ps->setSuivant(NULL);
                 last=false;
-                //qDebug()<< ps->getClasse() << " "<< ps->getNum() << "\tsuivant : NULL" ;
+                qDebug()<< ps->getClasse() << " "<< ps->getNum() << "\tsuivant : NULL" ;
             }else{
                 ps->setSuivant(suivant);
                 //qDebug()<< ps->getClasse() << " "<< ps->getNum() << "\tsuivant :"<< suivant->getClasse()<<" "<<suivant->getNum() ;
@@ -293,7 +295,7 @@ void Ligne::updateListPS(){
             suivant = ps;
         }
     }
-     //qDebug() << "FIN updateListPS $$$$$";
+    qDebug() << "FIN updateListPS $$$$$";
 }
 
 QList<Element *> * Ligne::getListeElement()

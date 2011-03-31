@@ -64,9 +64,13 @@ void Feux::createSignal()
         {
             case Signals::Demande:
             {
+                if(this->suivant== NULL)
+                    qDebug("feu suivnat null");
                 if(!this->estVert())
                 {
+                    qDebug()<< this->suivant->getClasse();
                     if(this->suivant!= NULL){
+                        qDebug()<<this->suivant->getDerniereRame()<<"-"<<this->derniereRame;
                         if(this->suivant->getDerniereRame()!=this->derniereRame){
 
                             qDebug() << "Feu "<< this->numPS << "\t rouge.";

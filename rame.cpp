@@ -134,12 +134,12 @@ void Rame::createSignal(){
                         {
                             if(this->sens==Rame::Aller)
                             {
-                                qDebug() << "Rame "<< this->numRame <<" \t > ouverture porte gauche "<<this->portesGauche.at(i)->getNumPorte();
                                 this->portesGauche.at(i)->addSignal(new Signals(this, Signals::OuvrirPorte));
+                                qDebug() << "Rame "<< this->numRame <<" \t > ouverture porte gauche "<<this->portesGauche.at(i)->getNumPorte();
                             }else{
-                                 qDebug() << "Rame "<< this->numRame <<" \t > ouverture porte droite "<<this->portesDroite.at(i)->getNumPorte();
                                 this->portesDroite.at(i)->addSignal(new Signals(this, Signals::OuvrirPorte));
-                            }
+                                qDebug() << "Rame "<< this->numRame <<" \t > ouverture porte droite "<<this->portesDroite.at(i)->getNumPorte();
+                               }
 
                         }
                     this->nbPortesOuvertes= this->nbPortes;
@@ -154,15 +154,12 @@ void Rame::createSignal(){
                         for(int i= 0; i<this->nbPortes ; i++)
                         {
                             if(this->sens==Rame::Aller){
-                                qDebug() << "Rame "<< this->numRame <<" \t passe recu";
                                 this->portesGauche.at(i)->addSignal(new Signals(this, Signals::FermerPorte));
-
                             }
                             else
                                 this->portesDroite.at(i)->addSignal(new Signals(this, Signals::FermerPorte));
                         }
                     }
-                    pthread_mutex_unlock(&mutex);
                 }
                 else{
                     qDebug() << "Rame "<< this->numRame <<" \t > envoi Signals::EstPasse a "<< s->emetteur()->getClasse();
@@ -172,9 +169,9 @@ void Rame::createSignal(){
                     }else{
                         this->position--;
                     }
-                    pthread_mutex_unlock(&mutex);
 
                 }
+                pthread_mutex_unlock(&mutex);
            }
            break;
             case Signals::PorteFermee:
@@ -195,12 +192,11 @@ void Rame::createSignal(){
                     }else{
                         this->position--;
                     }
-
                     this->ligne->getElementAt(postmp,aller)->addSignal(new Signals(this, Signals::EstPasse));
 
 
-                    pthread_mutex_unlock(&mutex);
                 }
+                pthread_mutex_unlock(&mutex);
            }
            break;
         }
