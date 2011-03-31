@@ -35,7 +35,7 @@ public:
     /*
      * Affichage
      */
-    void afficher(QPainter * painter, int x, int y, int wPorte,int hElement );
+    void afficher(QPainter * painter, int x, int y, int wPorte, int hElement);
 
     /*
      * Demande l'ouverture de la porte avant ou à l'arrivée a une station
@@ -45,12 +45,16 @@ public:
     /*
      * Retourne le nom de la classe
      */
-    virtual QString getClasse(){ return QString("Porte");}
+    virtual QString getClasse() {
+        return QString("Porte");
+    }
 
     /*
      * Retourne l'identificateur de porte
      */
-    int getNumPorte(){ return numPorte;}
+    int getNumPorte() {
+        return numPorte;
+    }
 
     /*
      * Gestion des signaux:

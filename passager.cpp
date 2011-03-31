@@ -10,7 +10,8 @@ Passager::Passager(Station * pstatitionDest)
     this->stationDest = pstatitionDest;
 }
 
-Station * Passager::getStationDest(){
+Station * Passager::getStationDest()
+{
     return this->stationDest;
 }
 

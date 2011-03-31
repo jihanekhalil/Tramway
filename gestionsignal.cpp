@@ -9,17 +9,16 @@ GestionSignal::GestionSignal()
     this->signalsAction.sa_sigaction = GestionSignal::staticCreateSignals;
 
     //test creation thread --> à enlever
-    if(sigaction(SIGUSR1, &this->signalsAction, NULL))
-    {
+    if (sigaction(SIGUSR1, &this->signalsAction, NULL)) {
         qDebug() << "creation Thread impossible";
     }
 
-   // qDebug() << "creation Thread OK";
+    // qDebug() << "creation Thread OK";
 }
 
 GestionSignal::~GestionSignal()
 {
-    for(int i=0;i<this->listSignals.size(); i++)
+    for (int i = 0; i < this->listSignals.size(); i++)
         delete this->listSignals.at(i);
 }
 
@@ -27,19 +26,19 @@ Thread * getThread(pthread_t pthread);
 
 void GestionSignal::addSignal(Signals * s)
 {
-   // qDebug() << "test 01"<< this->getClasse();
+    // qDebug() << "test 01"<< this->getClasse();
     pthread_mutex_lock(&mutex);
     this->listSignals << s;
-   // qDebug() << "liste signal : " << listSignals.size();
+    // qDebug() << "liste signal : " << listSignals.size();
     pthread_mutex_unlock(&mutex);
-   // qDebug() << "id thread " << this->id();
+    // qDebug() << "id thread " << this->id();
     int t = pthread_kill(this->id(), SIGUSR1);
-    if( t<0 ) qDebug() << "Erreur Kill : " << t;
+    if (t < 0) qDebug() << "Erreur Kill : " << t;
 }
 
 void GestionSignal::deleteSignal()
 {
-    if(!this->listSignals.isEmpty())
+    if (!this->listSignals.isEmpty())
         this->listSignals.removeFirst();
 }
 

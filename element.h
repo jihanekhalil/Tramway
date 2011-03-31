@@ -10,7 +10,7 @@ class Element : public GestionSignal
 public:
     Element();
     virtual void afficher(QPainter * painter, int x, int y, int, int);
-    virtual void createSignal(){}
+    virtual void createSignal() {}
 };
 
 #endif // ELEMENT_H

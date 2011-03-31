@@ -38,7 +38,8 @@ Thread * getThread(pthread_t pthread)
     return thread;
 }
 
-void *start_thread(void * param){
+void *start_thread(void * param)
+{
     Thread * t = static_cast<Thread*>(param);
     createThread(pthread_self(), t);
     t->etatThread = true;
@@ -54,10 +55,11 @@ void Thread::start()
     if(this->getEtatThread())
         qDebug() << "Thread " << this->thread << " | Erreur deja lance";
     //test la création du thread
-    else*/ if(pthread_create(&this->thread, &this->attr, start_thread, static_cast<void *>(this)) != 0)
+    else*/
+    if (pthread_create(&this->thread, &this->attr, start_thread, static_cast<void *>(this)) != 0)
         qDebug() << "Thread " << this->thread << " | Erreur lors de la creation";
     else
-        qDebug() << "Thread " << this->thread << "(" <<this->getClasse() << " ) lance avec succes";
+        qDebug() << "Thread " << this->thread << "(" << this->getClasse() << " ) lance avec succes";
 
 }
 
@@ -71,7 +73,7 @@ void Thread::join()
 
 void Thread::stop()
 {
-    if(pthread_cancel(this->thread) != 0)
+    if (pthread_cancel(this->thread) != 0)
         qDebug() << "Thread " << this->thread << " | Erreur Stop";
     else
         this->etatThread = false;

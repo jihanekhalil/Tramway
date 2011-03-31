@@ -5,7 +5,8 @@
 #include "thread.h"
 #include "ligne.h"
 using namespace std;
-class Feux : public PointSynchronisation{
+class Feux : public PointSynchronisation
+{
 
 public:
     Feux();
@@ -31,7 +32,9 @@ public:
     /*
      * Retourne le nom de la classe
      */
-    virtual QString getClasse(){ return QString("Feu");}
+    virtual QString getClasse() {
+        return QString("Feu");
+    }
 
     /*
      * Gestion des signaux.

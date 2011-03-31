@@ -11,24 +11,24 @@ Ligne::Ligne()
 
 Ligne::~Ligne()
 {
-    for(int i=0; i<this->aller.size(); i++)
+    for (int i = 0; i < this->aller.size(); i++)
         delete this->aller.at(i);
-    for(int i=0; i<this->retour.size(); i++)
+    for (int i = 0; i < this->retour.size(); i++)
         delete this->retour.at(i);
-    for(int i=0; i<this->rames.size(); i++)
+    for (int i = 0; i < this->rames.size(); i++)
         delete this->rames.at(i);
-    for(int i=0; i<this->listeElement.size(); i++)
+    for (int i = 0; i < this->listeElement.size(); i++)
         delete this->listeElement.at(i);
 }
 
 Ligne::Ligne(int longueur)
 {
-    this->longueur=longueur;
+    this->longueur = longueur;
 
-    for(int i=0; i<longueur;i++)
+    for (int i = 0; i < longueur; i++)
         this->aller.push_back(new Element());
 
-    for(int i=0; i<longueur;i++)
+    for (int i = 0; i < longueur; i++)
         this->retour.push_back(new Element());
 
 
@@ -65,32 +65,32 @@ Ligne::Ligne(int longueur)
 
 
     //  STATIONS
-    Station* s1 = new Station(QString("Borderouge"),Station::Terminus,this);
+    Station* s1 = new Station(QString("Borderouge"), Station::Intermediaire, this);
     s1->start();
     s1->passerRouge();
     this->aller[10] = s1;
     this->listeStation.push_back(s1);
 
-    Station* s2 = new Station(QString("Compans"),Station::Intermediaire,this);
+    Station* s2 = new Station(QString("Compans"), Station::Intermediaire, this);
     s2->start();
     s2->passerRouge();
     this->aller[30] = s2;
     this->listeStation.push_back(s2);
 
 
-    Station* s3 = new Station(QString("Jeanne d Arc"),Station::Intermediaire,this);
+    Station* s3 = new Station(QString("Jeanne d Arc"), Station::Intermediaire, this);
     s3->start();
     s3->passerRouge();
     this->aller[50] = s3;
     this->listeStation.push_back(s3);
 
-    Station* s4 = new Station(QString("Carmes"),Station::Intermediaire,this);
+    Station* s4 = new Station(QString("Carmes"), Station::Intermediaire, this);
     s4->start();
     s4->passerRouge();
     this->aller[70] = s4;
     this->listeStation.push_back(s4);
 
-    Station* s5 = new Station(QString("Ramonville"),Station::Terminus,this);
+    Station* s5 = new Station(QString("Ramonville"), Station::Terminus, this);
     s5->start();
     s5->passerRouge();
     this->aller[95] = s5;
@@ -128,31 +128,31 @@ Ligne::Ligne(int longueur)
     //  STATIONS
 
 
-    Station* sr1 = new Station(QString("Borderouge"),Station::Terminus,this);
+    Station* sr1 = new Station(QString("Borderouge"), Station::Terminus, this);
     sr1->start();
     sr1->passerRouge();
     this->retour[10] = sr1;
     this->listeStation.push_back(sr1);
 
-    Station* sr2 = new Station(QString("Compans"),Station::Intermediaire,this);
+    Station* sr2 = new Station(QString("Compans"), Station::Intermediaire, this);
     sr2->start();
     sr2->passerRouge();
     this->retour[30] = sr2;
     this->listeStation.push_back(sr2);
 
-    Station* sr3 = new Station(QString("Jeanne d Arc"),Station::Intermediaire,this);
+    Station* sr3 = new Station(QString("Jeanne d Arc"), Station::Intermediaire, this);
     sr3->start();
     sr3->passerRouge();
     this->retour[50] = sr3;
     this->listeStation.push_back(sr3);
 
-    Station* sr4 = new Station(QString("Carmes"),Station::Intermediaire,this);
+    Station* sr4 = new Station(QString("Carmes"), Station::Intermediaire, this);
     sr4->start();
     sr4->passerRouge();
     this->retour[70] = sr4;
     this->listeStation.push_back(sr4);
 
-    Station* sr5 = new Station(QString("Ramonville"),Station::Terminus,this);
+    Station* sr5 = new Station(QString("Ramonville"), Station::Intermediaire, this);
     sr5->start();
     sr5->passerRouge();
     this->retour[95] = sr5;
@@ -196,18 +196,18 @@ Ligne::Ligne(int longueur)
     this->listeElement.append(sr5);
 
     this->updateListPSsuivant();
-    this->updateListPSprecedent();    
+    this->updateListPSprecedent();
 
-    for(int i = 0; i < this->listeStation.size(); i++){
-           this->listeStation.at(i)->setPassagers();
-       }
+    for (int i = 0; i < this->listeStation.size(); i++) {
+        this->listeStation.at(i)->setPassagers();
+    }
 
 }
 
 Element * Ligne::getElementAt(int i, bool aller)
 {
-    qDebug()<<"getElementAt"<< i << " - "<< aller;
-    if(aller==true)
+    qDebug() << "getElementAt" << i << " - " << aller;
+    if (aller == true)
         return this->aller.at(i);
     else
         return this->retour.at(i);
@@ -217,127 +217,129 @@ Element * Ligne::ElementExists(int i)
 {
     Element * e;
     Feux * f;
-    for(int j=0; j<VISION; j++)
-    {
-         //e = this->ligne[i+j];
-         f = dynamic_cast<Feux *>(e);
+    for (int j = 0; j < VISION; j++) {
+        //e = this->ligne[i+j];
+        f = dynamic_cast<Feux *>(e);
 
         qDebug() << "test : " << f->getClasse();
     }
 }
 
-void Ligne::afficher(QPainter * painter, int w, int h){
+void Ligne::afficher(QPainter * painter, int w, int h)
+{
 
     QFont font(QString("Helvetica"));
     font.setBold(true);
     font.setPixelSize(35);
     painter->setFont(font);
 
-    painter->setPen(QColor(0,55,166));
-    painter->drawText(70, 40, this->listeStation.first()->getNom()+" / "+this->listeStation.last()->getNom());
+    painter->setPen(QColor(0, 55, 166));
+    painter->drawText(70, 40, this->listeStation.first()->getNom() + " / " + this->listeStation.last()->getNom());
     // coordonnes d'origine du trait
     int xOrigine = 0.02 * w;
     int yOrigine = 200;
 
     //taille dun element.
-    int wElement= (w- (xOrigine *2) )/this->longueur;
-    int hElement= 12;
+    int wElement = (w - (xOrigine * 2)) / this->longueur;
+    int hElement = 12;
 
     // retour
-    painter->fillRect(QRectF(QPointF(xOrigine-wElement,yOrigine), QPointF(xOrigine+(this->longueur*wElement)-wElement,yOrigine+hElement)), QBrush(QColor(115,115,115)));
+    painter->fillRect(QRectF(QPointF(xOrigine - wElement, yOrigine), QPointF(xOrigine + (this->longueur*wElement) - wElement, yOrigine + hElement)), QBrush(QColor(115, 115, 115)));
 
 
     int i = 0;
-    foreach(Element * e, retour){
-        if(e->getClasse()=="Station"){
-            dynamic_cast<Station *>(e)->afficher(painter, xOrigine + (i * wElement) , yOrigine, wElement, hElement,true);
-        }
-        else
-            e->afficher(painter, xOrigine + (i * wElement) , yOrigine-(2*hElement), wElement, hElement);
+    foreach(Element * e, retour) {
+        if (e->getClasse() == "Station") {
+            dynamic_cast<Station *>(e)->afficher(painter, xOrigine + (i * wElement) , yOrigine, wElement, hElement, true);
+        } else
+            e->afficher(painter, xOrigine + (i * wElement) , yOrigine - (2*hElement), wElement, hElement);
         i++;
 
     }
 
-    yOrigine+=wElement;
-   // xOrigine+=wElement;
+    yOrigine += wElement;
+    // xOrigine+=wElement;
     // aller
-    painter->fillRect(QRectF(QPointF(xOrigine,yOrigine), QPointF(xOrigine+(this->longueur*wElement),yOrigine+hElement)), QBrush(QColor(115,115,115)));
+    painter->fillRect(QRectF(QPointF(xOrigine, yOrigine), QPointF(xOrigine + (this->longueur*wElement), yOrigine + hElement)), QBrush(QColor(115, 115, 115)));
 
     i = 0;
-    foreach(Element * e, aller){
-        if(e->getClasse()=="Station"){
-            dynamic_cast<Station *>(e)->afficher(painter, xOrigine + (i * wElement) , yOrigine+(2*hElement), wElement, hElement,false);
-        }
-        else if(e->getClasse()=="Obstacle"){
+    foreach(Element * e, aller) {
+        if (e->getClasse() == "Station") {
+            dynamic_cast<Station *>(e)->afficher(painter, xOrigine + (i * wElement) , yOrigine + (2*hElement), wElement, hElement, false);
+        } else if (e->getClasse() == "Obstacle") {
             e->afficher(painter, xOrigine + (i * wElement) , yOrigine, wElement, hElement);
-        }
-        else
+        } else
             e->afficher(painter, xOrigine + (i * wElement) , yOrigine, wElement, hElement);
         i++;
 
     }
 
 
-    for(int i=0; i<rames.size(); i++)
-    {
-        Rame * r=rames.at(i);
-        if(r->sens==Rame::Aller)
-            r->afficher(painter, xOrigine + wElement*r->getPosition(), yOrigine, wElement, hElement );
+    for (int i = 0; i < rames.size(); i++) {
+        Rame * r = rames.at(i);
+        if (r->sens == Rame::Aller)
+            r->afficher(painter, xOrigine + wElement*r->getPosition(), yOrigine, wElement, hElement);
         else
-            r->afficher(painter, xOrigine-wElement + (wElement *r->getPosition())+wElement, yOrigine-hElement, wElement, hElement );
+            r->afficher(painter, xOrigine - wElement + (wElement *r->getPosition()) + wElement, yOrigine - hElement, wElement, hElement);
 
     }
 
 }
 
 
-void Ligne::ajouterRame(Rame *rame){
+void Ligne::ajouterRame(Rame *rame)
+{
     this->rames.push_back(rame);
 }
 
-QList<Rame *> * Ligne::getRames(){
+QList<Rame *> * Ligne::getRames()
+{
     return &this->rames;
 }
 
-Rame * Ligne::getRameAt(int i){
+Rame * Ligne::getRameAt(int i)
+{
     return this->rames.at(i);
 }
 
-int Ligne::getLongueur(){
+int Ligne::getLongueur()
+{
     return this->longueur;
 }
-int Ligne::getNbRames(){
+int Ligne::getNbRames()
+{
     return this->rames.size();
 }
 
-void Ligne::updateListPSsuivant(){
+void Ligne::updateListPSsuivant()
+{
     qDebug() << "updateListPS $$$$$";
-    bool last=true;
+    bool last = true;
     PointSynchronisation * suivant;
-    for(int i=this->aller.size()-1; i>=0;i--){
+    for (int i = this->aller.size() - 1; i >= 0; i--) {
         Element * e = this->aller.at(i);
-        if(e->getClasse()=="Feu" || e->getClasse()=="Station"){
+        if (e->getClasse() == "Feu" || e->getClasse() == "Station") {
             PointSynchronisation * ps = dynamic_cast<PointSynchronisation *>(e);
-            if(last){
+            if (last) {
                 ps->setSuivant(NULL);
-                last=false;
-                qDebug()<< ps->getClasse() << " "<< ps->getNum() << "\tsuivant : NULL" ;
-            }else{
+                last = false;
+                qDebug() << ps->getClasse() << " " << ps->getNum() << "\tsuivant : NULL" ;
+            } else {
                 ps->setSuivant(suivant);
             }
             suivant = ps;
         }
     }
     last = true;
-    for(int i=0; i<this->retour.size();i++){
+    for (int i = 0; i < this->retour.size(); i++) {
         Element * e = this->retour.at(i);
-        if(e->getClasse()=="Feu" || e->getClasse()=="Station"){
+        if (e->getClasse() == "Feu" || e->getClasse() == "Station") {
             PointSynchronisation * ps = dynamic_cast<PointSynchronisation *>(e);
-            if(last){
+            if (last) {
                 ps->setSuivant(NULL);
-                last=false;
-                qDebug()<< ps->getClasse() << " "<< ps->getNum() << "\tsuivant : NULL" ;
-            }else{
+                last = false;
+                qDebug() << ps->getClasse() << " " << ps->getNum() << "\tsuivant : NULL" ;
+            } else {
                 ps->setSuivant(suivant);
                 //qDebug()<< ps->getClasse() << " "<< ps->getNum() << "\tsuivant :"<< suivant->getClasse()<<" "<<suivant->getNum() ;
             }
@@ -349,30 +351,30 @@ void Ligne::updateListPSsuivant(){
 
 void Ligne::updateListPSprecedent()
 {
-    bool last=true;
+    bool last = true;
     PointSynchronisation * precedent;
-    for(int i=0; i<this->longueur; i++){
+    for (int i = 0; i < this->longueur; i++) {
         Element * e = this->aller.at(i);
-        if(e->getClasse()=="Feu" || e->getClasse()=="Station"){
+        if (e->getClasse() == "Feu" || e->getClasse() == "Station") {
             PointSynchronisation * ps = dynamic_cast<PointSynchronisation *>(e);
-            if(last){
+            if (last) {
                 ps->setPrecedent(NULL);
-                last=false;
-            }else{
+                last = false;
+            } else {
                 ps->setPrecedent(precedent);
-               }
+            }
             precedent = ps;
         }
     }
     last = true;
-    for(int i=this->retour.size()-1; i>=0;i--){
+    for (int i = this->retour.size() - 1; i >= 0; i--) {
         Element * e = this->retour.at(i);
-        if(e->getClasse()=="Feu" || e->getClasse()=="Station"){
+        if (e->getClasse() == "Feu" || e->getClasse() == "Station") {
             PointSynchronisation * ps = dynamic_cast<PointSynchronisation *>(e);
-            if(last){
+            if (last) {
                 ps->setPrecedent(NULL);
-                last=false;
-            }else{
+                last = false;
+            } else {
                 ps->setPrecedent(precedent);
                 //qDebug()<< ps->getClasse() << " "<< ps->getNum() << "\tsuivant :"<< suivant->getClasse()<<" "<<suivant->getNum() ;
             }
@@ -387,14 +389,16 @@ QList<Element *> * Ligne::getListeElement()
 }
 
 
-QList <Station *> * Ligne::getStations(){
+QList <Station *> * Ligne::getStations()
+{
     return &this->listeStation;
 }
 
-void Ligne::ajouterObstacle(){
-    int position = rand()%this->longueur;
+void Ligne::ajouterObstacle()
+{
+    int position = rand() % this->longueur;
     Obstacle * o = new Obstacle(&this->aller, position);
-     //while()
+    //while()
     this->aller[position] = o;
 
 

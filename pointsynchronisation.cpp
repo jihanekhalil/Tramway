@@ -4,8 +4,8 @@
 
 PointSynchronisation::PointSynchronisation()
 {
-    this->vert=true;
-    this->suivant=NULL;
+    this->vert = true;
+    this->suivant = NULL;
 }
 
 PointSynchronisation::~PointSynchronisation()
@@ -14,36 +14,44 @@ PointSynchronisation::~PointSynchronisation()
     delete suivant;
 }
 
-void PointSynchronisation::afficher(QPainter * painter, int x, int y, int x1, int x2){
+void PointSynchronisation::afficher(QPainter * painter, int x, int y, int x1, int x2)
+{
 
 
 }
 
-void PointSynchronisation::passerVert(){
+void PointSynchronisation::passerVert()
+{
     qDebug() << this->getClasse() << " " << this->numPS << "\tpasse Vert.";
-    this->vert=true;
+    this->vert = true;
 }
 
-void PointSynchronisation::passerRouge(){
+void PointSynchronisation::passerRouge()
+{
     qDebug() << this->getClasse() << " " << this->numPS << "\tpasse Rouge.";
-    this->vert=false;
+    this->vert = false;
 }
-bool PointSynchronisation::estVert(){
-     return this->vert;
+bool PointSynchronisation::estVert()
+{
+    return this->vert;
 }
-int PointSynchronisation::getNum(){
+int PointSynchronisation::getNum()
+{
     return this->numPS;
 }
-GestionSignal * PointSynchronisation::getDerniereRame(){
+GestionSignal * PointSynchronisation::getDerniereRame()
+{
     return this->derniereRame;
 }
 
-PointSynchronisation * PointSynchronisation::getSuivant(){
+PointSynchronisation * PointSynchronisation::getSuivant()
+{
     return this->suivant;
 }
 
-void PointSynchronisation::setSuivant(PointSynchronisation *ps){
-    this->suivant=ps;
+void PointSynchronisation::setSuivant(PointSynchronisation *ps)
+{
+    this->suivant = ps;
 }
 
 PointSynchronisation * PointSynchronisation::getPrecedent()

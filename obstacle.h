@@ -10,7 +10,9 @@ public:
     ~Obstacle();
     Obstacle(QList<Element *> * sens, int position);
     void afficher(QPainter *painter, int x, int y, int, int);
-    QString getClasse(){return QString("Obstacle");}
+    QString getClasse() {
+        return QString("Obstacle");
+    }
 
 private:
     QList<Element *> * sens;

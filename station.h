@@ -9,13 +9,13 @@
 
 using namespace std;
 
-class Station : public PointSynchronisation{
+class Station : public PointSynchronisation
+{
 public:
     /*
      * Type de la station
      */
-    enum Type
-    {
+    enum Type {
         Terminus,
         Intermediaire
     };
@@ -24,10 +24,12 @@ public:
      */
     static int nombreStations;
     Station();
-    Station(QString,Station::Type, Ligne * pligne);
+    Station(QString, Station::Type, Ligne * pligne);
 
     void afficher(QPainter * painter, int x, int y, int, int, bool);
-    virtual QString getClasse(){ return QString("Station");}
+    virtual QString getClasse() {
+        return QString("Station");
+    }
     void run();
     QString getNom();
     Ligne * getLigne();
@@ -38,7 +40,7 @@ public:
      * Signals::EstPasse : indique que la rame est partie, remet le feu a rouge.
      */
     void createSignal();
-
+    bool estTerminus();
     void setPassagers();
 
 private:

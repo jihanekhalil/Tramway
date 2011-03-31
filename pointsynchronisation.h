@@ -10,74 +10,74 @@
 class PointSynchronisation: public Element
 {
 public:
-        PointSynchronisation();
-        ~PointSynchronisation();
+    PointSynchronisation();
+    ~PointSynchronisation();
 
-        /*
-         * Affichage
-         */
-        virtual void afficher(QPainter * painter, int x, int y, int , int);
+    /*
+     * Affichage
+     */
+    virtual void afficher(QPainter * painter, int x, int y, int , int);
 
-        /*
-         * Retourne la couleur du feu
-         */
-        bool estVert();
+    /*
+     * Retourne la couleur du feu
+     */
+    bool estVert();
 
-        /*
-         * Retourne le pointeur du thread de la derniere rame
-         */
-        GestionSignal * getDerniereRame();
+    /*
+     * Retourne le pointeur du thread de la derniere rame
+     */
+    GestionSignal * getDerniereRame();
 
-        /*
-         * Passage au rouge du feu
-         */
-        void passerRouge();
+    /*
+     * Passage au rouge du feu
+     */
+    void passerRouge();
 
-        /*
-         * Passage au vert du feu
-         */
-        void passerVert();
+    /*
+     * Passage au vert du feu
+     */
+    void passerVert();
 
-        /*
-         * modification du PS suivant.
-         */
-        void setSuivant(PointSynchronisation * ps);
+    /*
+     * modification du PS suivant.
+     */
+    void setSuivant(PointSynchronisation * ps);
 
-        /*
-         * Retourne le PS suivant.
-         */
-        PointSynchronisation * getSuivant();
+    /*
+     * Retourne le PS suivant.
+     */
+    PointSynchronisation * getSuivant();
 
 
-        void setPrecedent(PointSynchronisation *);
-        PointSynchronisation * getPrecedent();
-        /*
-         * Retourne l'identifiant du PS
-         */
-        int getNum();
+    void setPrecedent(PointSynchronisation *);
+    PointSynchronisation * getPrecedent();
+    /*
+     * Retourne l'identifiant du PS
+     */
+    int getNum();
 
 protected:
-        /*
-         * Couleur du feur : Vert (true) ou Rouge (false)
-         */
-        bool vert;
+    /*
+     * Couleur du feur : Vert (true) ou Rouge (false)
+     */
+    bool vert;
 
-        /*
-         * Identificateur du point de synchro
-         */
-        int numPS;
+    /*
+     * Identificateur du point de synchro
+     */
+    int numPS;
 
-        /*
-         * Derniere rame passee
-         */
-        GestionSignal * derniereRame;
+    /*
+     * Derniere rame passee
+     */
+    GestionSignal * derniereRame;
 
-        /*
-         * Pointeur vers le PS suivant de la ligne.
-         */
-        PointSynchronisation * suivant;
+    /*
+     * Pointeur vers le PS suivant de la ligne.
+     */
+    PointSynchronisation * suivant;
 
-        PointSynchronisation * precedent;
+    PointSynchronisation * precedent;
 
 };
 

@@ -11,7 +11,7 @@ class Passager;
 #include "pointsynchronisation.h"
 
 class Rame: public GestionSignal
-{    
+{
 
 public:
     /*
@@ -67,6 +67,8 @@ public:
     void monte(QList <Passager *> plistepassager);
 
     QList <Passager *> descend(Station * pstation);
+
+    void razListePassager();
 
 private:
     /*

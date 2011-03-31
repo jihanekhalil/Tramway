@@ -6,8 +6,9 @@
 #include "ligne.h"
 #include <QPainter>
 
-namespace Ui {
-    class MainWindow;
+namespace Ui
+{
+class MainWindow;
 }
 
 class MainWindow : public QMainWindow
@@ -20,7 +21,7 @@ public:
     void afficher();
 
 public slots:
-            void loadTime();
+    void loadTime();
 
 private:
     void paintEvent(QPaintEvent *);

@@ -17,7 +17,7 @@ public:
     GestionSignal();
     ~GestionSignal();
     void addSignal(Signals *);
-    virtual void run(){}
+    virtual void run() {}
 
 protected:
     virtual void createSignal() = 0;

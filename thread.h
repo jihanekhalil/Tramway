@@ -15,7 +15,9 @@ public:
     virtual void start();
     virtual void join();
     virtual void stop();
-    virtual QString getClasse(){ return QString("Thread");}
+    virtual QString getClasse() {
+        return QString("Thread");
+    }
     friend void * start_thread(void *);
     pthread_t id();
     bool getEtatThread();
@@ -23,7 +25,7 @@ public:
 private:
     bool etatThread;
     pthread_t thread;
-    pthread_attr_t attr;        
+    pthread_attr_t attr;
 };
 
 Thread * getThread(pthread_t pthread);

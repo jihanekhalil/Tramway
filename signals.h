@@ -9,8 +9,7 @@ class Signals;
 class Signals
 {
 public:
-    enum TypeSignal
-    {
+    enum TypeSignal {
         Demande,
         EstPasse,
         Arret,
@@ -24,7 +23,7 @@ public:
     ~Signals();
     GestionSignal * emetteur();
     void setEmetteur(GestionSignal *);
-    TypeSignal type();    
+    TypeSignal type();
 
 private:
     TypeSignal sigType;

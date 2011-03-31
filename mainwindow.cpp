@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QTimer>
 #include <QDebug>
-MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWindow), pixmap(QPixmap(100,100))
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow), pixmap(QPixmap(100, 100))
 {
     ui->setupUi(this);
     // creation de la ligne
@@ -10,15 +10,13 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWin
 
     //Attente
     bool ThreadsLances = true;
-    do
-    {
+    do {
         ThreadsLances = true;
-        for(int i = 0; i < this->ligne->getListeElement()->size(); i++)
-        {
+        for (int i = 0; i < this->ligne->getListeElement()->size(); i++) {
             ThreadsLances = ThreadsLances && this->ligne->getListeElement()->at(i)->getEtatThread();
             qDebug() << "etat " << i << " => " << this->ligne->getListeElement()->at(i)->getEtatThread();
         }
-    }while(!ThreadsLances);
+    } while (!ThreadsLances);
 
     // creation et demarrage d'une premiere rame puis association a la ligne
     Rame * r1 = new Rame(this->ligne);
@@ -34,18 +32,18 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWin
     timer = new QTimer(this);
     timer->setSingleShot(false);
     connect(timer, SIGNAL(timeout()), this, SLOT(loadTime()));
-   timer->start(500);
+    timer->start(500);
 
 
 
 }
 
 
-void MainWindow::loadTime(){
+void MainWindow::loadTime()
+{
     update();
     qDebug() << "----------------------------------------------------";
-    for(int i= 0; i<this->ligne->getNbRames(); i++)
-    {
+    for (int i = 0; i < this->ligne->getNbRames(); i++) {
         this->ligne->getRameAt(i)->avancer();
     }
 }
@@ -53,21 +51,22 @@ void MainWindow::loadTime(){
 void MainWindow::paintEvent(QPaintEvent *event)
 {
 
-   QPainter painter(this);
-   painter.fillRect(55,0  ,this->width(), 55, QBrush(QColor(255,204,0)));
-   painter.fillRect( 0,0  ,50, 55, QBrush(QColor(0,55,166)));
-   QFont font(QString("Helvetica"));
-   font.setBold(true);
-   font.setPixelSize(35);
-   painter.setPen(QColor(255,255,255));
-   painter.setFont(font);
-   painter.drawText(5, 40, "T1");
-   painter.setPen(QColor(0,0,0));
-   this->ligne->afficher(&painter, this->width(), this->height());
+    QPainter painter(this);
+    painter.fillRect(55, 0  , this->width(), 55, QBrush(QColor(255, 204, 0)));
+    painter.fillRect(0, 0  , 50, 55, QBrush(QColor(0, 55, 166)));
+    QFont font(QString("Helvetica"));
+    font.setBold(true);
+    font.setPixelSize(35);
+    painter.setPen(QColor(255, 255, 255));
+    painter.setFont(font);
+    painter.drawText(5, 40, "T1");
+    painter.setPen(QColor(0, 0, 0));
+    this->ligne->afficher(&painter, this->width(), this->height());
 
 
 }
-void MainWindow::afficher(){
+void MainWindow::afficher()
+{
 }
 
 MainWindow::~MainWindow()
