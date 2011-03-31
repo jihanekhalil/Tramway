@@ -27,6 +27,7 @@ set(project_SRCS
     element.cpp
     signals.cpp
     gestionsignal.cpp
+    params.h
 )
 
 SET(project_MOC_HDRS    

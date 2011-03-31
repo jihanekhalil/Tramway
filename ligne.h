@@ -1,6 +1,7 @@
 #ifndef LIGNE_H
 #define LIGNE_H
 class Rame;
+class Station;
 #include <QList>
 #include <iostream>
 #include "element.h"
@@ -27,9 +28,14 @@ public:
     /*
      * Ajoute une rame a la ligne
      */
+
     void updateListPSsuivant();
 
     void updateListPSprecedent();
+
+    void ajouterObstacle();
+
+
 
     /*
      * Retourne la liste des rames
@@ -63,6 +69,8 @@ public:
 
     QList<Element *> * getListeElement();
 
+    QList <Station *> * getStations();
+
 private:
     /*
      * Liste d'element constituants l'aller
@@ -85,6 +93,8 @@ private:
     int longueur;
 
     QList<Element *> listeElement;
+
+    QList<Station *> listeStation;
 };
 
 #endif // LIGNE_H

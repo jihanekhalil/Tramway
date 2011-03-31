@@ -1,14 +1,17 @@
 #include "station.h"
 #include <QDebug>
 
+#include "params.h"
+
 int Station::nombreStations=0;
 
-Station::Station(QString nom,Station::Type t):PointSynchronisation()
+Station::Station(QString nom,Station::Type t, Ligne * pligne):PointSynchronisation()
 {
     this->typeStation = t;
     this->nom=nom;
+    this->maligne = pligne;
     Station::nombreStations++;
-    this->numPS= Station::nombreStations;
+    this->numPS = Station::nombreStations;
 }
 
 void Station::run()
@@ -32,8 +35,33 @@ void Station::createSignal()
                 {
                     qDebug() << "Station "<< this->numPS<< " \t signal Signals::Demande recu";
                     s->emetteur()->addSignal(new Signals(this,Signals::Arret));
+
+                    Rame * rame = dynamic_cast<Rame *>(s->emetteur());
+
+                    //Fait descendre Passager
+                    QList <Passager *> listedescend = rame->descend(this);
+                    qDebug() << "--------------------------" << listedescend.size() << " passager descend de la rame";
+
+                    //Fait monter Passager
+                    QList <Passager *> listePassagerMonte;
+                    int nbMontant;
+                    if(CAPACITERAME-rame->getNbPassager() > this->listePassager.size()){
+                        nbMontant = this->listePassager.size();
+                    }else{
+                        nbMontant = CAPACITERAME-rame->getNbPassager();
+                    }
+                    for(int i = 0; i < nbMontant; i++){
+                        listePassagerMonte.push_back(this->listePassager.at(i));
+                    }
+                    for(int i = 0; i < nbMontant; i++){
+                        this->listePassager.removeFirst();
+                    }
+                    rame->monte(listePassagerMonte);
+                    qDebug() << "--------------------------" << listePassagerMonte.size() << " passager monte dans la rame";
+
                     sleep(5);
                     this->passerVert();
+                    this->setPassagers();
                     s->emetteur()->addSignal(new Signals(this,Signals::Passe));
                 }
             }
@@ -85,3 +113,23 @@ QString Station::getNom(){
     return this->nom;
 }
 
+Ligne * Station::getLigne(){
+    return this->maligne;
+}
+
+void Station::setPassagers(){
+    int nbPassager = rand()%(NBMAXPASSAGERSTATION + 1);
+    if((nbPassager + this->listePassager.size()) > NBMAXPASSAGERSTATION){
+        nbPassager = NBMAXPASSAGERSTATION;
+    }
+    for(int i=0; i < nbPassager; i++){
+        //Indice aleatoire de la station destination
+        int indice = rand()%(this->maligne->getStations()->size());
+        //Verifie si station destion != station en cours
+        while(this->maligne->getStations()->at(indice)->getNom() == this->nom){
+            indice = rand()%(this->maligne->getStations()->size());
+        }
+        //Ajout du passager à la station
+        this->listePassager.push_back(new Passager (this->maligne->getStations()->at(indice)));
+    }
+}

@@ -1,0 +1,7 @@
+#ifndef PARAMS_H
+#define PARAMS_H
+
+#define NBMAXPASSAGERSTATION 70
+#define CAPACITERAME 150
+
+#endif // PARAMS_H

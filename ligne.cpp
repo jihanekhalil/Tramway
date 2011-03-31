@@ -2,6 +2,7 @@
 #include "feux.h"
 #include "station.h"
 #include <QDebug>
+#include "obstacle.h"
 
 #define VISION 3
 
@@ -64,33 +65,36 @@ Ligne::Ligne(int longueur)
 
 
     //  STATIONS
-
-    Station* s1 = new Station(QString("Borderouge"),Station::Terminus);
+    Station* s1 = new Station(QString("Borderouge"),Station::Terminus,this);
     s1->start();
     s1->passerRouge();
     this->aller[10] = s1;
+    this->listeStation.push_back(s1);
 
-    Station* s2 = new Station(QString("Compans"),Station::Intermediaire);
+    Station* s2 = new Station(QString("Compans"),Station::Intermediaire,this);
     s2->start();
     s2->passerRouge();
     this->aller[30] = s2;
+    this->listeStation.push_back(s2);
 
 
-    Station* s3 = new Station(QString("Jeanne d Arc"),Station::Intermediaire);
+    Station* s3 = new Station(QString("Jeanne d Arc"),Station::Intermediaire,this);
     s3->start();
     s3->passerRouge();
     this->aller[50] = s3;
+    this->listeStation.push_back(s3);
 
-
-    Station* s4 = new Station(QString("Carmes"),Station::Intermediaire);
+    Station* s4 = new Station(QString("Carmes"),Station::Intermediaire,this);
     s4->start();
     s4->passerRouge();
     this->aller[70] = s4;
+    this->listeStation.push_back(s4);
 
-    Station* s5 = new Station(QString("Ramonville"),Station::Terminus);
+    Station* s5 = new Station(QString("Ramonville"),Station::Terminus,this);
     s5->start();
     s5->passerRouge();
     this->aller[95] = s5;
+    this->listeStation.push_back(s5);
 
 
     //RETOUR
@@ -123,32 +127,36 @@ Ligne::Ligne(int longueur)
 
     //  STATIONS
 
-    Station* sr1 = new Station(QString("Borderouge"),Station::Terminus);
+
+    Station* sr1 = new Station(QString("Borderouge"),Station::Terminus,this);
     sr1->start();
     sr1->passerRouge();
     this->retour[10] = sr1;
+    this->listeStation.push_back(sr1);
 
-    Station* sr2 = new Station(QString("Compans"),Station::Intermediaire);
+    Station* sr2 = new Station(QString("Compans"),Station::Intermediaire,this);
     sr2->start();
     sr2->passerRouge();
     this->retour[30] = sr2;
+    this->listeStation.push_back(sr2);
 
-
-    Station* sr3 = new Station(QString("Jeanne d Arc"),Station::Intermediaire);
+    Station* sr3 = new Station(QString("Jeanne d Arc"),Station::Intermediaire,this);
     sr3->start();
     sr3->passerRouge();
     this->retour[50] = sr3;
+    this->listeStation.push_back(sr3);
 
-
-    Station* sr4 = new Station(QString("Carmes"),Station::Intermediaire);
+    Station* sr4 = new Station(QString("Carmes"),Station::Intermediaire,this);
     sr4->start();
     sr4->passerRouge();
     this->retour[70] = sr4;
+    this->listeStation.push_back(sr4);
 
-    Station* sr5 = new Station(QString("Ramonville"),Station::Terminus);
+    Station* sr5 = new Station(QString("Ramonville"),Station::Terminus,this);
     sr5->start();
     sr5->passerRouge();
     this->retour[95] = sr5;
+    this->listeStation.push_back(sr5);
 
     sr1->setSuivant(s1);
     s5->setSuivant(sr5);
@@ -191,6 +199,7 @@ Ligne::Ligne(int longueur)
     this->updateListPSprecedent();    
 
    // qDebug()<<"teeeeeest " <<sr1->getSuivant()->getNum();
+
 }
 
 Element * Ligne::getElementAt(int i, bool aller)
@@ -219,7 +228,7 @@ void Ligne::afficher(QPainter * painter, int w, int h){
 
     // coordonnes d'origine du trait
     int xOrigine = 0.02 * w;
-    int yOrigine = 0.5 * h;
+    int yOrigine = 200;
 
     //taille dun element.
     int wElement= (w- (xOrigine *2) )/this->longueur;
@@ -249,6 +258,9 @@ void Ligne::afficher(QPainter * painter, int w, int h){
     foreach(Element * e, aller){
         if(e->getClasse()=="Station"){
             dynamic_cast<Station *>(e)->afficher(painter, xOrigine + (i * wElement) , yOrigine+(2*hElement), wElement, hElement,false);
+        }
+        else if(e->getClasse()=="Obstacle"){
+            e->afficher(painter, xOrigine + (i * wElement) , yOrigine, wElement, hElement);
         }
         else
             e->afficher(painter, xOrigine + (i * wElement) , yOrigine-(2*hElement), wElement, hElement);
@@ -303,12 +315,12 @@ void Ligne::updateListPSsuivant(){
                 qDebug()<< ps->getClasse() << " "<< ps->getNum() << "\tsuivant : NULL" ;
             }else{
                 ps->setSuivant(suivant);
-               }
+            }
             suivant = ps;
         }
     }
     last = true;
-    for(int i=0; i<this->longueur;i++){
+    for(int i=0; i<this->retour.size();i++){
         Element * e = this->retour.at(i);
         if(e->getClasse()=="Feu" || e->getClasse()=="Station"){
             PointSynchronisation * ps = dynamic_cast<PointSynchronisation *>(e);
@@ -363,4 +375,18 @@ void Ligne::updateListPSprecedent()
 QList<Element *> * Ligne::getListeElement()
 {
     return &this->listeElement;
+}
+
+
+QList <Station *> * Ligne::getStations(){
+    return &this->listeStation;
+}
+
+void Ligne::ajouterObstacle(){
+    Obstacle * o = new Obstacle();
+    int position = rand()%this->longueur;
+     //while()
+    this->aller[position] = o;
+
+
 }

@@ -84,6 +84,7 @@ void Rame::avancer(){
         }
         Element * e = this->ligne->getElementAt(this->position,aller );
 
+
         qDebug() << "Rame "<< this->numRame <<" \t position : " << this->getPosition();
 
         if(e->getClasse() == "Feu")
@@ -106,7 +107,16 @@ void Rame::avancer(){
 
         }
         else{
-            if(this->sens==Rame::Aller){
+
+            Element * suivant;
+            if(aller) suivant = this->ligne->getElementAt(this->position+1,aller );
+            else
+             suivant = this->ligne->getElementAt(this->position-1,aller );
+            if(suivant->getClasse() == "Obstacle")
+            {
+                qDebug()<<"Rame "<< this->numRame <<" \t Obstacle détecté";
+            }
+            else if(this->sens==Rame::Aller){
                 this->position++;
             }else{
                 this->position--;
@@ -211,4 +221,31 @@ void Rame::setPosition(int i){
 
 int Rame::getNumRame(){
     return this->numRame;
+}
+
+int Rame::getNbPassager(){
+    return this->listePassager.size();
+}
+
+void Rame::monte(QList<Passager *> plistepassager){
+    for(int i = 0; i < plistepassager.size(); i++){
+        this->listePassager.push_back(plistepassager.at(i));
+    }
+}
+
+QList <Passager *> Rame::descend(Station * pstation){
+    QList <Passager *> listedescend;
+    QList <int> listeadel;
+    for(int i = 0; i < this->listePassager.size(); i++){
+        if(this->listePassager.at(i)->getStationDest()->getNom() == pstation->getNom()){
+            listeadel.push_back(i);
+            listedescend.push_back(this->listePassager.at(i));
+        }
+    }
+
+    for(int i = 0; i < listeadel.size(); i++){
+        this->listePassager.removeAt(listeadel.at(i));
+    }
+
+    return listedescend;
 }
