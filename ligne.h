@@ -27,6 +27,11 @@ public:
     /*
      * Ajoute une rame a la ligne
      */
+    void ajouterObstacle();
+
+    /*
+     * Ajoute une rame a la ligne
+     */
     void updateListPS();
 
     /*

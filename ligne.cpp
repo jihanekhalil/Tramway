@@ -2,6 +2,7 @@
 #include "feux.h"
 #include "station.h"
 #include <QDebug>
+#include "obstacle.h"
 
 #define VISION 3
 
@@ -222,6 +223,9 @@ void Ligne::afficher(QPainter * painter, int w, int h){
         if(e->getClasse()=="Station"){
             dynamic_cast<Station *>(e)->afficher(painter, xOrigine + (i * wElement) , yOrigine+(2*hElement), wElement, hElement,false);
         }
+        else if(e->getClasse()=="Obstacle"){
+            e->afficher(painter, xOrigine + (i * wElement) , yOrigine, wElement, hElement);
+        }
         else
             e->afficher(painter, xOrigine + (i * wElement) , yOrigine-(2*hElement), wElement, hElement);
         i++;
@@ -301,4 +305,13 @@ void Ligne::updateListPS(){
 QList<Element *> * Ligne::getListeElement()
 {
     return &this->listeElement;
+}
+
+
+void Ligne::ajouterObstacle(){
+    Obstacle * o = new Obstacle();
+    int position = rand()%this->longueur;
+     //while()
+    this->aller[position] = o;
+
 }

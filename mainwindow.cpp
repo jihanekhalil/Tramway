@@ -85,3 +85,8 @@ void MainWindow::on_newRameButton_clicked()
     r->start();
     this->ligne->ajouterRame(r);
 }
+
+void MainWindow::on_pushButton_clicked()
+{
+    this->ligne->ajouterObstacle();
+}
