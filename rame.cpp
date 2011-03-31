@@ -84,6 +84,7 @@ void Rame::avancer(){
         }
         Element * e = this->ligne->getElementAt(this->position,aller );
 
+
         qDebug() << "Rame "<< this->numRame <<" \t position : " << this->getPosition();
 
         if(e->getClasse() == "Feu")
@@ -106,7 +107,16 @@ void Rame::avancer(){
 
         }
         else{
-            if(this->sens==Rame::Aller){
+
+            Element * suivant;
+            if(aller) suivant = this->ligne->getElementAt(this->position+1,aller );
+            else
+             suivant = this->ligne->getElementAt(this->position-1,aller );
+            if(suivant->getClasse() == "Obstacle")
+            {
+                qDebug()<<"Rame "<< this->numRame <<" \t Obstacle détecté";
+            }
+            else if(this->sens==Rame::Aller){
                 this->position++;
             }else{
                 this->position--;

@@ -27,7 +27,7 @@ qDebug() << "test 01";
     this->ligne->ajouterRame(r1);
 
 
-
+    this->setWindowState(Qt::WindowMaximized);
 
 
     // creation du timer
@@ -84,4 +84,9 @@ void MainWindow::on_newRameButton_clicked()
     Rame * r = new Rame(this->ligne);
     r->start();
     this->ligne->ajouterRame(r);
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    this->ligne->ajouterObstacle();
 }

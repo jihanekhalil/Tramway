@@ -2,6 +2,7 @@
 #include "feux.h"
 #include "station.h"
 #include <QDebug>
+#include "obstacle.h"
 
 #define VISION 3
 
@@ -204,7 +205,7 @@ void Ligne::afficher(QPainter * painter, int w, int h){
 
     // coordonnes d'origine du trait
     int xOrigine = 0.02 * w;
-    int yOrigine = 0.5 * h;
+    int yOrigine = 200;
 
     //taille dun element.
     int wElement= (w- (xOrigine *2) )/this->longueur;
@@ -234,6 +235,9 @@ void Ligne::afficher(QPainter * painter, int w, int h){
     foreach(Element * e, aller){
         if(e->getClasse()=="Station"){
             dynamic_cast<Station *>(e)->afficher(painter, xOrigine + (i * wElement) , yOrigine+(2*hElement), wElement, hElement,false);
+        }
+        else if(e->getClasse()=="Obstacle"){
+            e->afficher(painter, xOrigine + (i * wElement) , yOrigine, wElement, hElement);
         }
         else
             e->afficher(painter, xOrigine + (i * wElement) , yOrigine-(2*hElement), wElement, hElement);
@@ -279,7 +283,7 @@ void Ligne::updateListPS(){
     bool last=true;
     PointSynchronisation * suivant;
     for(int i=this->aller.size()-1; i>=0;i--){
-        Element * e = this->retour.at(i);
+        Element * e = this->aller.at(i);
         if(e->getClasse()=="Feu" || e->getClasse()=="Station"){
             PointSynchronisation * ps = dynamic_cast<PointSynchronisation *>(e);
             if(last){
@@ -316,6 +320,16 @@ QList<Element *> * Ligne::getListeElement()
     return &this->listeElement;
 }
 
+
 QList <Station *> * Ligne::getStations(){
     return &this->listeStation;
+}
+
+void Ligne::ajouterObstacle(){
+    Obstacle * o = new Obstacle();
+    int position = rand()%this->longueur;
+     //while()
+    this->aller[position] = o;
+
+
 }
