@@ -99,7 +99,7 @@ void Station::afficher(QPainter * painter, int x, int y, int wElement, int hElem
         painter->rotate(-45);
         QFont font(QString("Helvetica"));
         font.setBold(true);
-        font.setPixelSize(16);
+        font.setPixelSize(20);
         painter->setFont(font);
         painter->drawText(0, 0, this->nom);
 

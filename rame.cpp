@@ -114,16 +114,22 @@ void Rame::avancer(){
 
         }
         else{
+            bool obstacle = false;
+            if(this->position<this->ligne->getLongueur()-1){
+                Element * suivant;
+                if(aller)
+                    suivant = this->ligne->getElementAt(this->position+1,aller );
+                else
+                    suivant = this->ligne->getElementAt(this->position-1,aller );
 
-            Element * suivant;
-            if(aller) suivant = this->ligne->getElementAt(this->position+1,aller );
-            else
-             suivant = this->ligne->getElementAt(this->position-1,aller );
-            if(suivant->getClasse() == "Obstacle")
-            {
-                qDebug()<< "Rame "<< this->numRame <<" \t Obstacle détecté";
+                if(suivant->getClasse() == "Obstacle")
+                {
+                    obstacle=true;
+                    qDebug()<< "Rame "<< this->numRame <<" \t Obstacle détecté";
+                }
             }
-            else if(this->sens==Rame::Aller){
+            if(!obstacle)
+            if(this->sens==Rame::Aller){
                 this->position++;
             }else{
                 this->position--;
