@@ -27,7 +27,9 @@ public:
     /*
      * Ajoute une rame a la ligne
      */
-    void updateListPS();
+    void updateListPSsuivant();
+
+    void updateListPSprecedent();
 
     /*
      * Retourne la liste des rames

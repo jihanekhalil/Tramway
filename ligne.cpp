@@ -34,135 +34,163 @@ Ligne::Ligne(int longueur)
     //ALLER
 
     //FEUX
-
-    Feux* e11 = new Feux(this);
-    e11->start();
-    this->aller[15] = e11;
-    Feux* e12 = new Feux(this);
-    e12->start();
-    this->aller[25] = e12;
-    Feux* e13 = new Feux(this);
-    e13->start();
-    this->aller[35] = e13;
-    Feux* e14 = new Feux(this);
-    e14->start();
-    this->aller[45] = e14;
-    Feux* e15 = new Feux(this);
-    e15->start();
-    this->aller[55] = e15;
-    Feux* e16 = new Feux(this);
-    e16->start();
-    this->aller[65] = e16;
-    Feux* e17 = new Feux(this);
-    e17->start();
-    this->aller[75] = e17;
-    Feux* e18 = new Feux(this);
-    e18->start();
-    this->aller[85] = e18;
+    Feux* f1 = new Feux(this);
+    f1->start();
+    this->aller[5] = f1;
+    Feux* f2 = new Feux(this);
+    f2->start();
+    this->aller[15] = f2;
+    Feux* f3 = new Feux(this);
+    f3->start();
+    this->aller[25] = f3;
+    Feux* f4 = new Feux(this);
+    f4->start();
+    this->aller[35] = f4;
+    Feux* f5 = new Feux(this);
+    f5->start();
+    this->aller[45] = f5;
+    Feux* f6 = new Feux(this);
+    f6->start();
+    this->aller[55] = f6;
+    Feux* f7 = new Feux(this);
+    f7->start();
+    this->aller[65] = f7;
+    Feux* f8 = new Feux(this);
+    f8->start();
+    this->aller[75] = f8;
+    Feux* f9 = new Feux(this);
+    f9->start();
+    this->aller[85] = f9;
 
 
     //  STATIONS
 
-    Station* e19 = new Station(QString("Borderouge"),Station::Terminus);
-    e19->start();
-    e19->passerRouge();
-    this->aller[10] = e19;
+    Station* s1 = new Station(QString("Borderouge"),Station::Terminus);
+    s1->start();
+    s1->passerRouge();
+    this->aller[10] = s1;
 
-    Station* e110 = new Station(QString("Compans"),Station::Intermediaire);
-    e110->start();
-    e110->passerRouge();
-    this->aller[30] = e110;
-
-
-    Station* e111 = new Station(QString("Jeanne d Arc"),Station::Intermediaire);
-    e111->start();
-    e111->passerRouge();
-    this->aller[50] = e111;
+    Station* s2 = new Station(QString("Compans"),Station::Intermediaire);
+    s2->start();
+    s2->passerRouge();
+    this->aller[30] = s2;
 
 
-    Station* e112 = new Station(QString("Carmes"),Station::Intermediaire);
-    e112->start();
-    e112->passerRouge();
-    this->aller[70] = e112;
+    Station* s3 = new Station(QString("Jeanne d Arc"),Station::Intermediaire);
+    s3->start();
+    s3->passerRouge();
+    this->aller[50] = s3;
 
-    Station* e113 = new Station(QString("Ramonville"),Station::Terminus);
-    e113->start();
-    e113->passerRouge();
-    this->aller[95] = e113;
+
+    Station* s4 = new Station(QString("Carmes"),Station::Intermediaire);
+    s4->start();
+    s4->passerRouge();
+    this->aller[70] = s4;
+
+    Station* s5 = new Station(QString("Ramonville"),Station::Terminus);
+    s5->start();
+    s5->passerRouge();
+    this->aller[95] = s5;
 
 
     //RETOUR
 
-    Feux* e21 = new Feux(this);
-    e21->start();
-    this->retour[15] = e21;
-    Feux* e22 = new Feux(this);
-    e22->start();
-    this->retour[25] = e22;
-    Feux* e23 = new Feux(this);
-    e23->start();
-    this->retour[35] = e23;
-    Feux* e24 = new Feux(this);
-    e24->start();
-    this->retour[45] = e24;
-    Feux* e25 = new Feux(this);
-    e25->start();
-    this->retour[55] = e25;
-    Feux* e26 = new Feux(this);
-    e26->start();
-    this->retour[65] = e26;
-    Feux* e27 = new Feux(this);
-    e27->start();
-    this->retour[75] = e27;
-    Feux* e28 = new Feux(this);
-    e28->start();
-    this->retour[85] = e28;
+    Feux* fr1 = new Feux(this);
+    fr1->start();
+    this->retour[15] = fr1;
+    Feux* fr2 = new Feux(this);
+    fr2->start();
+    this->retour[25] = fr2;
+    Feux* fr3 = new Feux(this);
+    fr3->start();
+    this->retour[35] = fr3;
+    Feux* fr4 = new Feux(this);
+    fr4->start();
+    this->retour[45] = fr4;
+    Feux* fr5 = new Feux(this);
+    fr5->start();
+    this->retour[55] = fr5;
+    Feux* fr6 = new Feux(this);
+    fr6->start();
+    this->retour[65] = fr6;
+    Feux* fr7 = new Feux(this);
+    fr7->start();
+    this->retour[75] = fr7;
+    Feux* fr8 = new Feux(this);
+    fr8->start();
+    this->retour[85] = fr8;
 
 
     //  STATIONS
 
-    Station* e29 = new Station(QString("Borderouge"),Station::Terminus);
-    e29->start();
-    e29->passerRouge();
-    this->retour[10] = e29;
+    Station* sr1 = new Station(QString("Borderouge"),Station::Terminus);
+    sr1->start();
+    sr1->passerRouge();
+    this->retour[10] = sr1;
 
-    Station* e210 = new Station(QString("Compans"),Station::Intermediaire);
-    e210->start();
-    e210->passerRouge();
-    this->retour[30] = e210;
-
-
-    Station* e211 = new Station(QString("Jeanne d Arc"),Station::Intermediaire);
-    e211->start();
-    e211->passerRouge();
-    this->retour[50] = e211;
+    Station* sr2 = new Station(QString("Compans"),Station::Intermediaire);
+    sr2->start();
+    sr2->passerRouge();
+    this->retour[30] = sr2;
 
 
-    Station* e212 = new Station(QString("Carmes"),Station::Intermediaire);
-    e212->start();
-    e212->passerRouge();
-    this->retour[70] = e212;
-
-    Station* e213 = new Station(QString("Ramonville"),Station::Terminus);
-    e213->start();
-    e213->passerRouge();
-    this->retour[95] = e213;
+    Station* sr3 = new Station(QString("Jeanne d Arc"),Station::Intermediaire);
+    sr3->start();
+    sr3->passerRouge();
+    this->retour[50] = sr3;
 
 
+    Station* sr4 = new Station(QString("Carmes"),Station::Intermediaire);
+    sr4->start();
+    sr4->passerRouge();
+    this->retour[70] = sr4;
 
-    e29->setSuivant(e19);
-    e213->setSuivant(e113);
+    Station* sr5 = new Station(QString("Ramonville"),Station::Terminus);
+    sr5->start();
+    sr5->passerRouge();
+    this->retour[95] = sr5;
 
+    sr1->setSuivant(s1);
+    s5->setSuivant(sr5);
 
+    sr5->setPrecedent(s5);
+    s1->setPrecedent(sr1);
 
-    this->listeElement.append(e11);
-    this->listeElement.append(e19);
-    this->listeElement.append(e21);
-    this->listeElement.append(e29);
+    this->listeElement.append(f1);
+    this->listeElement.append(f2);
+    this->listeElement.append(f3);
+    this->listeElement.append(f4);
+    this->listeElement.append(f5);
+    this->listeElement.append(f6);
+    this->listeElement.append(f7);
+    this->listeElement.append(f8);
+    this->listeElement.append(f9);
 
-    this->updateListPS();
+    this->listeElement.append(fr1);
+    this->listeElement.append(fr2);
+    this->listeElement.append(fr3);
+    this->listeElement.append(fr4);
+    this->listeElement.append(fr5);
+    this->listeElement.append(fr6);
+    this->listeElement.append(fr7);
+    this->listeElement.append(fr8);
 
-   // qDebug()<<"teeeeeest " <<e29->getSuivant()->getNum();
+    this->listeElement.append(s1);
+    this->listeElement.append(s2);
+    this->listeElement.append(s3);
+    this->listeElement.append(s4);
+    this->listeElement.append(s5);
+
+    this->listeElement.append(sr1);
+    this->listeElement.append(sr2);
+    this->listeElement.append(sr3);
+    this->listeElement.append(sr4);
+    this->listeElement.append(sr5);
+
+    this->updateListPSsuivant();
+    this->updateListPSprecedent();    
+
+   // qDebug()<<"teeeeeest " <<sr1->getSuivant()->getNum();
 }
 
 Element * Ligne::getElementAt(int i, bool aller)
@@ -261,12 +289,12 @@ int Ligne::getNbRames(){
     return this->rames.size();
 }
 
-void Ligne::updateListPS(){
+void Ligne::updateListPSsuivant(){
     qDebug() << "updateListPS $$$$$";
     bool last=true;
     PointSynchronisation * suivant;
     for(int i=this->aller.size()-1; i>=0;i--){
-        Element * e = this->retour.at(i);
+        Element * e = this->aller.at(i);
         if(e->getClasse()=="Feu" || e->getClasse()=="Station"){
             PointSynchronisation * ps = dynamic_cast<PointSynchronisation *>(e);
             if(last){
@@ -296,6 +324,40 @@ void Ligne::updateListPS(){
         }
     }
     qDebug() << "FIN updateListPS $$$$$";
+}
+
+void Ligne::updateListPSprecedent()
+{
+    bool last=true;
+    PointSynchronisation * precedent;
+    for(int i=0; i<this->longueur; i++){
+        Element * e = this->aller.at(i);
+        if(e->getClasse()=="Feu" || e->getClasse()=="Station"){
+            PointSynchronisation * ps = dynamic_cast<PointSynchronisation *>(e);
+            if(last){
+                ps->setPrecedent(NULL);
+                last=false;
+            }else{
+                ps->setPrecedent(precedent);
+               }
+            precedent = ps;
+        }
+    }
+    last = true;
+    for(int i=this->retour.size()-1; i>=0;i--){
+        Element * e = this->retour.at(i);
+        if(e->getClasse()=="Feu" || e->getClasse()=="Station"){
+            PointSynchronisation * ps = dynamic_cast<PointSynchronisation *>(e);
+            if(last){
+                ps->setPrecedent(NULL);
+                last=false;
+            }else{
+                ps->setPrecedent(precedent);
+                //qDebug()<< ps->getClasse() << " "<< ps->getNum() << "\tsuivant :"<< suivant->getClasse()<<" "<<suivant->getNum() ;
+            }
+            precedent = ps;
+        }
+    }
 }
 
 QList<Element *> * Ligne::getListeElement()

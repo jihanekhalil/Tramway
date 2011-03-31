@@ -42,6 +42,8 @@ void Station::createSignal()
             {
                 qDebug()<< "Message estPasse recu par Station";
                 this->passerRouge();
+                if(this->getPrecedent() != NULL)
+                    this->getPrecedent()->passerVert();
                 this->derniereRame = s->emetteur();                
             }
             break;

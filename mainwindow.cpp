@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWin
             qDebug() << "etat " << i << " => " << this->ligne->getListeElement()->at(i)->getEtatThread();
         }
     }while(!ThreadsLances);
-qDebug() << "test 01";
+
     // creation et demarrage d'une premiere rame puis association a la ligne
     Rame * r1 = new Rame(this->ligne);
 

@@ -48,6 +48,9 @@ public:
          */
         PointSynchronisation * getSuivant();
 
+
+        void setPrecedent(PointSynchronisation *);
+        PointSynchronisation * getPrecedent();
         /*
          * Retourne l'identifiant du PS
          */
@@ -73,6 +76,8 @@ protected:
          * Pointeur vers le PS suivant de la ligne.
          */
         PointSynchronisation * suivant;
+
+        PointSynchronisation * precedent;
 
 };
 

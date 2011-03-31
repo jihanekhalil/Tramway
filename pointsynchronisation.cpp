@@ -45,3 +45,13 @@ PointSynchronisation * PointSynchronisation::getSuivant(){
 void PointSynchronisation::setSuivant(PointSynchronisation *ps){
     this->suivant=ps;
 }
+
+PointSynchronisation * PointSynchronisation::getPrecedent()
+{
+    return this->precedent;
+}
+
+void PointSynchronisation::setPrecedent(PointSynchronisation * ps)
+{
+    this->precedent = ps;
+}

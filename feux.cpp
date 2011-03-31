@@ -98,6 +98,8 @@ void Feux::createSignal()
                 usleep(200000);
                 qDebug() << "Feu "<< this->numPS << "\t Tram passe, passe rouge.";
                 this->passerRouge();
+                if(this->getPrecedent() != NULL && this->getPrecedent()->getClasse() != "Station")
+                    this->getPrecedent()->passerVert();
                 this->derniereRame = s->emetteur();
             }
             break;
