@@ -245,6 +245,7 @@ void Ligne::afficher(QPainter * painter, int w, int h){
 
     // retour
     painter->fillRect(QRectF(QPointF(xOrigine-wElement,yOrigine), QPointF(xOrigine+(this->longueur*wElement)-wElement,yOrigine+hElement)), QBrush(QColor(115,115,115)));
+    painter->fillRect(QRectF(QPointF(xOrigine-wElement,yOrigine+hElement), QPointF(xOrigine+(wElement),yOrigine+hElement+hElement)), QBrush(QColor(0,0,0)));
 
 
     int i = 0;
@@ -262,6 +263,7 @@ void Ligne::afficher(QPainter * painter, int w, int h){
    // xOrigine+=wElement;
     // aller
     painter->fillRect(QRectF(QPointF(xOrigine,yOrigine), QPointF(xOrigine+(this->longueur*wElement),yOrigine+hElement)), QBrush(QColor(115,115,115)));
+    painter->fillRect(QRectF(QPointF(xOrigine+(this->longueur*wElement), yOrigine),QPointF(xOrigine+(this->longueur*wElement)+wElement, yOrigine)), QBrush(QColor(0,0,0)));
 
     i = 0;
     foreach(Element * e, aller){
