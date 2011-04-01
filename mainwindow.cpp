@@ -1,3 +1,25 @@
+/*
+ *   Copyright 2011 by Jihane Khalil <khaliljihane@gmail.com>
+ *   Copyright 2011 by Paul Labonne <paul.labonne@gmail.com>
+ *   Copyright 2011 by Manuel Campomanes <campomanes.manuel@gmail.com>
+ *   Copyright 2011 by Marc-Antoine Beauvais <marcantoine.beauvais@gmail.com>
+ *
+ *   This program is free software; you can redistribute it and/or modify
+ *   it under the terms of the GNU Library General Public License as
+ *   published by the Free Software Foundation; either version 2, or
+ *   (at your option) any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details
+ *
+ *   You should have received a copy of the GNU Library General Public
+ *   License along with this program; if not, write to the
+ *   Free Software Foundation, Inc.,
+ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QTimer>
@@ -8,13 +30,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     // creation de la ligne
     this->ligne = new Ligne(100);
 
-    //Attente
+    //Attente threads tous lances
     bool ThreadsLances = true;
     do {
         ThreadsLances = true;
         for (int i = 0; i < this->ligne->getListeElement()->size(); i++) {
-            ThreadsLances = ThreadsLances && this->ligne->getListeElement()->at(i)->getEtatThread();
-            qDebug() << "etat " << i << " => " << this->ligne->getListeElement()->at(i)->getEtatThread();
+            ThreadsLances = ThreadsLances && this->ligne->getListeElement()->at(i)->getEtatThread();            
         }
     } while (!ThreadsLances);
 
@@ -24,18 +45,13 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     r1->start();
     this->ligne->ajouterRame(r1);
 
-
     this->setWindowState(Qt::WindowMaximized);
-
 
     // creation du timer
     timer = new QTimer(this);
     timer->setSingleShot(false);
     connect(timer, SIGNAL(timeout()), this, SLOT(loadTime()));
     timer->start(500);
-
-
-
 }
 
 
@@ -62,8 +78,6 @@ void MainWindow::paintEvent(QPaintEvent *event)
     painter.drawText(5, 40, "T1");
     painter.setPen(QColor(0, 0, 0));
     this->ligne->afficher(&painter, this->width(), this->height());
-
-
 }
 void MainWindow::afficher()
 {

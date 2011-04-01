@@ -1,9 +1,31 @@
-#include "rame.h"
+/*
+ *   Copyright 2011 by Jihane Khalil <khaliljihane@gmail.com>
+ *   Copyright 2011 by Paul Labonne <paul.labonne@gmail.com>
+ *   Copyright 2011 by Manuel Campomanes <campomanes.manuel@gmail.com>
+ *   Copyright 2011 by Marc-Antoine Beauvais <marcantoine.beauvais@gmail.com>
+ *
+ *   This program is free software; you can redistribute it and/or modify
+ *   it under the terms of the GNU Library General Public License as
+ *   published by the Free Software Foundation; either version 2, or
+ *   (at your option) any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details
+ *
+ *   You should have received a copy of the GNU Library General Public
+ *   License along with this program; if not, write to the
+ *   Free Software Foundation, Inc.,
+ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
 
+#include "rame.h"
 #include <QList>
 #include <QDebug>
 #include "feux.h"
 #include "station.h"
+
 int Rame::nbRame = 0;
 
 Rame::~Rame()
@@ -89,7 +111,6 @@ void Rame::avancer()
         }
         Element * e = this->ligne->getElementAt(this->position, aller);
 
-
         qDebug() << "Rame " << this->numRame << " \t position : " << this->getPosition();
 
         if (e->getClasse() == "Feu") {
@@ -100,8 +121,6 @@ void Rame::avancer()
                 qDebug() << "Rame " << this->numRame << " \t attend reponse Feu" << f->getNum() << ".";
             }
         } else if (e->getClasse() == "Station") {
-
-
             Station * s = dynamic_cast<Station *>(e);
             s->addSignal(new Signals(this, Signals::Demande));
             qDebug() << "Rame " << this->numRame << " \t arrive a station " << s->getNom();

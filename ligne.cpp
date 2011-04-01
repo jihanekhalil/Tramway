@@ -1,10 +1,30 @@
+/*
+ *   Copyright 2011 by Jihane Khalil <khaliljihane@gmail.com>
+ *   Copyright 2011 by Paul Labonne <paul.labonne@gmail.com>
+ *   Copyright 2011 by Manuel Campomanes <campomanes.manuel@gmail.com>
+ *   Copyright 2011 by Marc-Antoine Beauvais <marcantoine.beauvais@gmail.com>
+ *
+ *   This program is free software; you can redistribute it and/or modify
+ *   it under the terms of the GNU Library General Public License as
+ *   published by the Free Software Foundation; either version 2, or
+ *   (at your option) any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details
+ *
+ *   You should have received a copy of the GNU Library General Public
+ *   License along with this program; if not, write to the
+ *   Free Software Foundation, Inc.,
+ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
 #include "ligne.h"
 #include "feux.h"
 #include "station.h"
 #include <QDebug>
 #include "obstacle.h"
-
-#define VISION 3
 
 Ligne::Ligne()
 {}
@@ -32,39 +52,81 @@ Ligne::Ligne(int longueur)
         this->retour.push_back(new Element());
 
 
-    //ALLER
+    /***************************************
+                SCENARIO 01
+    ****************************************/
 
-    //FEUX
+    //FEUX ALLEE
     Feux* f1 = new Feux(this);
     f1->start();
     this->aller[5] = f1;
+
     Feux* f2 = new Feux(this);
     f2->start();
     this->aller[15] = f2;
+
     Feux* f3 = new Feux(this);
     f3->start();
     this->aller[25] = f3;
+
     Feux* f4 = new Feux(this);
     f4->start();
     this->aller[35] = f4;
+
     Feux* f5 = new Feux(this);
     f5->start();
     this->aller[45] = f5;
+
     Feux* f6 = new Feux(this);
     f6->start();
     this->aller[55] = f6;
+
     Feux* f7 = new Feux(this);
     f7->start();
     this->aller[65] = f7;
+
     Feux* f8 = new Feux(this);
     f8->start();
     this->aller[75] = f8;
+
     Feux* f9 = new Feux(this);
     f9->start();
     this->aller[85] = f9;
 
+    //FEUX RETOUR
+    Feux* fr1 = new Feux(this);
+    fr1->start();
+    this->retour[15] = fr1;
 
-    //  STATIONS
+    Feux* fr2 = new Feux(this);
+    fr2->start();
+    this->retour[25] = fr2;
+
+    Feux* fr3 = new Feux(this);
+    fr3->start();
+    this->retour[35] = fr3;
+
+    Feux* fr4 = new Feux(this);
+    fr4->start();
+    this->retour[45] = fr4;
+
+    Feux* fr5 = new Feux(this);
+    fr5->start();
+    this->retour[55] = fr5;
+
+    Feux* fr6 = new Feux(this);
+    fr6->start();
+    this->retour[65] = fr6;
+
+    Feux* fr7 = new Feux(this);
+    fr7->start();
+    this->retour[75] = fr7;
+
+    Feux* fr8 = new Feux(this);
+    fr8->start();
+    this->retour[85] = fr8;
+
+    //  STATIONS ALLEE
     Station* s1 = new Station(QString("Borderouge"), Station::Intermediaire, this);
     s1->start();
     s1->passerRouge();
@@ -76,7 +138,6 @@ Ligne::Ligne(int longueur)
     s2->passerRouge();
     this->aller[30] = s2;
     this->listeStation.push_back(s2);
-
 
     Station* s3 = new Station(QString("Jeanne d Arc"), Station::Intermediaire, this);
     s3->start();
@@ -96,38 +157,7 @@ Ligne::Ligne(int longueur)
     this->aller[95] = s5;
     this->listeStation.push_back(s5);
 
-
-    //RETOUR
-
-    Feux* fr1 = new Feux(this);
-    fr1->start();
-    this->retour[15] = fr1;
-    Feux* fr2 = new Feux(this);
-    fr2->start();
-    this->retour[25] = fr2;
-    Feux* fr3 = new Feux(this);
-    fr3->start();
-    this->retour[35] = fr3;
-    Feux* fr4 = new Feux(this);
-    fr4->start();
-    this->retour[45] = fr4;
-    Feux* fr5 = new Feux(this);
-    fr5->start();
-    this->retour[55] = fr5;
-    Feux* fr6 = new Feux(this);
-    fr6->start();
-    this->retour[65] = fr6;
-    Feux* fr7 = new Feux(this);
-    fr7->start();
-    this->retour[75] = fr7;
-    Feux* fr8 = new Feux(this);
-    fr8->start();
-    this->retour[85] = fr8;
-
-
-    //  STATIONS
-
-
+    //STATIONS RETOUR
     Station* sr1 = new Station(QString("Borderouge"), Station::Terminus, this);
     sr1->start();
     sr1->passerRouge();
@@ -140,7 +170,7 @@ Ligne::Ligne(int longueur)
     this->retour[30] = sr2;
     this->listeStation.push_back(sr2);
 
-    Station* sr3 = new Station(QString("Jeanne d Arc"), Station::Intermediaire, this);
+    Station* sr3 = new Station(QString("Palais de Justice"), Station::Intermediaire, this);
     sr3->start();
     sr3->passerRouge();
     this->retour[50] = sr3;
@@ -201,7 +231,6 @@ Ligne::Ligne(int longueur)
     for (int i = 0; i < this->listeStation.size(); i++) {
         this->listeStation.at(i)->setPassagers();
     }
-
 }
 
 Element * Ligne::getElementAt(int i, bool aller)
@@ -213,17 +242,7 @@ Element * Ligne::getElementAt(int i, bool aller)
         return this->retour.at(i);
 }
 
-Element * Ligne::ElementExists(int i)
-{
-    Element * e;
-    Feux * f;
-    for (int j = 0; j < VISION; j++) {
-        //e = this->ligne[i+j];
-        f = dynamic_cast<Feux *>(e);
 
-        qDebug() << "test : " << f->getClasse();
-    }
-}
 
 void Ligne::afficher(QPainter * painter, int w, int h)
 {
@@ -312,8 +331,7 @@ int Ligne::getNbRames()
 }
 
 void Ligne::updateListPSsuivant()
-{
-    qDebug() << "updateListPS $$$$$";
+{    
     bool last = true;
     PointSynchronisation * suivant;
     for (int i = this->aller.size() - 1; i >= 0; i--) {
@@ -322,8 +340,7 @@ void Ligne::updateListPSsuivant()
             PointSynchronisation * ps = dynamic_cast<PointSynchronisation *>(e);
             if (last) {
                 ps->setSuivant(NULL);
-                last = false;
-                qDebug() << ps->getClasse() << " " << ps->getNum() << "\tsuivant : NULL" ;
+                last = false;                
             } else {
                 ps->setSuivant(suivant);
             }
@@ -337,16 +354,13 @@ void Ligne::updateListPSsuivant()
             PointSynchronisation * ps = dynamic_cast<PointSynchronisation *>(e);
             if (last) {
                 ps->setSuivant(NULL);
-                last = false;
-                qDebug() << ps->getClasse() << " " << ps->getNum() << "\tsuivant : NULL" ;
+                last = false;                
             } else {
-                ps->setSuivant(suivant);
-                //qDebug()<< ps->getClasse() << " "<< ps->getNum() << "\tsuivant :"<< suivant->getClasse()<<" "<<suivant->getNum() ;
+                ps->setSuivant(suivant);                
             }
             suivant = ps;
         }
     }
-    qDebug() << "FIN updateListPS $$$$$";
 }
 
 void Ligne::updateListPSprecedent()
@@ -375,8 +389,7 @@ void Ligne::updateListPSprecedent()
                 ps->setPrecedent(NULL);
                 last = false;
             } else {
-                ps->setPrecedent(precedent);
-                //qDebug()<< ps->getClasse() << " "<< ps->getNum() << "\tsuivant :"<< suivant->getClasse()<<" "<<suivant->getNum() ;
+                ps->setPrecedent(precedent);                
             }
             precedent = ps;
         }
@@ -397,8 +410,7 @@ QList <Station *> * Ligne::getStations()
 void Ligne::ajouterObstacle()
 {
     int position = rand() % this->longueur;
-    Obstacle * o = new Obstacle(&this->aller, position);
-    //while()
+    Obstacle * o = new Obstacle(&this->aller, position);    
     this->aller[position] = o;
 
 
