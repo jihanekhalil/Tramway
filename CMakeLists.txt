@@ -7,7 +7,6 @@ find_package(Qt4 REQUIRED)
 include(${QT_USE_FILE})
 
 set(project_SRCS
-    personne.cpp
     ligne.cpp
     main.cpp
     mainwindow.cpp
@@ -15,13 +14,8 @@ set(project_SRCS
     rame.cpp
     station.cpp
     thread.cpp
-    composteur.cpp
-    conducteur.cpp
-    croisement.cpp
-    distributeur.cpp
     feux.cpp
     obstacle.cpp
-    passage.cpp
     passager.cpp
     porte.cpp
     element.cpp
