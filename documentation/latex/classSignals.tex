@@ -1,0 +1,82 @@
+\hypertarget{classSignals}{
+\section{Référence de la classe Signals}
+\label{classSignals}\index{Signals@{Signals}}
+}
+\subsection*{Types publics}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries TypeSignal} \{ \par
+{\bfseries Demande}, 
+{\bfseries EstPasse}, 
+{\bfseries Arret}, 
+{\bfseries Passe}, 
+\par
+{\bfseries OuvrirPorte}, 
+{\bfseries FermerPorte}, 
+{\bfseries PorteFermee}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classSignals_abb20260e11bbaf3cdfc45cbc6506349a}{
+\hyperlink{classSignals_abb20260e11bbaf3cdfc45cbc6506349a}{Signals} (\hyperlink{classGestionSignal}{GestionSignal} $\ast$, TypeSignal)}
+\label{classSignals_abb20260e11bbaf3cdfc45cbc6506349a}
+
+\begin{DoxyCompactList}\small\item\em constructeur de Signal. \item\end{DoxyCompactList}\item 
+\hypertarget{classSignals_a023cdc52c51b2d8c33e0af2714b4cb04}{
+\hyperlink{classSignals_a023cdc52c51b2d8c33e0af2714b4cb04}{$\sim$Signals} ()}
+\label{classSignals_a023cdc52c51b2d8c33e0af2714b4cb04}
+
+\begin{DoxyCompactList}\small\item\em Destructeur de Feu. \item\end{DoxyCompactList}\item 
+\hyperlink{classGestionSignal}{GestionSignal} $\ast$ \hyperlink{classSignals_abd873414eef1e8deb5dc8bcae33aa8fe}{emetteur} ()
+\begin{DoxyCompactList}\small\item\em Retourne l'emetteur du signal. \item\end{DoxyCompactList}\item 
+void \hyperlink{classSignals_a8a58cb7d36939d77e0319e47e787f262}{setEmetteur} (\hyperlink{classGestionSignal}{GestionSignal} $\ast$)
+\begin{DoxyCompactList}\small\item\em Definir l'emetteur du signal. \item\end{DoxyCompactList}\item 
+TypeSignal \hyperlink{classSignals_af14716654fb552b8940935694edc1b69}{type} ()
+\begin{DoxyCompactList}\small\item\em Retourne le type du signal. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classSignals_abd873414eef1e8deb5dc8bcae33aa8fe}{
+\index{Signals@{Signals}!emetteur@{emetteur}}
+\index{emetteur@{emetteur}!Signals@{Signals}}
+\subsubsection[{emetteur}]{\setlength{\rightskip}{0pt plus 5cm}{\bf GestionSignal} $\ast$ Signals::emetteur ()}}
+\label{classSignals_abd873414eef1e8deb5dc8bcae33aa8fe}
+
+
+Retourne l'emetteur du signal. 
+
+\begin{DoxyReturn}{Renvoie}
+signal emetteur 
+\end{DoxyReturn}
+\hypertarget{classSignals_a8a58cb7d36939d77e0319e47e787f262}{
+\index{Signals@{Signals}!setEmetteur@{setEmetteur}}
+\index{setEmetteur@{setEmetteur}!Signals@{Signals}}
+\subsubsection[{setEmetteur}]{\setlength{\rightskip}{0pt plus 5cm}void Signals::setEmetteur ({\bf GestionSignal} $\ast$ {\em e})}}
+\label{classSignals_a8a58cb7d36939d77e0319e47e787f262}
+
+
+Definir l'emetteur du signal. 
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em signal}]emetteur \end{DoxyParams}
+\hypertarget{classSignals_af14716654fb552b8940935694edc1b69}{
+\index{Signals@{Signals}!type@{type}}
+\index{type@{type}!Signals@{Signals}}
+\subsubsection[{type}]{\setlength{\rightskip}{0pt plus 5cm}Signals::TypeSignal Signals::type ()}}
+\label{classSignals_af14716654fb552b8940935694edc1b69}
+
+
+Retourne le type du signal. 
+
+\begin{DoxyReturn}{Renvoie}
+type du signal 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+signals.h\item 
+signals.cpp\end{DoxyCompactItemize}

@@ -1,0 +1,188 @@
+\hypertarget{classRame}{
+\section{Référence de la classe Rame}
+\label{classRame}\index{Rame@{Rame}}
+}
+Graphe d'héritage de Rame:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{classRame}
+\end{center}
+\end{figure}
+\subsection*{Types publics}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries Sens} \{ {\bfseries Aller}, 
+{\bfseries Retour}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classRame_adef53f3ecf010d61beaddf3b70cff9a7}{
+\hyperlink{classRame_adef53f3ecf010d61beaddf3b70cff9a7}{Rame} ()}
+\label{classRame_adef53f3ecf010d61beaddf3b70cff9a7}
+
+\begin{DoxyCompactList}\small\item\em Constructeur d'une rame. \item\end{DoxyCompactList}\item 
+\hyperlink{classRame_a8066c138d427e7ae1236a563cf118c9a}{Rame} (\hyperlink{classLigne}{Ligne} $\ast$)
+\begin{DoxyCompactList}\small\item\em Constructeur d'une rame. \item\end{DoxyCompactList}\item 
+\hypertarget{classRame_a01b0bee8b4dd0b34e264691754a09cf9}{
+\hyperlink{classRame_a01b0bee8b4dd0b34e264691754a09cf9}{$\sim$Rame} ()}
+\label{classRame_a01b0bee8b4dd0b34e264691754a09cf9}
+
+\begin{DoxyCompactList}\small\item\em Destructeur d'une rame. \item\end{DoxyCompactList}\item 
+\hypertarget{classRame_a795c6b2b9c2de73d65d667fa6499356b}{
+void \hyperlink{classRame_a795c6b2b9c2de73d65d667fa6499356b}{run} ()}
+\label{classRame_a795c6b2b9c2de73d65d667fa6499356b}
+
+\begin{DoxyCompactList}\small\item\em Comportement d'une rame. \item\end{DoxyCompactList}\item 
+void \hyperlink{classRame_ae17128baab9f80372d1a1b6cd94ca2cd}{afficher} (QPainter $\ast$painter, int x, int y, int, int)
+\begin{DoxyCompactList}\small\item\em Affichage graphique d'une porte. \item\end{DoxyCompactList}\item 
+\hypertarget{classRame_a967aa23c6da624b0f7b03be6613e76c6}{
+void \hyperlink{classRame_a967aa23c6da624b0f7b03be6613e76c6}{avancer} ()}
+\label{classRame_a967aa23c6da624b0f7b03be6613e76c6}
+
+\begin{DoxyCompactList}\small\item\em Avance la rame d'une case. \item\end{DoxyCompactList}\item 
+int \hyperlink{classRame_a69a35184fb6ae56508438c553f096dd2}{getPosition} ()
+\begin{DoxyCompactList}\small\item\em Retourne la position de la rame sur la ligne. \item\end{DoxyCompactList}\item 
+void \hyperlink{classRame_a2334e438ad1f3e3f93d0580f7f220411}{setPosition} (int)
+\begin{DoxyCompactList}\small\item\em Modifie la position de la rame sur la ligne. \item\end{DoxyCompactList}\item 
+int \hyperlink{classRame_aa37e23c49eadb05d1bb5c08a73f7b751}{getNumRame} ()
+\begin{DoxyCompactList}\small\item\em Retourne l'id de la rame. \item\end{DoxyCompactList}\item 
+int \hyperlink{classRame_a6a7326b0c9ea2eb2fb2954d6aa8aeabb}{getNbPassager} ()
+\begin{DoxyCompactList}\small\item\em Retourne le nombre de passager. \item\end{DoxyCompactList}\item 
+void \hyperlink{classRame_a8bc41267a14836e1e95cd59f5ac3def6}{monte} (QList$<$ \hyperlink{classPassager}{Passager} $\ast$ $>$ plistepassager)
+\begin{DoxyCompactList}\small\item\em Faire monter un groupe de passager dans la rame. \item\end{DoxyCompactList}\item 
+QList$<$ \hyperlink{classPassager}{Passager} $\ast$ $>$ \hyperlink{classRame_a1ed8e8d1cee489bead9aa2b4b0fb6ca6}{descend} (\hyperlink{classStation}{Station} $\ast$pstation)
+\begin{DoxyCompactList}\small\item\em Faire descendre un groupe de passager de la rame. \item\end{DoxyCompactList}\item 
+\hypertarget{classRame_aa2541afe9a8f16d929803812048a323f}{
+void \hyperlink{classRame_aa2541afe9a8f16d929803812048a323f}{razListePassager} ()}
+\label{classRame_aa2541afe9a8f16d929803812048a323f}
+
+\begin{DoxyCompactList}\small\item\em Vider la liste de passager. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classRame_a525bea4947e6fcf110902fafdd380cf8}{
+Sens {\bfseries sens}}
+\label{classRame_a525bea4947e6fcf110902fafdd380cf8}
+
+\end{DoxyCompactItemize}
+\subsection*{Attributs publics statiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classRame_a55df3add73446e18b84b6fca24a191c3}{
+static int {\bfseries nbRame} = 0}
+\label{classRame_a55df3add73446e18b84b6fca24a191c3}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classRame_a8066c138d427e7ae1236a563cf118c9a}{
+\index{Rame@{Rame}!Rame@{Rame}}
+\index{Rame@{Rame}!Rame@{Rame}}
+\subsubsection[{Rame}]{\setlength{\rightskip}{0pt plus 5cm}Rame::Rame ({\bf Ligne} $\ast$ {\em ligne})}}
+\label{classRame_a8066c138d427e7ae1236a563cf118c9a}
+
+
+Constructeur d'une rame. 
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em une}]ligne \end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classRame_ae17128baab9f80372d1a1b6cd94ca2cd}{
+\index{Rame@{Rame}!afficher@{afficher}}
+\index{afficher@{afficher}!Rame@{Rame}}
+\subsubsection[{afficher}]{\setlength{\rightskip}{0pt plus 5cm}void Rame::afficher (QPainter $\ast$ {\em painter}, \/  int {\em x}, \/  int {\em y}, \/  int {\em wElement}, \/  int {\em hElement})}}
+\label{classRame_ae17128baab9f80372d1a1b6cd94ca2cd}
+
+
+Affichage graphique d'une porte. 
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em }]\end{DoxyParams}
+\hypertarget{classRame_a1ed8e8d1cee489bead9aa2b4b0fb6ca6}{
+\index{Rame@{Rame}!descend@{descend}}
+\index{descend@{descend}!Rame@{Rame}}
+\subsubsection[{descend}]{\setlength{\rightskip}{0pt plus 5cm}QList$<$ {\bf Passager} $\ast$ $>$ Rame::descend ({\bf Station} $\ast$ {\em pstation})}}
+\label{classRame_a1ed8e8d1cee489bead9aa2b4b0fb6ca6}
+
+
+Faire descendre un groupe de passager de la rame. 
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em Une}]station \end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Un groupe de passager 
+\end{DoxyReturn}
+\hypertarget{classRame_a6a7326b0c9ea2eb2fb2954d6aa8aeabb}{
+\index{Rame@{Rame}!getNbPassager@{getNbPassager}}
+\index{getNbPassager@{getNbPassager}!Rame@{Rame}}
+\subsubsection[{getNbPassager}]{\setlength{\rightskip}{0pt plus 5cm}int Rame::getNbPassager ()}}
+\label{classRame_a6a7326b0c9ea2eb2fb2954d6aa8aeabb}
+
+
+Retourne le nombre de passager. 
+
+\begin{DoxyReturn}{Renvoie}
+nombre de passager 
+\end{DoxyReturn}
+\hypertarget{classRame_aa37e23c49eadb05d1bb5c08a73f7b751}{
+\index{Rame@{Rame}!getNumRame@{getNumRame}}
+\index{getNumRame@{getNumRame}!Rame@{Rame}}
+\subsubsection[{getNumRame}]{\setlength{\rightskip}{0pt plus 5cm}int Rame::getNumRame ()}}
+\label{classRame_aa37e23c49eadb05d1bb5c08a73f7b751}
+
+
+Retourne l'id de la rame. 
+
+\begin{DoxyReturn}{Renvoie}
+id d'une rame 
+\end{DoxyReturn}
+\hypertarget{classRame_a69a35184fb6ae56508438c553f096dd2}{
+\index{Rame@{Rame}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Rame@{Rame}}
+\subsubsection[{getPosition}]{\setlength{\rightskip}{0pt plus 5cm}int Rame::getPosition ()}}
+\label{classRame_a69a35184fb6ae56508438c553f096dd2}
+
+
+Retourne la position de la rame sur la ligne. 
+
+\begin{DoxyReturn}{Renvoie}
+la position de la rame 
+\end{DoxyReturn}
+\hypertarget{classRame_a8bc41267a14836e1e95cd59f5ac3def6}{
+\index{Rame@{Rame}!monte@{monte}}
+\index{monte@{monte}!Rame@{Rame}}
+\subsubsection[{monte}]{\setlength{\rightskip}{0pt plus 5cm}void Rame::monte (QList$<$ {\bf Passager} $\ast$ $>$ {\em plistepassager})}}
+\label{classRame_a8bc41267a14836e1e95cd59f5ac3def6}
+
+
+Faire monter un groupe de passager dans la rame. 
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em Liste}]de passager \end{DoxyParams}
+\hypertarget{classRame_a2334e438ad1f3e3f93d0580f7f220411}{
+\index{Rame@{Rame}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!Rame@{Rame}}
+\subsubsection[{setPosition}]{\setlength{\rightskip}{0pt plus 5cm}void Rame::setPosition (int {\em i})}}
+\label{classRame_a2334e438ad1f3e3f93d0580f7f220411}
+
+
+Modifie la position de la rame sur la ligne. 
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em une}]position \end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+rame.h\item 
+rame.cpp\end{DoxyCompactItemize}

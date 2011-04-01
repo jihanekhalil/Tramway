@@ -1,0 +1,106 @@
+\hypertarget{classThread}{
+\section{Référence de la classe Thread}
+\label{classThread}\index{Thread@{Thread}}
+}
+Graphe d'héritage de Thread:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5cm]{classThread}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classThread_a95c703fb8f2f27cb64f475a8c940864a}{
+\hyperlink{classThread_a95c703fb8f2f27cb64f475a8c940864a}{Thread} ()}
+\label{classThread_a95c703fb8f2f27cb64f475a8c940864a}
+
+\begin{DoxyCompactList}\small\item\em constructeur de \hyperlink{classThread}{Thread}. \item\end{DoxyCompactList}\item 
+\hypertarget{classThread_a37d9edd3a1a776cbc27dedff949c9726}{
+virtual \hyperlink{classThread_a37d9edd3a1a776cbc27dedff949c9726}{$\sim$Thread} ()}
+\label{classThread_a37d9edd3a1a776cbc27dedff949c9726}
+
+\begin{DoxyCompactList}\small\item\em Destructeur de \hyperlink{classThread}{Thread}. \item\end{DoxyCompactList}\item 
+\hypertarget{classThread_aae90dfabab3e1776cf01a26e7ee3a620}{
+virtual void \hyperlink{classThread_aae90dfabab3e1776cf01a26e7ee3a620}{run} ()=0}
+\label{classThread_aae90dfabab3e1776cf01a26e7ee3a620}
+
+\begin{DoxyCompactList}\small\item\em Comportement d'un \hyperlink{classThread}{Thread}. \item\end{DoxyCompactList}\item 
+\hypertarget{classThread_a1f53ee62bd30a7924186ef26150ce262}{
+virtual void \hyperlink{classThread_a1f53ee62bd30a7924186ef26150ce262}{start} ()}
+\label{classThread_a1f53ee62bd30a7924186ef26150ce262}
+
+\begin{DoxyCompactList}\small\item\em Demarrage d'un thread. \item\end{DoxyCompactList}\item 
+\hypertarget{classThread_a4d9d788e98388a3217831a9046709deb}{
+virtual void \hyperlink{classThread_a4d9d788e98388a3217831a9046709deb}{join} ()}
+\label{classThread_a4d9d788e98388a3217831a9046709deb}
+
+\begin{DoxyCompactList}\small\item\em Attente du join. \item\end{DoxyCompactList}\item 
+\hypertarget{classThread_abd50159ecd409936f454c2321f673616}{
+virtual void \hyperlink{classThread_abd50159ecd409936f454c2321f673616}{stop} ()}
+\label{classThread_abd50159ecd409936f454c2321f673616}
+
+\begin{DoxyCompactList}\small\item\em Arret du \hyperlink{classThread}{Thread}. \item\end{DoxyCompactList}\item 
+virtual QString \hyperlink{classThread_ad055e7c603fda2607670f69c32b2d98a}{getClasse} ()
+\begin{DoxyCompactList}\small\item\em Retourne le nom de la classe \hyperlink{classThread}{Thread}. \item\end{DoxyCompactList}\item 
+pthread\_\-t \hyperlink{classThread_a2bcb649ad0f9304744c18e5c15d7fa8e}{id} ()
+\begin{DoxyCompactList}\small\item\em Retourne l'id du thread. \item\end{DoxyCompactList}\item 
+bool \hyperlink{classThread_a06a3cea9c644b36becc3dc21444d9f99}{getEtatThread} ()
+\begin{DoxyCompactList}\small\item\em Retourne l'etat du thread. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classThread_ab6e610ca1cdc02783d947d3341c17ddf}{
+void $\ast$ \hyperlink{classThread_ab6e610ca1cdc02783d947d3341c17ddf}{start\_\-thread} (void $\ast$)}
+\label{classThread_ab6e610ca1cdc02783d947d3341c17ddf}
+
+\begin{DoxyCompactList}\small\item\em Fonction lancee lors de la creation d'un thread. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classThread_ad055e7c603fda2607670f69c32b2d98a}{
+\index{Thread@{Thread}!getClasse@{getClasse}}
+\index{getClasse@{getClasse}!Thread@{Thread}}
+\subsubsection[{getClasse}]{\setlength{\rightskip}{0pt plus 5cm}virtual QString Thread::getClasse ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classThread_ad055e7c603fda2607670f69c32b2d98a}
+
+
+Retourne le nom de la classe \hyperlink{classThread}{Thread}. 
+
+\begin{DoxyReturn}{Renvoie}
+le nom de la classe 
+\end{DoxyReturn}
+
+
+Réimplémentée dans \hyperlink{classFeux_ac06b420ea2bb015007eb03ca2401176e}{Feux}, \hyperlink{classObstacle_a7773466eaafb92cef0ec22f5cc79522c}{Obstacle}, \hyperlink{classPorte_a773001136f190566b51b4e24c4323409}{Porte}, et \hyperlink{classStation_aea030824145267b81a453f5b56227cae}{Station}.
+
+\hypertarget{classThread_a06a3cea9c644b36becc3dc21444d9f99}{
+\index{Thread@{Thread}!getEtatThread@{getEtatThread}}
+\index{getEtatThread@{getEtatThread}!Thread@{Thread}}
+\subsubsection[{getEtatThread}]{\setlength{\rightskip}{0pt plus 5cm}bool Thread::getEtatThread ()}}
+\label{classThread_a06a3cea9c644b36becc3dc21444d9f99}
+
+
+Retourne l'etat du thread. 
+
+\begin{DoxyReturn}{Renvoie}
+etat du thread ACTIF=1 
+\end{DoxyReturn}
+\hypertarget{classThread_a2bcb649ad0f9304744c18e5c15d7fa8e}{
+\index{Thread@{Thread}!id@{id}}
+\index{id@{id}!Thread@{Thread}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}pthread\_\-t Thread::id ()}}
+\label{classThread_a2bcb649ad0f9304744c18e5c15d7fa8e}
+
+
+Retourne l'id du thread. 
+
+\begin{DoxyReturn}{Renvoie}
+id du thread 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+thread.h\item 
+thread.cpp\end{DoxyCompactItemize}

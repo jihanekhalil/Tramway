@@ -1,0 +1,72 @@
+\hypertarget{classGestionSignal}{
+\section{Référence de la classe GestionSignal}
+\label{classGestionSignal}\index{GestionSignal@{GestionSignal}}
+}
+Graphe d'héritage de GestionSignal:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5cm]{classGestionSignal}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classGestionSignal_af7ab58d9b5971b4b67eec295b76d3b4a}{
+\hyperlink{classGestionSignal_af7ab58d9b5971b4b67eec295b76d3b4a}{GestionSignal} ()}
+\label{classGestionSignal_af7ab58d9b5971b4b67eec295b76d3b4a}
+
+\begin{DoxyCompactList}\small\item\em Constructeur d'un gestionnaire de signaux. \item\end{DoxyCompactList}\item 
+\hypertarget{classGestionSignal_ae28c5d1d8dcda2ff2cd007f89c5d193d}{
+\hyperlink{classGestionSignal_ae28c5d1d8dcda2ff2cd007f89c5d193d}{$\sim$GestionSignal} ()}
+\label{classGestionSignal_ae28c5d1d8dcda2ff2cd007f89c5d193d}
+
+\begin{DoxyCompactList}\small\item\em Destructeur du gestionnaire de signaux. \item\end{DoxyCompactList}\item 
+void \hyperlink{classGestionSignal_a0b729617a3132c6f3227072511ffcb63}{addSignal} (\hyperlink{classSignals}{Signals} $\ast$)
+\begin{DoxyCompactList}\small\item\em Ajout d'un signal à la liste de signaux. \item\end{DoxyCompactList}\item 
+\hypertarget{classGestionSignal_a4fa2c7af04eaf98de9169709696c1c93}{
+virtual void \hyperlink{classGestionSignal_a4fa2c7af04eaf98de9169709696c1c93}{run} ()}
+\label{classGestionSignal_a4fa2c7af04eaf98de9169709696c1c93}
+
+\begin{DoxyCompactList}\small\item\em Comportement d'un \hyperlink{classThread}{Thread}. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classGestionSignal_a1e4fb5f2fa8c0f844639f6bd84ff701b}{
+virtual void {\bfseries createSignal} ()=0}
+\label{classGestionSignal_a1e4fb5f2fa8c0f844639f6bd84ff701b}
+
+\item 
+\hypertarget{classGestionSignal_adf3f0a7f9445d4b81c24aba5adaa89e2}{
+void \hyperlink{classGestionSignal_adf3f0a7f9445d4b81c24aba5adaa89e2}{deleteSignal} ()}
+\label{classGestionSignal_adf3f0a7f9445d4b81c24aba5adaa89e2}
+
+\begin{DoxyCompactList}\small\item\em Supprime un signal de la liste des signaux. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classGestionSignal_a6e8cffa17bc2f240d2ab3cdba9b3f53d}{
+QList$<$ \hyperlink{classSignals}{Signals} $\ast$ $>$ {\bfseries listSignals}}
+\label{classGestionSignal_a6e8cffa17bc2f240d2ab3cdba9b3f53d}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classGestionSignal_a0b729617a3132c6f3227072511ffcb63}{
+\index{GestionSignal@{GestionSignal}!addSignal@{addSignal}}
+\index{addSignal@{addSignal}!GestionSignal@{GestionSignal}}
+\subsubsection[{addSignal}]{\setlength{\rightskip}{0pt plus 5cm}void GestionSignal::addSignal ({\bf Signals} $\ast$ {\em s})}}
+\label{classGestionSignal_a0b729617a3132c6f3227072511ffcb63}
+
+
+Ajout d'un signal à la liste de signaux. 
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em Un}]signal \end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+gestionsignal.h\item 
+gestionsignal.cpp\end{DoxyCompactItemize}
