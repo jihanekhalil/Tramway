@@ -77,7 +77,7 @@ public:
     /**
      * @brief Ajouter un obstacle sur la ligne.
      */
-    void ajouterObstacle();
+    int ajouterObstacle();
 
     /**
      * @brief Recuperer la liste de rames.

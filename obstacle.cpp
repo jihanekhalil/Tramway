@@ -42,7 +42,4 @@ Obstacle::Obstacle(QList<Element *> *sens, int position)
     this->sens = sens;
     this->position = position;
 
-    sleep(10);
-    this->sens->replace(position, new Element());;
-    delete(this);
 }
