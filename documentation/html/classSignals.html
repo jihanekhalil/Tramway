@@ -1,0 +1,166 @@
+<!-- This comment will put IE 6, 7 and 8 in quirks mode -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>ProjetSTR-Tramway: Référence de la classe Signals</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Généré par Doxygen 1.6.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Page&nbsp;principale</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <img id="MSearchSelect" src="search/search.png"
+             onmouseover="return searchBox.OnSearchSelectShow()"
+             onmouseout="return searchBox.OnSearchSelectHide()"
+             alt=""/>
+        <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+             onfocus="searchBox.OnSearchFieldFocus(true)" 
+             onblur="searchBox.OnSearchFieldFocus(false)" 
+             onkeyup="searchBox.OnSearchFieldChange(event)"/>
+        <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Liste&nbsp;des&nbsp;classes</span></a></li>
+      <li><a href="hierarchy.html"><span>Hiérarchie&nbsp;des&nbsp;classes</span></a></li>
+      <li><a href="functions.html"><span>Membres&nbsp;de&nbsp;classe</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Référence de la classe Signals</h1><!-- doxytag: class="Signals" -->
+<p><a href="classSignals-members.html">Liste de tous les membres</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Types publics</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><b>TypeSignal</b> { <br/>
+&nbsp;&nbsp;<b>Demande</b>, 
+<b>EstPasse</b>, 
+<b>Arret</b>, 
+<b>Passe</b>, 
+<br/>
+&nbsp;&nbsp;<b>OuvrirPorte</b>, 
+<b>FermerPorte</b>, 
+<b>PorteFermee</b>
+<br/>
+ }</td></tr>
+<tr><td colspan="2"><h2>Fonctions membres publiques</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb20260e11bbaf3cdfc45cbc6506349a"></a><!-- doxytag: member="Signals::Signals" ref="abb20260e11bbaf3cdfc45cbc6506349a" args="(GestionSignal *, TypeSignal)" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSignals.html#abb20260e11bbaf3cdfc45cbc6506349a">Signals</a> (<a class="el" href="classGestionSignal.html">GestionSignal</a> *, TypeSignal)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">constructeur de Signal. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a023cdc52c51b2d8c33e0af2714b4cb04"></a><!-- doxytag: member="Signals::~Signals" ref="a023cdc52c51b2d8c33e0af2714b4cb04" args="()" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSignals.html#a023cdc52c51b2d8c33e0af2714b4cb04">~Signals</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Destructeur de Feu. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGestionSignal.html">GestionSignal</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSignals.html#abd873414eef1e8deb5dc8bcae33aa8fe">emetteur</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retourne l'emetteur du signal.  <a href="#abd873414eef1e8deb5dc8bcae33aa8fe"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSignals.html#a8a58cb7d36939d77e0319e47e787f262">setEmetteur</a> (<a class="el" href="classGestionSignal.html">GestionSignal</a> *)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Definir l'emetteur du signal.  <a href="#a8a58cb7d36939d77e0319e47e787f262"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">TypeSignal&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSignals.html#af14716654fb552b8940935694edc1b69">type</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retourne le type du signal.  <a href="#af14716654fb552b8940935694edc1b69"></a><br/></td></tr>
+</table>
+<hr/><h2>Documentation des fonctions membres</h2>
+<a class="anchor" id="abd873414eef1e8deb5dc8bcae33aa8fe"></a><!-- doxytag: member="Signals::emetteur" ref="abd873414eef1e8deb5dc8bcae33aa8fe" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classGestionSignal.html">GestionSignal</a> * Signals::emetteur </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Retourne l'emetteur du signal. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>signal emetteur </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8a58cb7d36939d77e0319e47e787f262"></a><!-- doxytag: member="Signals::setEmetteur" ref="a8a58cb7d36939d77e0319e47e787f262" args="(GestionSignal *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Signals::setEmetteur </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGestionSignal.html">GestionSignal</a> *&nbsp;</td>
+          <td class="paramname"> <em>e</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definir l'emetteur du signal. </p>
+<dl><dt><b>Paramètres:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>signal</em>&nbsp;</td><td>emetteur </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="af14716654fb552b8940935694edc1b69"></a><!-- doxytag: member="Signals::type" ref="af14716654fb552b8940935694edc1b69" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Signals::TypeSignal Signals::type </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Retourne le type du signal. </p>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>type du signal </dd></dl>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li><a class="el" href="signals_8h_source.html">signals.h</a></li>
+<li>signals.cpp</li>
+</ul>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Amis</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address style="text-align: right;"><small>Généré le Fri Apr 1 09:26:35 2011 pour ProjetSTR-Tramway par&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

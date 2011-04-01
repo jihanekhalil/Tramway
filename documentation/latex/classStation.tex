@@ -1,0 +1,154 @@
+\hypertarget{classStation}{
+\section{Référence de la classe Station}
+\label{classStation}\index{Station@{Station}}
+}
+Graphe d'héritage de Station:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5cm]{classStation}
+\end{center}
+\end{figure}
+\subsection*{Types publics}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries Type} \{ {\bfseries Terminus}, 
+{\bfseries Intermediaire}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classStation_a73d335726aad1d844d81cda6d9fd74e6}{
+\hyperlink{classStation_a73d335726aad1d844d81cda6d9fd74e6}{Station} ()}
+\label{classStation_a73d335726aad1d844d81cda6d9fd74e6}
+
+\begin{DoxyCompactList}\small\item\em constructeur de \hyperlink{classStation}{Station}. \item\end{DoxyCompactList}\item 
+\hyperlink{classStation_a3f359a7bed774082d2f1b5927ce4dd5c}{Station} (QString nomLigne, Station::Type, \hyperlink{classLigne}{Ligne} $\ast$)
+\begin{DoxyCompactList}\small\item\em constructeur de \hyperlink{classStation}{Station}. \item\end{DoxyCompactList}\item 
+void \hyperlink{classStation_aa4918eec32fe4f3484f629564b84e160}{afficher} (QPainter $\ast$painter, int x, int y, int, int, bool)
+\begin{DoxyCompactList}\small\item\em Affichage graphique d'une station. \item\end{DoxyCompactList}\item 
+virtual QString \hyperlink{classStation_aea030824145267b81a453f5b56227cae}{getClasse} ()
+\begin{DoxyCompactList}\small\item\em Retourne le nom de la classe \hyperlink{classStation}{Station}. \item\end{DoxyCompactList}\item 
+\hypertarget{classStation_a73c0d1c00b8de39ff4eb16be708e9a92}{
+void \hyperlink{classStation_a73c0d1c00b8de39ff4eb16be708e9a92}{run} ()}
+\label{classStation_a73c0d1c00b8de39ff4eb16be708e9a92}
+
+\begin{DoxyCompactList}\small\item\em Comportement d'une station. \item\end{DoxyCompactList}\item 
+QString \hyperlink{classStation_ac73e2b60d199734b494e84fa065a6643}{getNom} ()
+\begin{DoxyCompactList}\small\item\em Retourne le nom de la station. \item\end{DoxyCompactList}\item 
+\hyperlink{classLigne}{Ligne} $\ast$ \hyperlink{classStation_a3ee72b5920d69350770fa056d6b675bc}{getLigne} ()
+\begin{DoxyCompactList}\small\item\em Retourne ligne de la station. \item\end{DoxyCompactList}\item 
+void \hyperlink{classStation_a41ad1728246bbecd645a7a9679a2e59c}{createSignal} ()
+\item 
+bool \hyperlink{classStation_ad2c82ba6d816f24c26970c4468351807}{estTerminus} ()
+\begin{DoxyCompactList}\small\item\em Verifie le type de station. \item\end{DoxyCompactList}\item 
+\hypertarget{classStation_a81ea74879cf784be7f89153be99be03d}{
+void \hyperlink{classStation_a81ea74879cf784be7f89153be99be03d}{setPassagers} ()}
+\label{classStation_a81ea74879cf784be7f89153be99be03d}
+
+\begin{DoxyCompactList}\small\item\em Ajoute des passager en attente a la station. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs publics statiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classStation_a0735f4fa937dd9018dedb764c3a2ee49}{
+static int {\bfseries nombreStations} = 0}
+\label{classStation_a0735f4fa937dd9018dedb764c3a2ee49}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classStation_a3f359a7bed774082d2f1b5927ce4dd5c}{
+\index{Station@{Station}!Station@{Station}}
+\index{Station@{Station}!Station@{Station}}
+\subsubsection[{Station}]{\setlength{\rightskip}{0pt plus 5cm}Station::Station (QString {\em nomLigne}, \/  Station::Type {\em t}, \/  {\bf Ligne} $\ast$ {\em pligne})}}
+\label{classStation_a3f359a7bed774082d2f1b5927ce4dd5c}
+
+
+constructeur de \hyperlink{classStation}{Station}. 
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em nom}]de la ligne \item[{\em type}]de station \item[{\em une}]ligne \end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classStation_aa4918eec32fe4f3484f629564b84e160}{
+\index{Station@{Station}!afficher@{afficher}}
+\index{afficher@{afficher}!Station@{Station}}
+\subsubsection[{afficher}]{\setlength{\rightskip}{0pt plus 5cm}void Station::afficher (QPainter $\ast$ {\em painter}, \/  int {\em x}, \/  int {\em y}, \/  int {\em wElement}, \/  int {\em hElement}, \/  bool {\em affNom})}}
+\label{classStation_aa4918eec32fe4f3484f629564b84e160}
+
+
+Affichage graphique d'une station. 
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em }]\end{DoxyParams}
+\hypertarget{classStation_a41ad1728246bbecd645a7a9679a2e59c}{
+\index{Station@{Station}!createSignal@{createSignal}}
+\index{createSignal@{createSignal}!Station@{Station}}
+\subsubsection[{createSignal}]{\setlength{\rightskip}{0pt plus 5cm}void Station::createSignal ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classStation_a41ad1728246bbecd645a7a9679a2e59c}
+Gestion des signaux recus: Signals::Demande Signals::EstPasse : indique que la rame est partie, remet le feu a rouge. 
+
+Réimplémentée à partir de \hyperlink{classElement_a4f4cc97e3122305ec6f4a8953aba23d5}{Element}.
+
+\hypertarget{classStation_ad2c82ba6d816f24c26970c4468351807}{
+\index{Station@{Station}!estTerminus@{estTerminus}}
+\index{estTerminus@{estTerminus}!Station@{Station}}
+\subsubsection[{estTerminus}]{\setlength{\rightskip}{0pt plus 5cm}bool Station::estTerminus ()}}
+\label{classStation_ad2c82ba6d816f24c26970c4468351807}
+
+
+Verifie le type de station. 
+
+\begin{DoxyReturn}{Renvoie}
+station terminus = 1 sinon 0 
+\end{DoxyReturn}
+\hypertarget{classStation_aea030824145267b81a453f5b56227cae}{
+\index{Station@{Station}!getClasse@{getClasse}}
+\index{getClasse@{getClasse}!Station@{Station}}
+\subsubsection[{getClasse}]{\setlength{\rightskip}{0pt plus 5cm}virtual QString Station::getClasse ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classStation_aea030824145267b81a453f5b56227cae}
+
+
+Retourne le nom de la classe \hyperlink{classStation}{Station}. 
+
+\begin{DoxyReturn}{Renvoie}
+le nom de la classe 
+\end{DoxyReturn}
+
+
+Réimplémentée à partir de \hyperlink{classThread_ad055e7c603fda2607670f69c32b2d98a}{Thread}.
+
+\hypertarget{classStation_a3ee72b5920d69350770fa056d6b675bc}{
+\index{Station@{Station}!getLigne@{getLigne}}
+\index{getLigne@{getLigne}!Station@{Station}}
+\subsubsection[{getLigne}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ligne} $\ast$ Station::getLigne ()}}
+\label{classStation_a3ee72b5920d69350770fa056d6b675bc}
+
+
+Retourne ligne de la station. 
+
+\begin{DoxyReturn}{Renvoie}
+la ligne de la station 
+\end{DoxyReturn}
+\hypertarget{classStation_ac73e2b60d199734b494e84fa065a6643}{
+\index{Station@{Station}!getNom@{getNom}}
+\index{getNom@{getNom}!Station@{Station}}
+\subsubsection[{getNom}]{\setlength{\rightskip}{0pt plus 5cm}QString Station::getNom ()}}
+\label{classStation_ac73e2b60d199734b494e84fa065a6643}
+
+
+Retourne le nom de la station. 
+
+\begin{DoxyReturn}{Renvoie}
+le nom de la station 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+station.h\item 
+station.cpp\end{DoxyCompactItemize}

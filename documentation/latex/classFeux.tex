@@ -1,0 +1,103 @@
+\hypertarget{classFeux}{
+\section{Référence de la classe Feux}
+\label{classFeux}\index{Feux@{Feux}}
+}
+Graphe d'héritage de Feux:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5cm]{classFeux}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classFeux_a2474d3dc42d3a0d60427f0d2ccf2472e}{
+\hyperlink{classFeux_a2474d3dc42d3a0d60427f0d2ccf2472e}{Feux} ()}
+\label{classFeux_a2474d3dc42d3a0d60427f0d2ccf2472e}
+
+\begin{DoxyCompactList}\small\item\em constructeur de Feu. \item\end{DoxyCompactList}\item 
+\hyperlink{classFeux_a875eac84cbac9d6ea9f2505cb59b0701}{Feux} (\hyperlink{classLigne}{Ligne} $\ast$)
+\begin{DoxyCompactList}\small\item\em Constructeur de Feu. \item\end{DoxyCompactList}\item 
+\hypertarget{classFeux_a83d13185bdc10129517185ac9579339b}{
+\hyperlink{classFeux_a83d13185bdc10129517185ac9579339b}{$\sim$Feux} ()}
+\label{classFeux_a83d13185bdc10129517185ac9579339b}
+
+\begin{DoxyCompactList}\small\item\em Destructeur de Feu. \item\end{DoxyCompactList}\item 
+\hypertarget{classFeux_a5a868ea5221a779cd2334f892dba0241}{
+void \hyperlink{classFeux_a5a868ea5221a779cd2334f892dba0241}{run} ()}
+\label{classFeux_a5a868ea5221a779cd2334f892dba0241}
+
+\begin{DoxyCompactList}\small\item\em Comportement d'un feu. \item\end{DoxyCompactList}\item 
+virtual void \hyperlink{classFeux_a8bb7f9817c38d79927c9a4b471534889}{afficher} (QPainter $\ast$painter, int x, int y, int, int)
+\begin{DoxyCompactList}\small\item\em Affichage graphique d'un feu. \item\end{DoxyCompactList}\item 
+virtual QString \hyperlink{classFeux_ac06b420ea2bb015007eb03ca2401176e}{getClasse} ()
+\begin{DoxyCompactList}\small\item\em Retourne le nom de la classe Feu. \item\end{DoxyCompactList}\item 
+\hypertarget{classFeux_af8488543d58945794535cca3ce9017a0}{
+void \hyperlink{classFeux_af8488543d58945794535cca3ce9017a0}{createSignal} ()}
+\label{classFeux_af8488543d58945794535cca3ce9017a0}
+
+\begin{DoxyCompactList}\small\item\em Traitement des signaux reçus. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs publics statiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classFeux_a8116829495e0871822c38ed26f09383f}{
+static int {\bfseries nombreFeux} = 0}
+\label{classFeux_a8116829495e0871822c38ed26f09383f}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classFeux_a875eac84cbac9d6ea9f2505cb59b0701}{
+\index{Feux@{Feux}!Feux@{Feux}}
+\index{Feux@{Feux}!Feux@{Feux}}
+\subsubsection[{Feux}]{\setlength{\rightskip}{0pt plus 5cm}Feux::Feux ({\bf Ligne} $\ast$ {\em ligne})}}
+\label{classFeux_a875eac84cbac9d6ea9f2505cb59b0701}
+
+
+Constructeur de Feu. 
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em une}]ligne \end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classFeux_a8bb7f9817c38d79927c9a4b471534889}{
+\index{Feux@{Feux}!afficher@{afficher}}
+\index{afficher@{afficher}!Feux@{Feux}}
+\subsubsection[{afficher}]{\setlength{\rightskip}{0pt plus 5cm}void Feux::afficher (QPainter $\ast$ {\em painter}, \/  int {\em x}, \/  int {\em y}, \/  int {\em wElement}, \/  int {\em hElement})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classFeux_a8bb7f9817c38d79927c9a4b471534889}
+
+
+Affichage graphique d'un feu. 
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em }]\end{DoxyParams}
+
+
+Réimplémentée à partir de \hyperlink{classPointSynchronisation_a53db6636fdb405bb30fab20b7dc4d374}{PointSynchronisation}.
+
+\hypertarget{classFeux_ac06b420ea2bb015007eb03ca2401176e}{
+\index{Feux@{Feux}!getClasse@{getClasse}}
+\index{getClasse@{getClasse}!Feux@{Feux}}
+\subsubsection[{getClasse}]{\setlength{\rightskip}{0pt plus 5cm}virtual QString Feux::getClasse ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classFeux_ac06b420ea2bb015007eb03ca2401176e}
+
+
+Retourne le nom de la classe Feu. 
+
+\begin{DoxyReturn}{Renvoie}
+le nom de la classe 
+\end{DoxyReturn}
+
+
+Réimplémentée à partir de \hyperlink{classThread_ad055e7c603fda2607670f69c32b2d98a}{Thread}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+feux.h\item 
+feux.cpp\end{DoxyCompactItemize}

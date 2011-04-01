@@ -1,0 +1,121 @@
+\hypertarget{classPorte}{
+\section{Référence de la classe Porte}
+\label{classPorte}\index{Porte@{Porte}}
+}
+Graphe d'héritage de Porte:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{classPorte}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classPorte_a05e19e08d3ff7f043ea0a10a5014641a}{
+\hyperlink{classPorte_a05e19e08d3ff7f043ea0a10a5014641a}{Porte} ()}
+\label{classPorte_a05e19e08d3ff7f043ea0a10a5014641a}
+
+\begin{DoxyCompactList}\small\item\em Constructeur d'une porte. \item\end{DoxyCompactList}\item 
+\hypertarget{classPorte_a4b2871553ecea50b1aae06fff264ce4b}{
+\hyperlink{classPorte_a4b2871553ecea50b1aae06fff264ce4b}{Porte} (\hyperlink{classRame}{Rame} $\ast$r)}
+\label{classPorte_a4b2871553ecea50b1aae06fff264ce4b}
+
+\begin{DoxyCompactList}\small\item\em Constructeur d'une porte. \item\end{DoxyCompactList}\item 
+\hypertarget{classPorte_a7b82ccac24bfd8b7fa701f7601328d6c}{
+\hyperlink{classPorte_a7b82ccac24bfd8b7fa701f7601328d6c}{$\sim$Porte} ()}
+\label{classPorte_a7b82ccac24bfd8b7fa701f7601328d6c}
+
+\begin{DoxyCompactList}\small\item\em Destructeur d'une porte. \item\end{DoxyCompactList}\item 
+\hypertarget{classPorte_a6da489b2494630c2e49afb6b14135565}{
+void \hyperlink{classPorte_a6da489b2494630c2e49afb6b14135565}{run} ()}
+\label{classPorte_a6da489b2494630c2e49afb6b14135565}
+
+\begin{DoxyCompactList}\small\item\em Comportement d'une porte. \item\end{DoxyCompactList}\item 
+\hypertarget{classPorte_a588ea2df3d7e9db98d4ce7426c4ba7f9}{
+void \hyperlink{classPorte_a588ea2df3d7e9db98d4ce7426c4ba7f9}{ouvrir} ()}
+\label{classPorte_a588ea2df3d7e9db98d4ce7426c4ba7f9}
+
+\begin{DoxyCompactList}\small\item\em Ouverture de la porte. \item\end{DoxyCompactList}\item 
+\hypertarget{classPorte_a3718ae4efe9d301d94fda91040764114}{
+void \hyperlink{classPorte_a3718ae4efe9d301d94fda91040764114}{fermer} ()}
+\label{classPorte_a3718ae4efe9d301d94fda91040764114}
+
+\begin{DoxyCompactList}\small\item\em Fermeture de la porte. \item\end{DoxyCompactList}\item 
+\hypertarget{classPorte_aed677d56fb34ab8ed8c9beb6e338452a}{
+bool \hyperlink{classPorte_aed677d56fb34ab8ed8c9beb6e338452a}{isOpen} ()}
+\label{classPorte_aed677d56fb34ab8ed8c9beb6e338452a}
+
+\begin{DoxyCompactList}\small\item\em Retourne l'etat de la porte. \item\end{DoxyCompactList}\item 
+void \hyperlink{classPorte_a612d63b6b888d391ac7ab3530cb6fecb}{afficher} (QPainter $\ast$painter, int x, int y, int wPorte, int hElement)
+\begin{DoxyCompactList}\small\item\em Affichage graphique d'une porte. \item\end{DoxyCompactList}\item 
+\hypertarget{classPorte_a27ff96c2b4acc8d223d744ecd31aa3a3}{
+void \hyperlink{classPorte_a27ff96c2b4acc8d223d744ecd31aa3a3}{demanderOuverture} ()}
+\label{classPorte_a27ff96c2b4acc8d223d744ecd31aa3a3}
+
+\begin{DoxyCompactList}\small\item\em Demande l'ouverture de la porte avant ou à l'arrivée a une station. \item\end{DoxyCompactList}\item 
+virtual QString \hyperlink{classPorte_a773001136f190566b51b4e24c4323409}{getClasse} ()
+\begin{DoxyCompactList}\small\item\em Retourne le nom de la classe \hyperlink{classPorte}{Porte}. \item\end{DoxyCompactList}\item 
+int \hyperlink{classPorte_a65ae951c733e2741c6dcc5ef336ff7d4}{getNumPorte} ()
+\begin{DoxyCompactList}\small\item\em Retourne l'identificateur de porte. \item\end{DoxyCompactList}\item 
+\hypertarget{classPorte_ab87d9b41a1a6a877318da3f336392744}{
+void \hyperlink{classPorte_ab87d9b41a1a6a877318da3f336392744}{createSignal} ()}
+\label{classPorte_ab87d9b41a1a6a877318da3f336392744}
+
+\begin{DoxyCompactList}\small\item\em Gestion des signaux: Signals::OuvrirPorte : signal de la rame pour autoriser l'ouverture de la porte Signals::FermerPorte : signal de la rame pour demander la fermeture de la porte. Renvoie un signal Signals::PorteFermee a la rame lorsque la porte est fermee. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs publics statiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classPorte_ace96ffd106c02645ae1f9e50d77f54bf}{
+static int {\bfseries nombrePortes} = 0}
+\label{classPorte_ace96ffd106c02645ae1f9e50d77f54bf}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classPorte_a612d63b6b888d391ac7ab3530cb6fecb}{
+\index{Porte@{Porte}!afficher@{afficher}}
+\index{afficher@{afficher}!Porte@{Porte}}
+\subsubsection[{afficher}]{\setlength{\rightskip}{0pt plus 5cm}void Porte::afficher (QPainter $\ast$ {\em painter}, \/  int {\em x}, \/  int {\em y}, \/  int {\em wPorte}, \/  int {\em hElement})}}
+\label{classPorte_a612d63b6b888d391ac7ab3530cb6fecb}
+
+
+Affichage graphique d'une porte. 
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em }]\end{DoxyParams}
+\hypertarget{classPorte_a773001136f190566b51b4e24c4323409}{
+\index{Porte@{Porte}!getClasse@{getClasse}}
+\index{getClasse@{getClasse}!Porte@{Porte}}
+\subsubsection[{getClasse}]{\setlength{\rightskip}{0pt plus 5cm}virtual QString Porte::getClasse ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classPorte_a773001136f190566b51b4e24c4323409}
+
+
+Retourne le nom de la classe \hyperlink{classPorte}{Porte}. 
+
+\begin{DoxyReturn}{Renvoie}
+le nom de la classe 
+\end{DoxyReturn}
+
+
+Réimplémentée à partir de \hyperlink{classThread_ad055e7c603fda2607670f69c32b2d98a}{Thread}.
+
+\hypertarget{classPorte_a65ae951c733e2741c6dcc5ef336ff7d4}{
+\index{Porte@{Porte}!getNumPorte@{getNumPorte}}
+\index{getNumPorte@{getNumPorte}!Porte@{Porte}}
+\subsubsection[{getNumPorte}]{\setlength{\rightskip}{0pt plus 5cm}int Porte::getNumPorte ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classPorte_a65ae951c733e2741c6dcc5ef336ff7d4}
+
+
+Retourne l'identificateur de porte. 
+
+\begin{DoxyReturn}{Renvoie}
+l'id de la porte 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+porte.h\item 
+porte.cpp\end{DoxyCompactItemize}

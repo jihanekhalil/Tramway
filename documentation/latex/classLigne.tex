@@ -1,0 +1,187 @@
+\hypertarget{classLigne}{
+\section{Référence de la classe Ligne}
+\label{classLigne}\index{Ligne@{Ligne}}
+}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classLigne_aa8953c4b617add4054ed9f73b36995b7}{
+\hyperlink{classLigne_aa8953c4b617add4054ed9f73b36995b7}{Ligne} ()}
+\label{classLigne_aa8953c4b617add4054ed9f73b36995b7}
+
+\begin{DoxyCompactList}\small\item\em Constructeur d'une ligne. \item\end{DoxyCompactList}\item 
+\hyperlink{classLigne_a4c5b5e8f49c5b37724685e2c4799fa60}{Ligne} (int longueur)
+\begin{DoxyCompactList}\small\item\em Constructeur d'une ligne. \item\end{DoxyCompactList}\item 
+\hypertarget{classLigne_a7496e90cf05bab745e3645919d33c811}{
+\hyperlink{classLigne_a7496e90cf05bab745e3645919d33c811}{$\sim$Ligne} ()}
+\label{classLigne_a7496e90cf05bab745e3645919d33c811}
+
+\begin{DoxyCompactList}\small\item\em Destructeur d'une ligne. \item\end{DoxyCompactList}\item 
+void \hyperlink{classLigne_a548b1d11662e76b5bb05a8a4c1bd96de}{afficher} (QPainter $\ast$painter, int, int)
+\begin{DoxyCompactList}\small\item\em Affichage graphique d'une ligne. \item\end{DoxyCompactList}\item 
+void \hyperlink{classLigne_a4e6647ba0bf16758fecd57d38266c2f0}{ajouterRame} (\hyperlink{classRame}{Rame} $\ast$rame)
+\begin{DoxyCompactList}\small\item\em Ajout d'une rame à la ligne. \item\end{DoxyCompactList}\item 
+\hypertarget{classLigne_af11dd876c3d78e3fc9a11d0c91eac46f}{
+void \hyperlink{classLigne_af11dd876c3d78e3fc9a11d0c91eac46f}{updateListPSsuivant} ()}
+\label{classLigne_af11dd876c3d78e3fc9a11d0c91eac46f}
+
+\begin{DoxyCompactList}\small\item\em Definir les objets suivants de chaque points. \item\end{DoxyCompactList}\item 
+\hypertarget{classLigne_a58643181ea386f7cc5dd9fa2cd0f00eb}{
+void \hyperlink{classLigne_a58643181ea386f7cc5dd9fa2cd0f00eb}{updateListPSprecedent} ()}
+\label{classLigne_a58643181ea386f7cc5dd9fa2cd0f00eb}
+
+\begin{DoxyCompactList}\small\item\em Definir les objets precedents de chaque points. \item\end{DoxyCompactList}\item 
+\hypertarget{classLigne_a513425699b8fe187f87626923c32c96a}{
+void \hyperlink{classLigne_a513425699b8fe187f87626923c32c96a}{ajouterObstacle} ()}
+\label{classLigne_a513425699b8fe187f87626923c32c96a}
+
+\begin{DoxyCompactList}\small\item\em Ajouter un obstacle sur la ligne. \item\end{DoxyCompactList}\item 
+QList$<$ \hyperlink{classRame}{Rame} $\ast$ $>$ $\ast$ \hyperlink{classLigne_aed26ffc704040dea3ba2b1a8b184a550}{getRames} ()
+\begin{DoxyCompactList}\small\item\em Recuperer la liste de rames. \item\end{DoxyCompactList}\item 
+\hyperlink{classRame}{Rame} $\ast$ \hyperlink{classLigne_a6c0c5346eff4bc5713241fd4f07fb9ef}{getRameAt} (int)
+\begin{DoxyCompactList}\small\item\em Recuperer une rame à une position donnee. \item\end{DoxyCompactList}\item 
+int \hyperlink{classLigne_a092ab7c50400c0580c23c9dcf3ba795b}{getLongueur} ()
+\begin{DoxyCompactList}\small\item\em Recuperer la longueur de la ligne. \item\end{DoxyCompactList}\item 
+int \hyperlink{classLigne_aa48c45c4ab09834ed3ce563985b4955a}{getNbRames} ()
+\begin{DoxyCompactList}\small\item\em Recuperer le nombre de rame de la ligne. \item\end{DoxyCompactList}\item 
+\hyperlink{classElement}{Element} $\ast$ \hyperlink{classLigne_ad1e50a586085b6d90142cebf0f6b445c}{getElementAt} (int i, bool)
+\begin{DoxyCompactList}\small\item\em Recuperer l'element de la position donnee. \item\end{DoxyCompactList}\item 
+QList$<$ \hyperlink{classElement}{Element} $\ast$ $>$ $\ast$ \hyperlink{classLigne_a23be9d51e86eac91160cec43bf2edbe0}{getListeElement} ()
+\begin{DoxyCompactList}\small\item\em Recuperer la liste des elements de la ligne. \item\end{DoxyCompactList}\item 
+QList$<$ \hyperlink{classStation}{Station} $\ast$ $>$ $\ast$ \hyperlink{classLigne_a8ced36e42672723b6e0037c389e59bb4}{getStations} ()
+\begin{DoxyCompactList}\small\item\em Recuperer la liste des stations de la ligne. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classLigne_a4c5b5e8f49c5b37724685e2c4799fa60}{
+\index{Ligne@{Ligne}!Ligne@{Ligne}}
+\index{Ligne@{Ligne}!Ligne@{Ligne}}
+\subsubsection[{Ligne}]{\setlength{\rightskip}{0pt plus 5cm}Ligne::Ligne (int {\em longueur})}}
+\label{classLigne_a4c5b5e8f49c5b37724685e2c4799fa60}
+
+
+Constructeur d'une ligne. 
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em Longueur}]de la ligne \end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classLigne_a548b1d11662e76b5bb05a8a4c1bd96de}{
+\index{Ligne@{Ligne}!afficher@{afficher}}
+\index{afficher@{afficher}!Ligne@{Ligne}}
+\subsubsection[{afficher}]{\setlength{\rightskip}{0pt plus 5cm}void Ligne::afficher (QPainter $\ast$ {\em painter}, \/  int {\em w}, \/  int {\em h})}}
+\label{classLigne_a548b1d11662e76b5bb05a8a4c1bd96de}
+
+
+Affichage graphique d'une ligne. 
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em }]\end{DoxyParams}
+\hypertarget{classLigne_a4e6647ba0bf16758fecd57d38266c2f0}{
+\index{Ligne@{Ligne}!ajouterRame@{ajouterRame}}
+\index{ajouterRame@{ajouterRame}!Ligne@{Ligne}}
+\subsubsection[{ajouterRame}]{\setlength{\rightskip}{0pt plus 5cm}void Ligne::ajouterRame ({\bf Rame} $\ast$ {\em rame})}}
+\label{classLigne_a4e6647ba0bf16758fecd57d38266c2f0}
+
+
+Ajout d'une rame à la ligne. 
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em }]\end{DoxyParams}
+\hypertarget{classLigne_ad1e50a586085b6d90142cebf0f6b445c}{
+\index{Ligne@{Ligne}!getElementAt@{getElementAt}}
+\index{getElementAt@{getElementAt}!Ligne@{Ligne}}
+\subsubsection[{getElementAt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Element} $\ast$ Ligne::getElementAt (int {\em i}, \/  bool {\em aller})}}
+\label{classLigne_ad1e50a586085b6d90142cebf0f6b445c}
+
+
+Recuperer l'element de la position donnee. 
+
+\begin{DoxyReturn}{Renvoie}
+Un element 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em Une}]position \item[{\em ligne}]allee=1 $|$ retour=0 \end{DoxyParams}
+\hypertarget{classLigne_a23be9d51e86eac91160cec43bf2edbe0}{
+\index{Ligne@{Ligne}!getListeElement@{getListeElement}}
+\index{getListeElement@{getListeElement}!Ligne@{Ligne}}
+\subsubsection[{getListeElement}]{\setlength{\rightskip}{0pt plus 5cm}QList$<$ {\bf Element} $\ast$ $>$ $\ast$ Ligne::getListeElement ()}}
+\label{classLigne_a23be9d51e86eac91160cec43bf2edbe0}
+
+
+Recuperer la liste des elements de la ligne. 
+
+\begin{DoxyReturn}{Renvoie}
+Une liste d'element 
+\end{DoxyReturn}
+\hypertarget{classLigne_a092ab7c50400c0580c23c9dcf3ba795b}{
+\index{Ligne@{Ligne}!getLongueur@{getLongueur}}
+\index{getLongueur@{getLongueur}!Ligne@{Ligne}}
+\subsubsection[{getLongueur}]{\setlength{\rightskip}{0pt plus 5cm}int Ligne::getLongueur ()}}
+\label{classLigne_a092ab7c50400c0580c23c9dcf3ba795b}
+
+
+Recuperer la longueur de la ligne. 
+
+\begin{DoxyReturn}{Renvoie}
+La longueur de la ligne 
+\end{DoxyReturn}
+\hypertarget{classLigne_aa48c45c4ab09834ed3ce563985b4955a}{
+\index{Ligne@{Ligne}!getNbRames@{getNbRames}}
+\index{getNbRames@{getNbRames}!Ligne@{Ligne}}
+\subsubsection[{getNbRames}]{\setlength{\rightskip}{0pt plus 5cm}int Ligne::getNbRames ()}}
+\label{classLigne_aa48c45c4ab09834ed3ce563985b4955a}
+
+
+Recuperer le nombre de rame de la ligne. 
+
+\begin{DoxyReturn}{Renvoie}
+Le nombre de rame 
+\end{DoxyReturn}
+\hypertarget{classLigne_a6c0c5346eff4bc5713241fd4f07fb9ef}{
+\index{Ligne@{Ligne}!getRameAt@{getRameAt}}
+\index{getRameAt@{getRameAt}!Ligne@{Ligne}}
+\subsubsection[{getRameAt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Rame} $\ast$ Ligne::getRameAt (int {\em i})}}
+\label{classLigne_a6c0c5346eff4bc5713241fd4f07fb9ef}
+
+
+Recuperer une rame à une position donnee. 
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em Position}]sur la ligne \end{DoxyParams}
+\hypertarget{classLigne_aed26ffc704040dea3ba2b1a8b184a550}{
+\index{Ligne@{Ligne}!getRames@{getRames}}
+\index{getRames@{getRames}!Ligne@{Ligne}}
+\subsubsection[{getRames}]{\setlength{\rightskip}{0pt plus 5cm}QList$<$ {\bf Rame} $\ast$ $>$ $\ast$ Ligne::getRames ()}}
+\label{classLigne_aed26ffc704040dea3ba2b1a8b184a550}
+
+
+Recuperer la liste de rames. 
+
+\begin{DoxyReturn}{Renvoie}
+Une liste de rame 
+\end{DoxyReturn}
+\hypertarget{classLigne_a8ced36e42672723b6e0037c389e59bb4}{
+\index{Ligne@{Ligne}!getStations@{getStations}}
+\index{getStations@{getStations}!Ligne@{Ligne}}
+\subsubsection[{getStations}]{\setlength{\rightskip}{0pt plus 5cm}QList$<$ {\bf Station} $\ast$ $>$ $\ast$ Ligne::getStations ()}}
+\label{classLigne_a8ced36e42672723b6e0037c389e59bb4}
+
+
+Recuperer la liste des stations de la ligne. 
+
+\begin{DoxyReturn}{Renvoie}
+Une liste de station 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+ligne.h\item 
+ligne.cpp\end{DoxyCompactItemize}

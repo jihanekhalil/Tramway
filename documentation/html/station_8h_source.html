@@ -1,0 +1,158 @@
+<!-- This comment will put IE 6, 7 and 8 in quirks mode -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>ProjetSTR-Tramway:  Fichier source de station.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javaScript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Généré par Doxygen 1.6.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+--></script>
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Page&nbsp;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <img id="MSearchSelect" src="search/search.png"
+             onmouseover="return searchBox.OnSearchSelectShow()"
+             onmouseout="return searchBox.OnSearchSelectHide()"
+             alt=""/>
+        <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+             onfocus="searchBox.OnSearchFieldFocus(true)" 
+             onblur="searchBox.OnSearchFieldFocus(false)" 
+             onkeyup="searchBox.OnSearchFieldChange(event)"/>
+        <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Liste&nbsp;des&nbsp;fichiers</span></a></li>
+    </ul>
+  </div>
+<h1>station.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a name="l00002"></a>00002 <span class="comment"> *   Copyright 2011 by Jihane Khalil &lt;khaliljihane@gmail.com&gt;</span>
+<a name="l00003"></a>00003 <span class="comment"> *   Copyright 2011 by Paul Labonne &lt;paul.labonne@gmail.com&gt;</span>
+<a name="l00004"></a>00004 <span class="comment"> *   Copyright 2011 by Manuel Campomanes &lt;campomanes.manuel@gmail.com&gt;</span>
+<a name="l00005"></a>00005 <span class="comment"> *   Copyright 2011 by Marc-Antoine Beauvais &lt;marcantoine.beauvais@gmail.com&gt;</span>
+<a name="l00006"></a>00006 <span class="comment"> *</span>
+<a name="l00007"></a>00007 <span class="comment"> *   This program is free software; you can redistribute it and/or modify</span>
+<a name="l00008"></a>00008 <span class="comment"> *   it under the terms of the GNU Library General Public License as</span>
+<a name="l00009"></a>00009 <span class="comment"> *   published by the Free Software Foundation; either version 2, or</span>
+<a name="l00010"></a>00010 <span class="comment"> *   (at your option) any later version.</span>
+<a name="l00011"></a>00011 <span class="comment"> *</span>
+<a name="l00012"></a>00012 <span class="comment"> *   This program is distributed in the hope that it will be useful,</span>
+<a name="l00013"></a>00013 <span class="comment"> *   but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<a name="l00014"></a>00014 <span class="comment"> *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<a name="l00015"></a>00015 <span class="comment"> *   GNU General Public License for more details</span>
+<a name="l00016"></a>00016 <span class="comment"> *</span>
+<a name="l00017"></a>00017 <span class="comment"> *   You should have received a copy of the GNU Library General Public</span>
+<a name="l00018"></a>00018 <span class="comment"> *   License along with this program; if not, write to the</span>
+<a name="l00019"></a>00019 <span class="comment"> *   Free Software Foundation, Inc.,</span>
+<a name="l00020"></a>00020 <span class="comment"> *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.</span>
+<a name="l00021"></a>00021 <span class="comment"> */</span>
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 <span class="preprocessor">#ifndef STATION_H</span>
+<a name="l00024"></a>00024 <span class="preprocessor"></span><span class="preprocessor">#define STATION_H</span>
+<a name="l00025"></a>00025 <span class="preprocessor"></span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;pointsynchronisation.h&quot;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &lt;QPainter&gt;</span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include &lt;QString&gt;</span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include &quot;params.h&quot;</span>
+<a name="l00031"></a>00031 <span class="preprocessor">#include &quot;passager.h&quot;</span>
+<a name="l00032"></a>00032 
+<a name="l00033"></a><a class="code" href="classStation.html">00033</a> <span class="keyword">class </span><a class="code" href="classStation.html">Station</a> : <span class="keyword">public</span> <a class="code" href="classPointSynchronisation.html">PointSynchronisation</a>
+<a name="l00034"></a>00034 {
+<a name="l00035"></a>00035 <span class="keyword">public</span>:
+<a name="l00036"></a>00036     <span class="comment">/*</span>
+<a name="l00037"></a>00037 <span class="comment">     * Type de la station</span>
+<a name="l00038"></a>00038 <span class="comment">     */</span>
+<a name="l00039"></a>00039     <span class="keyword">enum</span> Type {
+<a name="l00040"></a>00040         Terminus,
+<a name="l00041"></a>00041         Intermediaire
+<a name="l00042"></a>00042     };
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 <span class="keyword">public</span>:
+<a name="l00048"></a>00048     <a class="code" href="classStation.html#a73d335726aad1d844d81cda6d9fd74e6" title="constructeur de Station.">Station</a>();
+<a name="l00049"></a>00049 
+<a name="l00056"></a>00056     <a class="code" href="classStation.html#a73d335726aad1d844d81cda6d9fd74e6" title="constructeur de Station.">Station</a>(QString nomLigne, Station::Type, <a class="code" href="classLigne.html">Ligne</a> *);
+<a name="l00057"></a>00057 
+<a name="l00062"></a>00062     <span class="keywordtype">void</span> <a class="code" href="classStation.html#aa4918eec32fe4f3484f629564b84e160" title="Affichage graphique d&amp;#39;une station.">afficher</a>(QPainter * painter, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">bool</span>);
+<a name="l00063"></a>00063 
+<a name="l00068"></a><a class="code" href="classStation.html#aea030824145267b81a453f5b56227cae">00068</a>     <span class="keyword">virtual</span> QString <a class="code" href="classStation.html#aea030824145267b81a453f5b56227cae" title="Retourne le nom de la classe Station.">getClasse</a>() {
+<a name="l00069"></a>00069         <span class="keywordflow">return</span> QString(<span class="stringliteral">&quot;Station&quot;</span>);
+<a name="l00070"></a>00070     }
+<a name="l00071"></a>00071 
+<a name="l00075"></a>00075     <span class="keywordtype">void</span> <a class="code" href="classStation.html#a73c0d1c00b8de39ff4eb16be708e9a92" title="Comportement d&amp;#39;une station.">run</a>();
+<a name="l00076"></a>00076 
+<a name="l00081"></a>00081     QString <a class="code" href="classStation.html#ac73e2b60d199734b494e84fa065a6643" title="Retourne le nom de la station.">getNom</a>();
+<a name="l00082"></a>00082 
+<a name="l00087"></a>00087     <a class="code" href="classLigne.html">Ligne</a> * <a class="code" href="classStation.html#a3ee72b5920d69350770fa056d6b675bc" title="Retourne ligne de la station.">getLigne</a>();
+<a name="l00088"></a>00088 
+<a name="l00094"></a>00094     <span class="keywordtype">void</span> <a class="code" href="classStation.html#a41ad1728246bbecd645a7a9679a2e59c">createSignal</a>();
+<a name="l00095"></a>00095 
+<a name="l00100"></a>00100     <span class="keywordtype">bool</span> <a class="code" href="classStation.html#ad2c82ba6d816f24c26970c4468351807" title="Verifie le type de station.">estTerminus</a>();
+<a name="l00101"></a>00101 
+<a name="l00105"></a>00105     <span class="keywordtype">void</span> <a class="code" href="classStation.html#a81ea74879cf784be7f89153be99be03d" title="Ajoute des passager en attente a la station.">setPassagers</a>();
+<a name="l00106"></a>00106 
+<a name="l00107"></a>00107 <span class="keyword">public</span>:
+<a name="l00108"></a>00108     <span class="comment">/*</span>
+<a name="l00109"></a>00109 <span class="comment">     * Variable de classe comptant le nombre de stations crees</span>
+<a name="l00110"></a>00110 <span class="comment">     */</span>
+<a name="l00111"></a>00111     <span class="keyword">static</span> <span class="keywordtype">int</span> nombreStations;
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113 <span class="keyword">private</span>:
+<a name="l00114"></a>00114     <span class="comment">/*</span>
+<a name="l00115"></a>00115 <span class="comment">     * Type de la station</span>
+<a name="l00116"></a>00116 <span class="comment">     */</span>
+<a name="l00117"></a>00117     Type typeStation;
+<a name="l00118"></a>00118 
+<a name="l00119"></a>00119     <span class="comment">/*</span>
+<a name="l00120"></a>00120 <span class="comment">     * Liste de passager</span>
+<a name="l00121"></a>00121 <span class="comment">     */</span>
+<a name="l00122"></a>00122     QList &lt;Passager *&gt; listePassager;
+<a name="l00123"></a>00123 
+<a name="l00124"></a>00124     <span class="comment">/*</span>
+<a name="l00125"></a>00125 <span class="comment">     * La ligne de la station</span>
+<a name="l00126"></a>00126 <span class="comment">     */</span>
+<a name="l00127"></a>00127     <a class="code" href="classLigne.html">Ligne</a> * maligne;
+<a name="l00128"></a>00128 
+<a name="l00129"></a>00129     <span class="comment">/*</span>
+<a name="l00130"></a>00130 <span class="comment">     * Le nom de la station</span>
+<a name="l00131"></a>00131 <span class="comment">     */</span>
+<a name="l00132"></a>00132     QString nom;
+<a name="l00133"></a>00133 };
+<a name="l00134"></a>00134 
+<a name="l00135"></a>00135 
+<a name="l00136"></a>00136 <span class="preprocessor">#endif // STATION_H</span>
+</pre></div></div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Amis</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address style="text-align: right;"><small>Généré le Fri Apr 1 09:26:35 2011 pour ProjetSTR-Tramway par&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

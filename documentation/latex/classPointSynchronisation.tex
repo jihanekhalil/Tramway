@@ -1,0 +1,190 @@
+\hypertarget{classPointSynchronisation}{
+\section{Référence de la classe PointSynchronisation}
+\label{classPointSynchronisation}\index{PointSynchronisation@{PointSynchronisation}}
+}
+Graphe d'héritage de PointSynchronisation:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5cm]{classPointSynchronisation}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classPointSynchronisation_ab0be3460c6b050a8a9a0ff98fc596cb2}{
+\hyperlink{classPointSynchronisation_ab0be3460c6b050a8a9a0ff98fc596cb2}{PointSynchronisation} ()}
+\label{classPointSynchronisation_ab0be3460c6b050a8a9a0ff98fc596cb2}
+
+\begin{DoxyCompactList}\small\item\em Constructeur d'un point. \item\end{DoxyCompactList}\item 
+\hypertarget{classPointSynchronisation_a9ad32b2006c258e3b9b493ae9b67cb49}{
+\hyperlink{classPointSynchronisation_a9ad32b2006c258e3b9b493ae9b67cb49}{$\sim$PointSynchronisation} ()}
+\label{classPointSynchronisation_a9ad32b2006c258e3b9b493ae9b67cb49}
+
+\begin{DoxyCompactList}\small\item\em Destructeur d'un point de synchronisation. \item\end{DoxyCompactList}\item 
+virtual void \hyperlink{classPointSynchronisation_a53db6636fdb405bb30fab20b7dc4d374}{afficher} (QPainter $\ast$painter, int x, int y, int, int)
+\begin{DoxyCompactList}\small\item\em Affichage graphique d'un Point. \item\end{DoxyCompactList}\item 
+bool \hyperlink{classPointSynchronisation_a230f8d22845e44ea7cd4cb96d9f5128c}{estVert} ()
+\begin{DoxyCompactList}\small\item\em Savoir si un point est accessible. \item\end{DoxyCompactList}\item 
+\hyperlink{classGestionSignal}{GestionSignal} $\ast$ \hyperlink{classPointSynchronisation_a6cecce4b7274aabe549c96b2d55b0cda}{getDerniereRame} ()
+\begin{DoxyCompactList}\small\item\em Recuperer la la derniere rame. \item\end{DoxyCompactList}\item 
+\hypertarget{classPointSynchronisation_ac66ba2db21a7120b143b85301680e439}{
+void \hyperlink{classPointSynchronisation_ac66ba2db21a7120b143b85301680e439}{passerRouge} ()}
+\label{classPointSynchronisation_ac66ba2db21a7120b143b85301680e439}
+
+\begin{DoxyCompactList}\small\item\em Definir un point comme inaccessible. \item\end{DoxyCompactList}\item 
+\hypertarget{classPointSynchronisation_a2044b3c16c50491cababb1ff16f03252}{
+void \hyperlink{classPointSynchronisation_a2044b3c16c50491cababb1ff16f03252}{passerVert} ()}
+\label{classPointSynchronisation_a2044b3c16c50491cababb1ff16f03252}
+
+\begin{DoxyCompactList}\small\item\em Definir un point comme accessible. \item\end{DoxyCompactList}\item 
+void \hyperlink{classPointSynchronisation_a8f677010a6ec932eba3b15a586c575ad}{setSuivant} (\hyperlink{classPointSynchronisation}{PointSynchronisation} $\ast$)
+\begin{DoxyCompactList}\small\item\em Definir le point suivant. \item\end{DoxyCompactList}\item 
+\hyperlink{classPointSynchronisation}{PointSynchronisation} $\ast$ \hyperlink{classPointSynchronisation_a0e5b8f12043e94e9bf5b4a1d798830ff}{getSuivant} ()
+\begin{DoxyCompactList}\small\item\em Recuperer le point suivant. \item\end{DoxyCompactList}\item 
+void \hyperlink{classPointSynchronisation_a91a058d0174071f36d6132b3afcafdc3}{setPrecedent} (\hyperlink{classPointSynchronisation}{PointSynchronisation} $\ast$)
+\begin{DoxyCompactList}\small\item\em Definir le point precedent. \item\end{DoxyCompactList}\item 
+\hyperlink{classPointSynchronisation}{PointSynchronisation} $\ast$ \hyperlink{classPointSynchronisation_a7929df6ad2b116b1831c18561000f1bd}{getPrecedent} ()
+\begin{DoxyCompactList}\small\item\em Recuperer le point precedent. \item\end{DoxyCompactList}\item 
+int \hyperlink{classPointSynchronisation_a46838a33d790814c14cf284f48beac7c}{getNum} ()
+\begin{DoxyCompactList}\small\item\em Recuperer le numero du point courant. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classPointSynchronisation_a1494c8728bfcd6947d6d2583dd61b218}{
+bool {\bfseries vert}}
+\label{classPointSynchronisation_a1494c8728bfcd6947d6d2583dd61b218}
+
+\item 
+\hypertarget{classPointSynchronisation_a42b671076eb43c988b2633783bc6edc0}{
+int {\bfseries numPS}}
+\label{classPointSynchronisation_a42b671076eb43c988b2633783bc6edc0}
+
+\item 
+\hypertarget{classPointSynchronisation_a850786ba609b118d5c18c84ba02be812}{
+\hyperlink{classGestionSignal}{GestionSignal} $\ast$ {\bfseries derniereRame}}
+\label{classPointSynchronisation_a850786ba609b118d5c18c84ba02be812}
+
+\item 
+\hypertarget{classPointSynchronisation_a280e3fc198958636a6b3f4a2d4e12a06}{
+\hyperlink{classPointSynchronisation}{PointSynchronisation} $\ast$ {\bfseries suivant}}
+\label{classPointSynchronisation_a280e3fc198958636a6b3f4a2d4e12a06}
+
+\item 
+\hypertarget{classPointSynchronisation_a813f00f17c496027811f2275a97964cf}{
+\hyperlink{classPointSynchronisation}{PointSynchronisation} $\ast$ {\bfseries precedent}}
+\label{classPointSynchronisation_a813f00f17c496027811f2275a97964cf}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classPointSynchronisation_a53db6636fdb405bb30fab20b7dc4d374}{
+\index{PointSynchronisation@{PointSynchronisation}!afficher@{afficher}}
+\index{afficher@{afficher}!PointSynchronisation@{PointSynchronisation}}
+\subsubsection[{afficher}]{\setlength{\rightskip}{0pt plus 5cm}void PointSynchronisation::afficher (QPainter $\ast$ {\em painter}, \/  int {\em x}, \/  int {\em y}, \/  int {\em x1}, \/  int {\em x2})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classPointSynchronisation_a53db6636fdb405bb30fab20b7dc4d374}
+
+
+Affichage graphique d'un Point. 
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em }]\end{DoxyParams}
+
+
+Réimplémentée à partir de \hyperlink{classElement_aabcc968ccfa004f84bddda789441368b}{Element}.
+
+
+
+Réimplémentée dans \hyperlink{classFeux_a8bb7f9817c38d79927c9a4b471534889}{Feux}.
+
+\hypertarget{classPointSynchronisation_a230f8d22845e44ea7cd4cb96d9f5128c}{
+\index{PointSynchronisation@{PointSynchronisation}!estVert@{estVert}}
+\index{estVert@{estVert}!PointSynchronisation@{PointSynchronisation}}
+\subsubsection[{estVert}]{\setlength{\rightskip}{0pt plus 5cm}bool PointSynchronisation::estVert ()}}
+\label{classPointSynchronisation_a230f8d22845e44ea7cd4cb96d9f5128c}
+
+
+Savoir si un point est accessible. 
+
+\begin{DoxyReturn}{Renvoie}
+l'etat du point 
+\end{DoxyReturn}
+\hypertarget{classPointSynchronisation_a6cecce4b7274aabe549c96b2d55b0cda}{
+\index{PointSynchronisation@{PointSynchronisation}!getDerniereRame@{getDerniereRame}}
+\index{getDerniereRame@{getDerniereRame}!PointSynchronisation@{PointSynchronisation}}
+\subsubsection[{getDerniereRame}]{\setlength{\rightskip}{0pt plus 5cm}{\bf GestionSignal} $\ast$ PointSynchronisation::getDerniereRame ()}}
+\label{classPointSynchronisation_a6cecce4b7274aabe549c96b2d55b0cda}
+
+
+Recuperer la la derniere rame. 
+
+\begin{DoxyReturn}{Renvoie}
+Une liste de station 
+\end{DoxyReturn}
+\hypertarget{classPointSynchronisation_a46838a33d790814c14cf284f48beac7c}{
+\index{PointSynchronisation@{PointSynchronisation}!getNum@{getNum}}
+\index{getNum@{getNum}!PointSynchronisation@{PointSynchronisation}}
+\subsubsection[{getNum}]{\setlength{\rightskip}{0pt plus 5cm}int PointSynchronisation::getNum ()}}
+\label{classPointSynchronisation_a46838a33d790814c14cf284f48beac7c}
+
+
+Recuperer le numero du point courant. 
+
+\begin{DoxyReturn}{Renvoie}
+Le numero du point courant 
+\end{DoxyReturn}
+\hypertarget{classPointSynchronisation_a7929df6ad2b116b1831c18561000f1bd}{
+\index{PointSynchronisation@{PointSynchronisation}!getPrecedent@{getPrecedent}}
+\index{getPrecedent@{getPrecedent}!PointSynchronisation@{PointSynchronisation}}
+\subsubsection[{getPrecedent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf PointSynchronisation} $\ast$ PointSynchronisation::getPrecedent ()}}
+\label{classPointSynchronisation_a7929df6ad2b116b1831c18561000f1bd}
+
+
+Recuperer le point precedent. 
+
+\begin{DoxyReturn}{Renvoie}
+Le point precedent 
+\end{DoxyReturn}
+\hypertarget{classPointSynchronisation_a0e5b8f12043e94e9bf5b4a1d798830ff}{
+\index{PointSynchronisation@{PointSynchronisation}!getSuivant@{getSuivant}}
+\index{getSuivant@{getSuivant}!PointSynchronisation@{PointSynchronisation}}
+\subsubsection[{getSuivant}]{\setlength{\rightskip}{0pt plus 5cm}{\bf PointSynchronisation} $\ast$ PointSynchronisation::getSuivant ()}}
+\label{classPointSynchronisation_a0e5b8f12043e94e9bf5b4a1d798830ff}
+
+
+Recuperer le point suivant. 
+
+\begin{DoxyReturn}{Renvoie}
+Le point suivant 
+\end{DoxyReturn}
+\hypertarget{classPointSynchronisation_a91a058d0174071f36d6132b3afcafdc3}{
+\index{PointSynchronisation@{PointSynchronisation}!setPrecedent@{setPrecedent}}
+\index{setPrecedent@{setPrecedent}!PointSynchronisation@{PointSynchronisation}}
+\subsubsection[{setPrecedent}]{\setlength{\rightskip}{0pt plus 5cm}void PointSynchronisation::setPrecedent ({\bf PointSynchronisation} $\ast$ {\em ps})}}
+\label{classPointSynchronisation_a91a058d0174071f36d6132b3afcafdc3}
+
+
+Definir le point precedent. 
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em Un}]point \end{DoxyParams}
+\hypertarget{classPointSynchronisation_a8f677010a6ec932eba3b15a586c575ad}{
+\index{PointSynchronisation@{PointSynchronisation}!setSuivant@{setSuivant}}
+\index{setSuivant@{setSuivant}!PointSynchronisation@{PointSynchronisation}}
+\subsubsection[{setSuivant}]{\setlength{\rightskip}{0pt plus 5cm}void PointSynchronisation::setSuivant ({\bf PointSynchronisation} $\ast$ {\em ps})}}
+\label{classPointSynchronisation_a8f677010a6ec932eba3b15a586c575ad}
+
+
+Definir le point suivant. 
+
+
+\begin{DoxyParams}{Paramètres}
+\item[{\em Un}]point \end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants :\begin{DoxyCompactItemize}
+\item 
+pointsynchronisation.h\item 
+pointsynchronisation.cpp\end{DoxyCompactItemize}
